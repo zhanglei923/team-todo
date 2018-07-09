@@ -19,8 +19,17 @@ class TodoList extends Component {
         console.log('this.state', this.state)
       }
     deleteTask(id){
-        alert('delete!')
-        //this.addTask()
+        var ok = true;
+        if(ok){
+            let newtasks = []
+            this.state.tasks.forEach((task)=>{
+                if(task.id !== id) newtasks.push(task)
+            })
+            this.state.tasks = newtasks;
+            this.setState(this.state)
+        }else{
+
+        }
     }
     addTask (task){
         let tasks = this.state.tasks;

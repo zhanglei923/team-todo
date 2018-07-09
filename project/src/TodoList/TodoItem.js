@@ -13,7 +13,7 @@ class TodoList extends Component {
     const listItems = tasks.map((task) =>
       <li key={task.id}>
         <input value={task.title} onChange={(e) => this.handle_onChange(task.id)}/>
-        <a href="javascript:void(0)" onClick={this.props.deleteTask} >del</a>
+        <a href="javascript:void(0)" onClick={()=>this.props.deleteTask(task.id)} >del</a>
       </li>
     );
     return (
