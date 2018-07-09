@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 class TodoList extends Component {
   render() {
-    const numbers = this.props.numbers;
-    const listItems = numbers.map((number) =>
-      <li key={number.id}>{number.title}</li>
+    const tasks = this.props.tasks;
+    const listItems = tasks.map((task) =>
+      <li key={task.id}>{task.title}</li>
     );
     return (
       <div className="todo_item">

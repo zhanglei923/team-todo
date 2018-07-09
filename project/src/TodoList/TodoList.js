@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem'
 
-const numbers = [
+const tasks = [
     {
         id:1, 
         title:'aaa',
@@ -15,7 +15,7 @@ class TodoList extends Component {
   render() {
     return (
       <div className="App">
-        <TodoItem numbers={numbers}/>
+        <TodoItem tasks={tasks}/>
       </div>
     );
   }
