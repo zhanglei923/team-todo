@@ -32,17 +32,11 @@ class TodoList extends Component {
 
         }
     }
-    addTask2 (task){
-        let tasks = this.state.tasks;
-        tasks.push(task)
-        console.log(tasks)
-        this.setState(this.state);
-    }
     addTask(){
         const newid = ('item'+ Math.random()+'').replace(/\d{0,}\./g, '')
         let newTask = {
             id: newid, 
-            title: newid,
+            title: '',
             status:'open',
             deleted: false,
             
