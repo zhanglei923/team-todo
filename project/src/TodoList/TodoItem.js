@@ -5,14 +5,14 @@ class TodoList extends Component {
         super(props);
         this.handle_onChange = this.handle_onChange.bind(this);
       }
-      handle_onChange(){
-          
+      handle_onChange(arg){
+        console.log('this is:', arg);
       }
   render() {
     const tasks = this.props.tasks;
     const listItems = tasks.map((task) =>
       <li key={task.id}>
-        <input value={task.title} onChange={this.handle_onChange}/>
+        <input value={task.title} onChange={(e) => this.handle_onChange(task.id)}/>
         <a href="javascript:void(0)" onClick={this.props.deleteTask} >del</a>
       </li>
     );
