@@ -29,7 +29,7 @@ class TodoList extends Component {
         this.setState(this.state);
     }
     addTask(){
-        const newid = ('item'+ Math.random()+'').replace(/\./g, '')
+        const newid = ('item'+ Math.random()+'').replace(/\d{0,}\./g, '')
         let newTask = {
             id: newid, 
             title: newid,
@@ -50,7 +50,11 @@ class TodoList extends Component {
       <div className="todo_main">
         <button onClick={this.addTask}>add</button>
         <button onClick={this.printAllTasks}>print</button>
-        <TodoItem tasks={this.state.tasks} deleteTask={this.deleteTask}/>
+        <div>
+        {this.state.tasks.length === 0 ? 
+            'No-data' :
+             <TodoItem tasks={this.state.tasks} deleteTask={this.deleteTask}/>}
+        </div>
       </div>
     );
   }
