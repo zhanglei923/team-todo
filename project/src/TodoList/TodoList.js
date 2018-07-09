@@ -12,6 +12,7 @@ class TodoList extends Component {
         this.addTask = this.addTask.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
         this.printAllTasks = this.printAllTasks.bind(this);
+        this.handleTaskUpdate = this.handleTaskUpdate.bind(this);
         this.state = this.props;
         this.setState({
             tasks:[]
@@ -31,7 +32,7 @@ class TodoList extends Component {
 
         }
     }
-    addTask (task){
+    addTask2 (task){
         let tasks = this.state.tasks;
         tasks.push(task)
         console.log(tasks)
@@ -51,6 +52,15 @@ class TodoList extends Component {
         this.state.tasks.push(newTask);
         this.setState(this.state)
     }
+    handleTaskUpdate(id, label){
+        //console.log('haha', id, label)
+        this.state.tasks.forEach((task)=>{
+            if(task.id === id) {
+                task.title = label;
+            }
+        })
+        this.setState(this.state)
+    }
     printAllTasks(){
         console.log(this.state)
     }
@@ -62,7 +72,7 @@ class TodoList extends Component {
         <div>
         {this.state.tasks.length === 0 ? 
             'No-data' :
-             <TodoItem tasks={this.state.tasks} deleteTask={this.deleteTask}/>}
+             <TodoItem tasks={this.state.tasks} deleteTask={this.deleteTask} handleTaskUpdate={this.handleTaskUpdate}/>}
         </div>
       </div>
     );
