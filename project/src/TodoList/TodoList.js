@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
+import './TodoList.css';
 import TodoItem from './TodoItem'
 
-const tasks = [
-    {
-        id:1, 
-        title:'aaa',
-        status:'open',
-        deleted: false,
-        
-    }
-];
 
 class TodoList extends Component {
   render() {
     return (
       <div className="App">
-        <TodoItem tasks={tasks}/>
+        <TodoItem tasks={this.props.tasks}/>
       </div>
     );
   }
