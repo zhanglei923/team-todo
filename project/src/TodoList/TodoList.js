@@ -21,6 +21,7 @@ class TodoList extends Component {
       }
     deleteTask(id){
         var ok = true;
+        console.log(id)
         if(ok){
             let newtasks = []
             this.state.tasks.forEach((task)=>{
@@ -66,7 +67,7 @@ class TodoList extends Component {
         <div>
         {this.state.tasks.length === 0 ? 
             'No-data' :
-             <TodoItem tasks={this.state.tasks} deleteTask={this.deleteTask} handleTaskUpdate={this.handleTaskUpdate}/>}
+             <TodoItem tasks={this.state.tasks} handleDeleteTask={this.deleteTask} handleTaskUpdate={this.handleTaskUpdate}/>}
         </div>
       </div>
     );
