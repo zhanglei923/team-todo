@@ -9,6 +9,9 @@ class TodoList extends Component {
         const label = event.target.value;
         this.props.handleTaskUpdate(taskid, label)
       }
+      handle_onColleagueChange(event, taskid){
+
+      }
   render() {
     const tasks = this.props.tasks;
     const colleagues = this.props.colleagues;
@@ -19,9 +22,9 @@ class TodoList extends Component {
     const listItems = tasks.map((task) =>
       <li key={task.id}>
         <input value={task.title} onChange={(e) => this.handle_onChange(e, task.id)}/>
-        <select defaultValue='' value={""} onChange={this.handleChange}>
-                    {colleaguesList.length > 0 && colleaguesList.map((item, i) => {
-                        return <option key={i} value={item.email}>{item.name}</option>
+        <select defaultValue='' value={task.owner} onChange={this.handle_onColleagueChange}>
+                    {colleaguesList.map((item, i) => {
+                        return <option idx={i} taskid={task.id} value={item.email}>{item.name}</option>
                     })}
                 </select>
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} >Up</a>,

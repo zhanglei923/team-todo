@@ -23,7 +23,7 @@ class TodoList extends Component {
 
       }
       moveTaskUp(id){
-          
+
       }
     deleteTask(id){
         var ok = true;
@@ -46,7 +46,7 @@ class TodoList extends Component {
             title: '',
             status:'open',
             deleted: false,
-            owner: 'zhang3',
+            owner: 'li4@company.com',
 
         };
         console.log('this.state', this.state)

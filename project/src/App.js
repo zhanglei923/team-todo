@@ -8,11 +8,9 @@ const colleagues={
   },
   'li4@company.com':{
     name:'LISI'
-
   },
   'wang5@company.com':{
     name:'WANGWU'
-
   }
 }
 const tasks = [];
