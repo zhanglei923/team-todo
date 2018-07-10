@@ -24,7 +24,7 @@ class TodoList extends Component {
     }
     const listItems = tasks.map((task) =>
       <li key={task.id}>
-        <input value={task.title} onChange={(e) => this.handle_onChange(e, task.id)}/>
+        <input placeholder="Enter task description here..." value={task.title} onChange={(e) => this.handle_onChange(e, task.id)}/>
         <select defaultValue='' value={task.email} onChange={(e)=>this.handle_onColleagueChange(e, task.id, task.email)}>
                     {colleaguesList.map((item, i) => {
                         return <option key={i} taskid={task.id} value={item.email}>{item.name}</option>

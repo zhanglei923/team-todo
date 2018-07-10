@@ -40,27 +40,13 @@ class TodoList extends Component {
         }
     }
     addTask(){
-        const newid = ('item'+ Math.random()+'').replace(/\d{0,}\./g, '')
-        let newTask = {
-            id: newid, 
-            title: '',
-            status:'open',
-            deleted: false,
-            email: '',//'li4@company.com',
-
-        };
-        console.log('this.state', this.state)
-        //taskUtil.addTask()
-        this.state.tasks.push(newTask);
+        this.state = taskUtil.addTask(this.state)
+        //this.state.tasks.push(newTask);
         this.setState(this.state)
     }
     handleTaskUpdate(id, newtask){
         console.log('haha', id, newtask)
-        this.state.tasks.forEach((task)=>{
-            if(task.id === id) {
-                task = Object.assign(task, newtask);
-            }
-        })
+        this.state = taskUtil.updateTask(this.state, id, newtask)
         this.setState(this.state)
     }
     printAllTasks(){
@@ -70,7 +56,6 @@ class TodoList extends Component {
     return (
       <div className="todo_main">
         <button onClick={this.addTask}>add</button>
-        <button onClick={this.printAllTasks}>print</button>
         <div>
         {this.state.tasks.length === 0 ? 
             'No-data' :
@@ -83,6 +68,7 @@ class TodoList extends Component {
                     handleTaskUpdate={this.handleTaskUpdate}
             />}
         </div>
+        <button onClick={this.printAllTasks}>print</button>
       </div>
     );
   }
