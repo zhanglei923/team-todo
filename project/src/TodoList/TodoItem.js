@@ -11,9 +11,21 @@ class TodoList extends Component {
       }
   render() {
     const tasks = this.props.tasks;
+    const colleagues = this.props.colleagues;
+    const colleaguesList = [];
+    for(let c in colleagues){
+      colleaguesList.push({...colleagues[c], email: c});
+    }
     const listItems = tasks.map((task) =>
       <li key={task.id}>
         <input value={task.title} onChange={(e) => this.handle_onChange(e, task.id)}/>
+        <select defaultValue='' value={""} onChange={this.handleChange}>
+                    {colleaguesList.length > 0 && colleaguesList.map((item, i) => {
+                        return <option key={i} value={item.email}>{item.name}</option>
+                    })}
+                </select>
+        <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} >Up</a>,
+        <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} >Down</a>,
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >del</a>
       </li>
     );

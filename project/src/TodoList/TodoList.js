@@ -19,6 +19,12 @@ class TodoList extends Component {
         })
         console.log('this.state', this.state)
       }
+      moveTaskDown(id){
+
+      }
+      moveTaskUp(id){
+          
+      }
     deleteTask(id){
         var ok = true;
         console.log(id)
@@ -40,7 +46,8 @@ class TodoList extends Component {
             title: '',
             status:'open',
             deleted: false,
-            
+            owner: 'zhang3',
+
         };
         console.log('this.state', this.state)
         //taskUtil.addTask()
@@ -67,7 +74,14 @@ class TodoList extends Component {
         <div>
         {this.state.tasks.length === 0 ? 
             'No-data' :
-             <TodoItem tasks={this.state.tasks} handleDeleteTask={this.deleteTask} handleTaskUpdate={this.handleTaskUpdate}/>}
+             <TodoItem
+                    tasks={this.state.tasks} 
+                    colleagues={this.state.colleagues}
+                    handleDeleteTask={this.deleteTask} 
+                    handleMoveDown={this.moveTaskDown}
+                    handleMoveUp={this.moveTaskUp}
+                    handleTaskUpdate={this.handleTaskUpdate}
+            />}
         </div>
       </div>
     );
