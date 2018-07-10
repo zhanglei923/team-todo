@@ -7,19 +7,19 @@ import TitleInput from './TitleInput'
 class TodoList extends Component {
     constructor(props) {
         super(props);
-        this.handle_onTitleChange = this.handle_onTitleChange.bind(this);
-        this.handle_onColleagueChange = this.handle_onColleagueChange.bind(this);
-        this.handle_onStatusChange = this.handle_onStatusChange.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleColleagueChange = this.handleColleagueChange.bind(this);
+        this.handleStatusChange = this.handleStatusChange.bind(this);
       }
-      handle_onTitleChange(event, taskid){
+      handleTitleChange(event, taskid){
         const title = event.target.value;
         this.props.handleTaskUpdate(taskid, {title});
       }
-      handle_onColleagueChange(event, taskid){
+      handleColleagueChange(event, taskid){
         const email = event.target.value;
         this.props.handleTaskUpdate(taskid, {email});
       }
-      handle_onStatusChange(event, taskid, status){
+      handleStatusChange(event, taskid, status){
 
       }
   render() {
@@ -31,9 +31,9 @@ class TodoList extends Component {
     }
     const listItems = tasks.map((task) =>
       <li key={task.id}>
-        <TitleInput task={task} onChange={this.handle_onTitleChange}/>
-        <ColleagueSelector task={task} colleagues={colleagues} onChange={this.handle_onColleagueChange}/>
-        <StatusSelector task={task} onChange={this.handle_onStatusChange}/>
+        <TitleInput task={task} onChange={this.handleTitleChange}/>
+        <ColleagueSelector task={task} colleagues={colleagues} onChange={this.handleColleagueChange}/>
+        <StatusSelector task={task} onChange={this.handleStatusChange}/>
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} >Up</a>,
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} >Down</a>,
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >del</a>
