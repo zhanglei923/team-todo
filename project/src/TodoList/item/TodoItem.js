@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
+
 import StatusSelector from './StatusSelector';
 import ColleagueSelector from './ColleagueSelector'
+import TitleInput from './TitleInput'
 
 class TodoList extends Component {
     constructor(props) {
         super(props);
-        this.handle_onChange = this.handle_onChange.bind(this);
+        this.handle_onTitleChange = this.handle_onTitleChange.bind(this);
         this.handle_onColleagueChange = this.handle_onColleagueChange.bind(this);
         this.handle_onStatusChange = this.handle_onStatusChange.bind(this);
       }
-      handle_onChange(event, taskid){
+      handle_onTitleChange(event, taskid){
         const title = event.target.value;
         this.props.handleTaskUpdate(taskid, {title});
       }
       handle_onColleagueChange(event, taskid){
         const email = event.target.value;
-        console.log(email)
         this.props.handleTaskUpdate(taskid, {email});
       }
       handle_onStatusChange(event, taskid, status){
@@ -30,12 +31,7 @@ class TodoList extends Component {
     }
     const listItems = tasks.map((task) =>
       <li key={task.id}>
-        <input placeholder="Enter task description here..." value={task.title} onChange={(e) => this.handle_onChange(e, task.id)}/>
-        {/* <select value={task.email} onChange={(e)=>this.handle_onColleagueChange(e, task.id, task.email)}>
-                    {colleaguesList.map((item, i) => {
-                        return <option key={i} taskid={task.id} value={item.email}>{item.name}</option>
-                    })}
-                </select> */}
+        <TitleInput task={task} onChange={this.handle_onTitleChange}/>
         <ColleagueSelector task={task} colleagues={colleagues} onChange={this.handle_onColleagueChange}/>
         <StatusSelector task={task} onChange={this.handle_onStatusChange}/>
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} >Up</a>,
