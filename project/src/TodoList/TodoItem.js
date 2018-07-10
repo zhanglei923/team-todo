@@ -4,13 +4,16 @@ class TodoList extends Component {
     constructor(props) {
         super(props);
         this.handle_onChange = this.handle_onChange.bind(this);
+        this.handle_onColleagueChange = this.handle_onColleagueChange.bind(this);
       }
       handle_onChange(event, taskid){
-        const label = event.target.value;
-        this.props.handleTaskUpdate(taskid, label)
+        const title = event.target.value;
+        this.props.handleTaskUpdate(taskid, {title});
       }
       handle_onColleagueChange(event, taskid){
-
+        const email = event.target.value;
+        console.log(email)
+        this.props.handleTaskUpdate(taskid, {email});
       }
   render() {
     const tasks = this.props.tasks;
@@ -22,9 +25,9 @@ class TodoList extends Component {
     const listItems = tasks.map((task) =>
       <li key={task.id}>
         <input value={task.title} onChange={(e) => this.handle_onChange(e, task.id)}/>
-        <select defaultValue='' value={task.owner} onChange={this.handle_onColleagueChange}>
+        <select defaultValue='' value={task.email} onChange={(e)=>this.handle_onColleagueChange(e, task.id, task.email)}>
                     {colleaguesList.map((item, i) => {
-                        return <option idx={i} taskid={task.id} value={item.email}>{item.name}</option>
+                        return <option key={i} taskid={task.id} value={item.email}>{item.name}</option>
                     })}
                 </select>
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} >Up</a>,

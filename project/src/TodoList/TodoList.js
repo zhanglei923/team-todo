@@ -46,7 +46,7 @@ class TodoList extends Component {
             title: '',
             status:'open',
             deleted: false,
-            owner: 'li4@company.com',
+            email: '',//'li4@company.com',
 
         };
         console.log('this.state', this.state)
@@ -54,11 +54,11 @@ class TodoList extends Component {
         this.state.tasks.push(newTask);
         this.setState(this.state)
     }
-    handleTaskUpdate(id, label){
-        //console.log('haha', id, label)
+    handleTaskUpdate(id, newtask){
+        console.log('haha', id, newtask)
         this.state.tasks.forEach((task)=>{
             if(task.id === id) {
-                task.title = label;
+                task = Object.assign(task, newtask);
             }
         })
         this.setState(this.state)
