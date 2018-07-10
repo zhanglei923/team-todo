@@ -2,5 +2,12 @@ body{
 
 }
 .todo_item{
-    color: red;
+    margin-left:10px;
+}
+.todo_item .editing-title{
+}
+.todo_item .readonly-title{
+    color: rgb(36, 36, 71);
+    width: 300px;
+    display: inline-block;
 }
