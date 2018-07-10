@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import TodoItem from './TodoItem'
+import TodoItem from './item/TodoItem'
 import taskUtil from './taskUtil'
 
 import 'reset-css';
-import './TodoList.css';
+import './css/TodoList.css';
 
 //
 class TodoList extends Component {
