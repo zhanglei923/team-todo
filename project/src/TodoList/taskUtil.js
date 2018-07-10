@@ -12,6 +12,17 @@ let taskUtil = {
         state.tasks.push(newTask);
         return state;
     },
+    deleteTask:(state, id)=>{        
+        var ok = true;
+        if(ok){
+            let newtasks = []
+            state.tasks.forEach((task)=>{
+                if(task.id !== id) newtasks.push(task)
+            })
+            state.tasks = newtasks;
+        }
+        return state;
+    },
     updateTask:(state, id, newtask)=>{
         
         state.tasks.forEach((task)=>{
