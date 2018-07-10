@@ -36,12 +36,12 @@ class TodoList extends Component {
         this.setState(this.state)
     }
     handleTaskUpdate(id, newtask){
-        console.log('haha', id, newtask)
         this.state = taskUtil.updateTask(this.state, id, newtask)
         this.setState(this.state)
     }
     printAllTasks(){
         console.log(this.state)
+        console.log(JSON.stringify(this.state))
     }
   render() {
     return (
