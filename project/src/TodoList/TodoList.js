@@ -59,7 +59,7 @@ class TodoList extends Component {
                     handleTaskUpdate={this.handleTaskUpdate}
             />}
         </div>
-        <button onClick={this.printAllTasks}>print</button>
+        <button onClick={this.printAllTasks}>Print: {this.state.tasks.length} items</button>
       </div>
     );
   }
