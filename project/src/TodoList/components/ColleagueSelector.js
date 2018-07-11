@@ -12,7 +12,7 @@ class StatusSelector extends Component {
       colleaguesList.push({...colleagues[c], email: c});
     }
     return (
-        <select value={task.email} onChange={(e)=>this.props.onChange(e, task.id, task.email)}>
+        <select value={task.email} onChange={(e)=>this.props.onChange(e.target.value)}>
                     {colleaguesList.map((item, i) => {
                         return <option key={i} taskid={task.id} value={item.email}>{item.name}</option>
                     })}
