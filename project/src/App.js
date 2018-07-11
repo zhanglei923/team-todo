@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
 import TodoList from './TodoList/TodoList';
+import colleaguesj from './mock/colleagues';
 
 document.title='Todo list';
-const colleagues={
-  'zhang3@company.com':{
-    name:'ZHANGSAN'
-  },
-  'li4@company.com':{
-    name:'LISI'
-  },
-  'wang5@company.com':{
-    name:'WANGWU'
-  }
-}
+const colleagues= colleaguesj;
 const tasks = [];
 
 let jsonp = require('jsonp');

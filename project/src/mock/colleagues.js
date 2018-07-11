@@ -1,4 +1,4 @@
-{
+export default {
     "zhang3@company.com":{
       "name":"ZHANG-SAN"
     },
