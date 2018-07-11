@@ -5,7 +5,7 @@ let taskUtil = {
             id: newid, 
             title: '',
             status:'open',
-            level: 'normal',
+            risk: 'normal',
             email: '',//'li4@company.com',
 
         };

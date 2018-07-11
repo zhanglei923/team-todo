@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import {implementStatus, riskStatus} from '../../mock/status';
 
-class StatusSelector extends Component {
+class RiskSelector extends Component {
     constructor(props) {
         super(props);
       }
   render() {
     const task = this.props.task;
     return (
-        <select value={task.status} onChange={(e)=>this.props.onChange(e, task.id)}>
-            {implementStatus.map((item, i) => {
+        <select value={task.risk} onChange={(e)=>this.props.onChange(e, task.id)}>
+            {riskStatus.map((item, i) => {
                 return <option key={i} value={item.value}>{item.text}</option>
             })}
         </select>
@@ -17,4 +17,4 @@ class StatusSelector extends Component {
   }
 }
 
-export default StatusSelector;
+export default RiskSelector;
