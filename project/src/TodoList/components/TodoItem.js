@@ -19,8 +19,9 @@ class TodoList extends Component {
         const email = event.target.value;
         this.props.handleTaskUpdate(taskid, {email});
       }
-      handleStatusChange(event, taskid, status){
-
+      handleStatusChange(event, taskid){
+        const status = event.target.value;
+        this.props.handleTaskUpdate(taskid, {status});
       }
   render() {
     const tasks = this.props.tasks;

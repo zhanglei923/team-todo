@@ -7,8 +7,8 @@ class StatusSelector extends Component {
   render() {
     const task = this.props.task;
     return (
-        <select value={"normal"} onChange={(e)=>this.props.onChange(e, task.id)}>
-            {['notstart', 'ongoing', 'done', 'delay'].map((item, i) => {
+        <select value={task.status} onChange={(e)=>this.props.onChange(e, task.id)}>
+            {['open', 'ongoing', 'done', 'delay'].map((item, i) => {
                 return <option key={i} value={item}>{item}</option>
             })}
         </select>
