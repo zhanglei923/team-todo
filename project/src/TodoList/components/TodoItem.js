@@ -30,10 +30,6 @@ class TodoList extends Component {
   render() {
     const tasks = this.props.tasks;
     const colleagues = this.props.colleagues;
-    const colleaguesList = [];
-    for(let c in colleagues){
-      colleaguesList.push({...colleagues[c], email: c});
-    }
     const listItems = tasks.map((task) =>
       <li key={task.id} className={"task "+task.risk}>
         <TitleInput task={task} onChange={(value)=>this.handleTaskChange(task.id, 'title', value)}/>
