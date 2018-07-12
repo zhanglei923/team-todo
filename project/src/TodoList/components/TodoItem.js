@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import StatusSelector from './StatusSelector';
-import ColleagueSelector from './ColleagueSelector'
+import OwnerSelector from './OwnerSelector'
 import RiskSelector from './RiskSelector'
 import TitleInput from './TitleInput'
 import moment from 'moment'
@@ -33,7 +33,7 @@ class TodoList extends Component {
     const listItems = tasks.map((task) =>
       <li key={task.id} className={"task "+task.risk}>
         <TitleInput task={task} onChange={(value)=>this.handleTaskChange(task.id, 'title', value)}/>
-        <ColleagueSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'email', value)}/>
+        <OwnerSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'owner', value)}/>
         <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
         <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
         <div className={"cost-cell"}>

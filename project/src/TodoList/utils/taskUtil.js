@@ -7,7 +7,7 @@ let taskUtil = {
             title: '',
             status:'open',
             risk: 'normal',
-            email: '',//'li4@company.com',
+            owner: '',//'li4@company.com',
             cost: 1, //md
             planned_end_date: moment().format('YYYY-MM-DD')
         };
