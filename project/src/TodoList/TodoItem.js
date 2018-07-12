@@ -11,6 +11,7 @@ import * as NumericInput from "react-numeric-input";
 import { Icon } from 'react-icons-kit'
 import {arrowUp} from 'react-icons-kit/icomoon/arrowUp'
 import {arrowDown} from 'react-icons-kit/icomoon/arrowDown'
+import {close} from 'react-icons-kit/fa/close'
 
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -61,12 +62,6 @@ class TodoList extends Component {
           <input className={`assistant`} value={task.assistant} placeholder={"Assistant(s)"} onChange={(e)=>this.handleTaskChange(task.id, 'assistant', e.target.value)}/>
           </td>
           <td>
-          <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
-          </td>
-          <td>
-          <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
-          </td>
-          <td>
           <div className={"cost-cell"}>
             <NumericInput 
                 className="form-control"
@@ -91,7 +86,13 @@ class TodoList extends Component {
           </div>
           </td>
           <td>
-          <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >X</a>
+          <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >
+            <Icon size={9} icon={close} />
+          </a>
+          </td>
+          <td>
+          <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
+          <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
           </td>
       </tr>
     );
@@ -106,11 +107,10 @@ class TodoList extends Component {
               <th align={`left`}>Title</th>
               <th align={`left`}>Owner</th>
               <th align={`left`}>Assistant</th>
-              <th align={`left`}>Progress</th>
-              <th align={`left`}>Status</th>
               <th align={`left`}>MD</th>
               <th align={`left`}>Delivery</th>
               <th align={`left`}></th>
+              <th align={`left`}>Status</th>
             </tr>
           </thead>
           <tbody>

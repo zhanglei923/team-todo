@@ -35,7 +35,7 @@ input{
     display:inline-block;
 }
 .todo_item .planned_end_date{
-    width:100px;
+    width:72px;
 }
 .todo_item .cost-cell{
     display:inline-block;
