@@ -37,62 +37,62 @@ class TodoList extends Component {
     const colleagues = this.props.colleagues;
     const listItems = tasks.map((task, i) =>
       <tr key={task.id} className={"task "+task.risk+' '+task.status}>
-        <td>
-          <span>[{i}]</span>
+          <td>
+              <span>[{i}]</span>
           </td>
           <td>
-          <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>,
-          <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon size={9} icon={arrowDown} /></a>
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>,
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon size={9} icon={arrowDown} /></a>
           </td>
           <td>
-          <input
-              type="checkbox" />
+              <input
+                  type="checkbox" />
+              </td>
+          <td>
+              <TitleInput task={task} 
+                          onChange={(value)=>this.handleTaskChange(task.id, 'title', value)} 
+                          onMoveUp={this.props.handleMoveUp}
+                          onMoveDown={this.props.handleMoveDown}
+              />
           </td>
           <td>
-          <TitleInput task={task} 
-                      onChange={(value)=>this.handleTaskChange(task.id, 'title', value)} 
-                      onMoveUp={this.props.handleMoveUp}
-                      onMoveDown={this.props.handleMoveDown}
-          />
+              <OwnerSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'owner', value)}/>
           </td>
           <td>
-          <OwnerSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'owner', value)}/>
+              <input className={`assistant`} value={task.assistant} placeholder={"Assistant(s)"} onChange={(e)=>this.handleTaskChange(task.id, 'assistant', e.target.value)}/>
           </td>
           <td>
-          <input className={`assistant`} value={task.assistant} placeholder={"Assistant(s)"} onChange={(e)=>this.handleTaskChange(task.id, 'assistant', e.target.value)}/>
+              <div className={"cost-cell"}>
+                <NumericInput 
+                    className="form-control"
+                    min={0.5} max={100} value={task.cost}
+                    step={0.5}
+                    snap
+                    onChange={(val)=>this.handleTaskChange(task.id, 'cost', val)}             
+                />
+              </div>
           </td>
           <td>
-          <div className={"cost-cell"}>
-            <NumericInput 
-                className="form-control"
-                min={0.5} max={100} value={task.cost}
-                step={0.5}
-                snap
-                onChange={(val)=>this.handleTaskChange(task.id, 'cost', val)}             
-            />
-          </div>
+              <div className={"planned_end_date-cell"}>
+                <DatePicker
+                  className={"planned_end_date"}
+                  dateFormat="YYYY-MM-DD"
+                  selected={moment(task.planned_end_date)}
+                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_end_date', mom.format('YYYY-MM-DD'))}
+                  //onChange={this.handleChange}
+                  isClearable={false}
+                  placeholderText="Planned End Date"
+                />
+              </div>
           </td>
           <td>
-          <div className={"planned_end_date-cell"}>
-            <DatePicker
-              className={"planned_end_date"}
-              dateFormat="YYYY-MM-DD"
-              selected={moment(task.planned_end_date)}
-              onChange={(mom)=>this.handleTaskChange(task.id, 'planned_end_date', mom.format('YYYY-MM-DD'))}
-              //onChange={this.handleChange}
-              isClearable={false}
-              placeholderText="Planned End Date"
-            />
-          </div>
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >
+                <Icon size={9} icon={close} />
+              </a>
           </td>
           <td>
-          <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >
-            <Icon size={9} icon={close} />
-          </a>
-          </td>
-          <td>
-          <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
-          <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
+              <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
+              <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
           </td>
       </tr>
     );
