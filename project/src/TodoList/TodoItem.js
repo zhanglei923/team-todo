@@ -30,7 +30,7 @@ class TodoList extends Component {
     const tasks = this.props.tasks;
     const colleagues = this.props.colleagues;
     const listItems = tasks.map((task) =>
-      <li key={task.id} className={"task "+task.risk}>
+      <li key={task.id} className={"task "+task.risk+' '+task.status}>
         <TitleInput task={task} 
                     onChange={(value)=>this.handleTaskChange(task.id, 'title', value)} 
                     onMoveUp={this.props.handleMoveUp}

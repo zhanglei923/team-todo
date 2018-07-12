@@ -14,6 +14,8 @@ input{
 }
 .todo_item .editing-title{
     width:600px;
+    font-size: 16px;
+    font-weight: bold;
 }
 .todo_item .readonly-title{
     color: rgb(36, 36, 71);
@@ -39,16 +41,23 @@ input{
 .todo_item .cost-cell input{
     width: 100%;
 }
-
+.task.open *{    
+    color: #bdbdbd;
+}
+.task.ongoing *{
+    background-color: #f5f900 !important;
+}
+.task.done *{
+    background-color: greenyellow !important;
+}
 .task.normal{
-
 }
 .task.warn *{
-    background-color: gold;
+    /* color:orange; */
 }
 .task.danger *{
-    background-color: indianred;
+    color: red;
 }
-.task input.mandatory *{
-    border:1px solid red;
+.task .mandatory {
+    border:1px solid #ff7e7e;
 }
