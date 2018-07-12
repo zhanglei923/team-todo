@@ -19,9 +19,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 class TodoList extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-          showTaskConfig: false
-        };
+        this.state = this.props;
         this.handleTaskChange = this.handleTaskChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
       }
@@ -93,7 +91,7 @@ class TodoList extends Component {
                 <Icon size={14} icon={close} />
               </a>
           </td>
-          <td style={{display: this.state.showTaskConfig ? 'block' : 'none' }}>
+          <td style={{display: this.state.config.showTaskConfig ? 'block' : 'none' }}>
               <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
               <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
           </td>
@@ -113,7 +111,7 @@ class TodoList extends Component {
               <th align={`left`}>MD</th>
               <th align={`left`}>Delivery</th>
               <th align={`left`}></th>
-              <th align={`left`} style={{display: this.state.showTaskConfig ? 'block' : 'none' }}>Status</th>
+              <th align={`left`} style={{display: this.state.config.showTaskConfig ? 'block' : 'none' }}>Status</th>
             </tr>
           </thead>
           <tbody>

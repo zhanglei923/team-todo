@@ -12,16 +12,15 @@ class TodoList extends Component {
         this.addTask = this.addTask.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
         this.loadTask = this.loadTask.bind(this);
+        this.showStatusConfigBar = this.showStatusConfigBar.bind(this);
+        
         this.printAllTasks = this.printAllTasks.bind(this);
         this.handleTaskUpdate = this.handleTaskUpdate.bind(this);
         this.moveTaskUp = this.moveTaskUp.bind(this);
         this.moveTaskDown = this.moveTaskDown.bind(this);
 
         this.state = this.props;
-        this.setState({
-            tasks:[]
-        })
-        console.log('this.state', this.state)
+        console.log('init.state', this.state)
       }
       moveTaskDown(id){        
         this.state = taskUtil.moveDown(this.state, [id]);
@@ -79,6 +78,11 @@ class TodoList extends Component {
         //this.state.tasks.push(newTask);
         this.setState(this.state)
     }
+    showStatusConfigBar(){
+        let state = this.state;
+        state.config.showTaskConfig= !state.config.showTaskConfig;
+        this.setState(state)
+    }
     handleTaskUpdate(id, newtask){
         this.state = taskUtil.updateTask(this.state, id, newtask)
         this.setState(this.state)
@@ -91,7 +95,8 @@ class TodoList extends Component {
     return (
       <div className="todo_main">
         <button onClick={this.loadTask}>loadTask</button>
-        <button onClick={this.addTask}>add</button>
+        <button onClick={this.addTask}>ADD</button>
+        <button onClick={this.showStatusConfigBar}>showStatusConfigBar</button>
         <div>
         {this.state.tasks.length === 0 ? 
             'No-data' :
@@ -103,6 +108,7 @@ class TodoList extends Component {
                     handleMoveUp={this.moveTaskUp}
                     handleDelete={this.deleteTask}
                     handleTaskUpdate={this.handleTaskUpdate}
+                    config={this.state.config}
             />}
         </div>
         <button onClick={this.printAllTasks}>Print: {this.state.tasks.length} items</button>
