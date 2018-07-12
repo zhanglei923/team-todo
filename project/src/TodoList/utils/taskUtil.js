@@ -1,3 +1,4 @@
+import moment from 'moment';
 let taskUtil = {
     addTask:(state) => {        
         const newid = ('item'+ Math.random()+'').replace(/\d{0,}\./g, '')
@@ -8,7 +9,7 @@ let taskUtil = {
             risk: 'normal',
             email: '',//'li4@company.com',
             cost: 1, //md
-            planned_end_date: '2020-01-01'
+            planned_end_date: moment().format('YYYY-MM-DD')
         };
         state.tasks.push(newTask);
         return state;

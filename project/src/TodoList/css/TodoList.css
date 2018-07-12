@@ -5,6 +5,7 @@ body{
     margin-left:10px;
 }
 .todo_item .editing-title{
+    width:600px;
 }
 .todo_item .readonly-title{
     color: rgb(36, 36, 71);
@@ -14,9 +15,20 @@ body{
 .todo_item .cost{
     width: 30px;
 }
-.todo_item .planned_end_date{
-    width: 30px;
+.todo_item .planned_end_date-cell{
+    display:inline-block;
 }
+.todo_item .planned_end_date{
+    width:100px;
+}
+.todo_item .cost-cell{
+    display:inline-block;
+    width:50px;
+}
+.todo_item .cost-cell input{
+    width: 100%;
+}
+
 .task.normal{
 
 }
