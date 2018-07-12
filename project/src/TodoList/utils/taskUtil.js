@@ -8,7 +8,7 @@ let taskUtil = {
             risk: 'normal',
             email: '',//'li4@company.com',
             cost: 1, //md
-            planned_end_date: '2000-01-01'
+            planned_end_date: '2020-01-01'
         };
         state.tasks.push(newTask);
         return state;
