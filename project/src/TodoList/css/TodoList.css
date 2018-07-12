@@ -1,5 +1,5 @@
 body{
-
+    font-size: 11px;
 }
 .todo_item{
     margin-left:10px;
@@ -10,6 +10,12 @@ body{
     color: rgb(36, 36, 71);
     width: 300px;
     display: inline-block;
+}
+.todo_item .cost{
+    width: 30px;
+}
+.todo_item .planned_end_date{
+    width: 30px;
 }
 .task.normal{
 

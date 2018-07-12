@@ -7,7 +7,8 @@ let taskUtil = {
             status:'open',
             risk: 'normal',
             email: '',//'li4@company.com',
-
+            cost: 1, //md
+            planned_end_date: '2000-01-01'
         };
         state.tasks.push(newTask);
         return state;

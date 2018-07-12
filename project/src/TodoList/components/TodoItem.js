@@ -27,6 +27,8 @@ class TodoList extends Component {
         <ColleagueSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'email', value)}/>
         <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
         <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
+        <input className={`cost`} value={task.cost} />
+        <input className={`planned_end_date`} value={task.planned_end_date} />
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} >Up</a>,
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} >Down</a>,
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >del</a>
