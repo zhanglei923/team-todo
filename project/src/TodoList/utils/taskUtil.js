@@ -1,5 +1,14 @@
 import moment from 'moment';
 let taskUtil = {
+    tasks:[],
+    _cache:(state)=>{
+        console.log(state)
+        taskUtil.tasks = state.tasks;
+        return state;
+    },
+    getAllTasks:()=>{
+        return taskUtil.tasks?taskUtil.tasks:[];
+    },
     getTask:(tasks, id)=>{
         for(let i =0,len=tasks.length;i<len;i++){
             if(tasks[i].id === id) {
@@ -21,28 +30,26 @@ let taskUtil = {
             planned_end_date: moment().format('YYYY-MM-DD')
         };
         state.tasks.push(newTask);
-        return state;
+        return taskUtil._cache(state);
     },
     deleteTask:(state, id)=>{
         let task = taskUtil.getTask(state.tasks, id);
         let ok = window.confirm(`Sure to remove task "${task.title}"?`) 
-        if(!ok) return state;
+        if(!ok) return taskUtil._cache(state);
         let newtasks = []
         state.tasks.forEach((task)=>{
             if(task.id !== id) newtasks.push(task)
         })
         state.tasks = newtasks;
-        return state;
+        return taskUtil._cache(state);
     },
-    updateTask:(state, id, newtask)=>{
-        
+    updateTask:(state, id, newtask)=>{        
         state.tasks.forEach((task)=>{
             if(task.id === id) {
                 task = Object.assign(task, newtask);
             }
         })
-
-        return state;
+        return taskUtil._cache(state);
     },
     moveUp:(state, idlist)=>{
         let me = taskUtil;
@@ -52,7 +59,7 @@ let taskUtil = {
             state.tasks[task._index - 1] = task;
             state.tasks[task._index] = task0;
         }
-        return state;
+        return taskUtil._cache(state);
     },
     moveDown:(state, idlist)=>{
         let me = taskUtil;
@@ -62,7 +69,7 @@ let taskUtil = {
             state.tasks[task._index + 1] = task;
             state.tasks[task._index] = task0;
         }
-        return state;
+        return taskUtil._cache(state);
     }
 };
 export default taskUtil;

@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
+import moment from 'moment'
 import TodoItem from './TodoItem'
 import taskUtil from './utils/taskUtil'
 
 import 'reset-css';
 import './css/TodoList.css';
+import { isMoment } from 'moment';
 
 //
 class TodoList extends Component {
     constructor(props) {
         super(props);
-        this.addTask = this.addTask.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
+        this.createTask = this.createTask.bind(this);
         this.loadTask = this.loadTask.bind(this);
         this.showStatusConfigBar = this.showStatusConfigBar.bind(this);
         
@@ -18,6 +20,7 @@ class TodoList extends Component {
         this.handleTaskUpdate = this.handleTaskUpdate.bind(this);
         this.moveTaskUp = this.moveTaskUp.bind(this);
         this.moveTaskDown = this.moveTaskDown.bind(this);
+        this.handleTitleKeyUp = this.handleTitleKeyUp.bind(this);        
 
         this.state = this.props;
         console.log('init.state', this.state)
@@ -62,20 +65,30 @@ class TodoList extends Component {
                 "assistant": "",
                 "cost": 1.5,
                 "planned_end_date": "2018-07-24"
+            },
+            {
+                "id": "item"+Math.random(),
+                "title": "",
+                "status": "open",
+                "risk": "normal",
+                "owner": "",
+                "assistant": "",
+                "cost": 1,
+                "planned_end_date": moment().format('YYYY-MM-DD')
             }
         ];
         this.setState({
             tasks: testdata
+        }, ()=>{
+            taskUtil._cache(this.state)
         })
       }
     deleteTask(id){
         this.state = taskUtil.deleteTask(this.state, id);
         this.setState(this.state)
-        return;
     }
-    addTask(){
-        this.state = taskUtil.addTask(this.state)
-        //this.state.tasks.push(newTask);
+    createTask(){
+        this.state = taskUtil.addTask(this.state);
         this.setState(this.state)
     }
     showStatusConfigBar(){
@@ -87,6 +100,18 @@ class TodoList extends Component {
         this.state = taskUtil.updateTask(this.state, id, newtask)
         this.setState(this.state)
     }
+    handleTitleKeyUp(){
+        let tasks = taskUtil.getAllTasks();
+        if(tasks.length <= 0) return;
+        let lastOne = tasks[tasks.length-1];
+        console.log('handleTitleKeyUp', lastOne.title)
+        if(lastOne.title){
+            this.state = taskUtil.addTask(this.state)
+            this.setState(this.state)
+        }else{
+
+        }
+    }
     printAllTasks(){
         console.log(this.state)
         console.log(JSON.stringify(this.state))
@@ -95,7 +120,6 @@ class TodoList extends Component {
     return (
       <div className="todo_main">
         <button onClick={this.loadTask}>loadTask</button>
-        <button onClick={this.addTask}>ADD</button>
         <button onClick={this.showStatusConfigBar}>showStatusConfigBar</button>
         <div>
         {this.state.tasks.length === 0 ? 
@@ -107,7 +131,9 @@ class TodoList extends Component {
                     handleMoveDown={this.moveTaskDown}
                     handleMoveUp={this.moveTaskUp}
                     handleDelete={this.deleteTask}
+                    handleCreate={this.createTask}
                     handleTaskUpdate={this.handleTaskUpdate}
+                    handleTitleKeyUp={this.handleTitleKeyUp}
                     config={this.state.config}
             />}
         </div>

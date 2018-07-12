@@ -54,6 +54,8 @@ class TodoList extends Component {
                           onMoveUp={this.props.handleMoveUp}
                           onMoveDown={this.props.handleMoveDown}
                           onDelete={this.props.handleDelete}
+                          onCreate={this.props.handleCreate}
+                          onTitleKeyUp={this.props.handleTitleKeyUp}
               />
           </td>
           <td>

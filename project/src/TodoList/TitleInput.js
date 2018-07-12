@@ -6,25 +6,29 @@ class StatusSelector extends Component {
     constructor(props) {
         super(props);
         this.onFocus = this.onFocus.bind(this);
-        this.onKeyPress = this.onKeyPress.bind(this);
+        this.onKeyDown = this.onKeyDown.bind(this);
+        this.onKeyUp = this.onKeyUp.bind(this);
       }
       onFocus () {
         const task = this.props.task;
         this.focusid = task.id;
       }
-      onKeyPress (e) {
+      onKeyUp(e){
+        this.props.onTitleKeyUp();
+      }
+      onKeyDown (e) {
         // "ArrowUp"
         // "ArrowDown"
         let key = e.key;
         let focusid = this.focusid
         if(!focusid) return;
 
-        //console.log(key)
+        console.log(key, e)
         
         if(key === "ArrowUp") this.props.onMoveUp(focusid)
         if(key === "ArrowDown")  this.props.onMoveDown(focusid)
         if(key === "Delete")  this.props.onDelete(focusid)
-        
+        if(key === "Enter")  this.props.onCreate()
         
       }
   render() {
@@ -34,7 +38,8 @@ class StatusSelector extends Component {
                 placeholder="Enter task description here..." 
                 value={task.title} 
                 onChange={(e) => this.props.onChange(e.target.value)}             
-                onKeyDown={this.onKeyPress}             
+                onKeyDown={this.onKeyDown}   
+                onKeyUp={this.onKeyUp}          
                 onFocus={ this.onFocus } 
         />
     );
