@@ -1,5 +1,13 @@
 body{
     font-size: 11px;
+    border: 0;
+}
+select{
+    border: 0;
+}
+input{    
+    border: 0;
+    border-bottom: 1 solid #666;
 }
 .todo_item{
     margin-left:10px;
@@ -35,12 +43,12 @@ body{
 .task.normal{
 
 }
-.task.warn{
+.task.warn *{
     background-color: gold;
 }
-.task.danger{
+.task.danger *{
     background-color: indianred;
 }
-.task input.mandatory{
+.task input.mandatory *{
     border:1px solid red;
 }
