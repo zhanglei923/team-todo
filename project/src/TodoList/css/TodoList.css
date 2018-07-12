@@ -12,6 +12,9 @@ body{
     width: 300px;
     display: inline-block;
 }
+.todo_item .assistant{
+    width: 80px;
+}
 .todo_item .cost{
     width: 30px;
 }
