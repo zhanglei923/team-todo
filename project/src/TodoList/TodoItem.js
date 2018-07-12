@@ -37,7 +37,9 @@ class TodoList extends Component {
     const listItems = tasks.map((task, i) =>
       <tr key={task.id} className={"task "+task.risk+' '+task.status}>
         <td>
-          <span>{i}</span>
+          <span>[{i}]</span>
+          </td>
+          <td>
           <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>,
           <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon size={9} icon={arrowDown} /></a>
           </td>
@@ -98,6 +100,7 @@ class TodoList extends Component {
         <table border="1">
           <thead>
             <tr className={`thead`}>
+              <th align={`left`}></th>
               <th align={`left`}></th>
               <th align={`left`}></th>
               <th align={`left`}>Title</th>
