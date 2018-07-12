@@ -34,9 +34,9 @@ class TodoList extends Component {
       <li key={task.id} className={"task "+task.risk}>
         <TitleInput task={task} onChange={(value)=>this.handleTaskChange(task.id, 'title', value)}/>
         <OwnerSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'owner', value)}/>
+        <input className={`assistant`} value={task.assistant} placeholder={"Assistant(s)"} onChange={(e)=>this.handleTaskChange(task.id, 'assistant', e.target.value)}/>
         <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
         <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
-        <input className={`assistant`} value={task.assistant} placeholder={"Assistant(s)"} onChange={(e)=>this.handleTaskChange(task.id, 'assistant', e.target.value)}/>
         <div className={"cost-cell"}>
           <NumericInput 
               className="form-control"
