@@ -22,7 +22,7 @@ class TodoList extends Component {
       colleaguesList.push({...colleagues[c], email: c});
     }
     const listItems = tasks.map((task) =>
-      <li key={task.id}>
+      <li key={task.id} className={"task "+task.risk}>
         <TitleInput task={task} onChange={(value)=>this.handleTaskChange(task.id, 'title', value)}/>
         <ColleagueSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'email', value)}/>
         <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>

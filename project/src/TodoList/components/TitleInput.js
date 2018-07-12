@@ -9,7 +9,7 @@ class StatusSelector extends Component {
   render() {
     const task = this.props.task;
     return (
-        <input className={"editing-title"} placeholder="Enter task description here..." value={task.title} onChange={(e) => this.props.onChange(e.target.value)}/>
+        <input className={"editing-title "+(task.title?'':'mandatory')} placeholder="Enter task description here..." value={task.title} onChange={(e) => this.props.onChange(e.target.value)}/>
     );
   }
 }

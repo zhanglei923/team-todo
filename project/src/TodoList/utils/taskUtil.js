@@ -29,6 +29,12 @@ let taskUtil = {
         })
 
         return state;
+    },
+    moveUp:(idlist)=>{
+
+    },
+    moveDown:(idlist)=>{
+
     }
 };
 export default taskUtil;

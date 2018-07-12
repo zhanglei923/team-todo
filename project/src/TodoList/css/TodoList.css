@@ -11,3 +11,15 @@ body{
     width: 300px;
     display: inline-block;
 }
+.task.normal{
+
+}
+.task.warn{
+    background-color: gold;
+}
+.task.danger{
+    background-color: indianred;
+}
+.task input.mandatory{
+    border:1px solid red;
+}
