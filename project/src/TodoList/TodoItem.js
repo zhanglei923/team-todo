@@ -19,6 +19,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 class TodoList extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+          showTaskConfig: false
+        };
         this.handleTaskChange = this.handleTaskChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
       }
@@ -26,11 +29,10 @@ class TodoList extends Component {
         //console.log(taskid, keyName, value)
         this.props.handleTaskUpdate(taskid, {[keyName]: value});
       }
-      handleChange(date) {
-        console.log(date, moment(date).format('YYYY-MM-DD'))
-        this.setState({
-          startDate: date
-        });
+      handleChange(key, value) {
+        let state = this.state;
+        state = Object.assign(state, {[key]: value})
+        this.setState(state);
       }
   render() {
     const tasks = this.props.tasks;
@@ -87,10 +89,10 @@ class TodoList extends Component {
           </td>
           <td>
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >
-                <Icon size={9} icon={close} />
+                <Icon size={14} icon={close} />
               </a>
           </td>
-          <td>
+          <td style={{display: this.state.showTaskConfig ? 'block' : 'none' }}>
               <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
               <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
           </td>
@@ -110,7 +112,7 @@ class TodoList extends Component {
               <th align={`left`}>MD</th>
               <th align={`left`}>Delivery</th>
               <th align={`left`}></th>
-              <th align={`left`}>Status</th>
+              <th align={`left`} style={{display: this.state.showTaskConfig ? 'block' : 'none' }}>Status</th>
             </tr>
           </thead>
           <tbody>
