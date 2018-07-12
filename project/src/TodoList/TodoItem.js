@@ -7,7 +7,6 @@ import TitleInput from './TitleInput'
 import moment from 'moment'
 import DatePicker from 'react-datepicker';
 import * as NumericInput from "react-numeric-input";
-import {implementStatus, riskStatus} from '../../mock/status';
 
 import 'react-datepicker/dist/react-datepicker.css';
 

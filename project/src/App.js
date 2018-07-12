@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TodoList from './TodoList/TodoList';
+import TodoList from './TodoList/main';
 import colleaguesj from './mock/colleagues';
 
 document.title='Todo list';
