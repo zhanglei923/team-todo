@@ -29,8 +29,11 @@ class TodoList extends Component {
   render() {
     const tasks = this.props.tasks;
     const colleagues = this.props.colleagues;
-    const listItems = tasks.map((task) =>
+    const listItems = tasks.map((task, i) =>
       <li key={task.id} className={"task "+task.risk+' '+task.status}>
+        <span>{i}</span>
+        <input
+            type="checkbox" />
         <TitleInput task={task} 
                     onChange={(value)=>this.handleTaskChange(task.id, 'title', value)} 
                     onMoveUp={this.props.handleMoveUp}
