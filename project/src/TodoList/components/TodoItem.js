@@ -57,6 +57,7 @@ class TodoList extends Component {
             placeholderText="Planned End Date"
           />
         </div>
+        <span>{task.planned_end_date}</span>
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} >Up</a>,
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} >Down</a>,
         <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >del</a>

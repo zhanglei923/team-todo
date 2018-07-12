@@ -1,33 +1,45 @@
 {
     "tasks": [
         {
-            "id": "item6474861403330108",
+            "id": "item6426232742034896",
             "title": "1111",
-            "status": "open",
-            "email": ""
+            "status": "ongoing",
+            "risk": "warn",
+            "owner": "",
+            "assistant": "",
+            "cost": 1.5,
+            "planned_end_date": "2018-07-13"
         },
         {
-            "id": "item2529345475177085",
-            "title": "2222",
-            "status": "open",
-            "email": ""
+            "id": "item5403666890885193",
+            "title": "222",
+            "status": "done",
+            "risk": "normal",
+            "owner": "li4@company.com",
+            "assistant": "",
+            "cost": 2.5,
+            "planned_end_date": "2018-07-13"
         },
         {
-            "id": "item768264929181772",
-            "title": "33333",
+            "id": "item9282666481815387",
+            "title": "333",
             "status": "open",
-            "email": ""
+            "risk": "danger",
+            "owner": "wang5@company.com",
+            "assistant": "",
+            "cost": 1.5,
+            "planned_end_date": "2018-07-24"
         }
     ],
     "colleagues": {
         "zhang3@company.com": {
-            "name": "ZHANGSAN"
+            "name": "ZHANG-SAN"
         },
         "li4@company.com": {
-            "name": "LISI"
+            "name": "LI-SI"
         },
         "wang5@company.com": {
-            "name": "WANGWU"
+            "name": "WANG-WU"
         }
     }
 }

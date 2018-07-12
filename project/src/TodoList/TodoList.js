@@ -11,6 +11,7 @@ class TodoList extends Component {
         super(props);
         this.addTask = this.addTask.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
+        this.loadTask = this.loadTask.bind(this);
         this.printAllTasks = this.printAllTasks.bind(this);
         this.handleTaskUpdate = this.handleTaskUpdate.bind(this);
         this.state = this.props;
@@ -24,6 +25,43 @@ class TodoList extends Component {
       }
       moveTaskUp(id){
 
+      }
+      loadTask(){
+        let testdata = [
+            {
+                "id": "item6426232742034896",
+                "title": "1111",
+                "status": "ongoing",
+                "risk": "warn",
+                "owner": "",
+                "assistant": "",
+                "cost": 1.5,
+                "planned_end_date": "2018-07-13"
+            },
+            {
+                "id": "item5403666890885193",
+                "title": "222",
+                "status": "done",
+                "risk": "normal",
+                "owner": "li4@company.com",
+                "assistant": "",
+                "cost": 2.5,
+                "planned_end_date": "2018-07-13"
+            },
+            {
+                "id": "item9282666481815387",
+                "title": "333",
+                "status": "open",
+                "risk": "danger",
+                "owner": "wang5@company.com",
+                "assistant": "",
+                "cost": 1.5,
+                "planned_end_date": "2018-07-24"
+            }
+        ];
+        this.setState({
+            tasks: testdata
+        })
       }
     deleteTask(id){
         this.state = taskUtil.deleteTask(this.state, id);
@@ -59,6 +97,7 @@ class TodoList extends Component {
                     handleTaskUpdate={this.handleTaskUpdate}
             />}
         </div>
+        <button onClick={this.loadTask}>loadTask</button>
         <button onClick={this.printAllTasks}>Print: {this.state.tasks.length} items</button>
       </div>
     );
