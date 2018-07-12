@@ -1,5 +1,13 @@
 import moment from 'moment';
 let taskUtil = {
+    getTask:(tasks, id)=>{
+        for(let i =0,len=tasks.length;i<len;i++){
+            if(tasks[i].id === id) {
+                tasks[i]._index = i;
+                return tasks[i];
+            }
+        }
+    },
     addTask:(state) => {        
         const newid = ('item'+ Math.random()+'').replace(/\d{0,}\./g, '')
         let newTask = {
@@ -33,11 +41,25 @@ let taskUtil = {
 
         return state;
     },
-    moveUp:(idlist)=>{
-
+    moveUp:(state, idlist)=>{
+        let me = taskUtil;
+        let task = me.getTask(state.tasks, idlist[0])
+        if(task._index > 0){
+            let task0 = state.tasks[task._index - 1];
+            state.tasks[task._index - 1] = task;
+            state.tasks[task._index] = task0;
+        }
+        return state;
     },
-    moveDown:(idlist)=>{
-
+    moveDown:(state, idlist)=>{
+        let me = taskUtil;
+        let task = me.getTask(state.tasks, idlist[0])
+        if(task._index < (state.tasks.length-1)){
+            let task0 = state.tasks[task._index + 1];
+            state.tasks[task._index + 1] = task;
+            state.tasks[task._index] = task0;
+        }
+        return state;
     }
 };
 export default taskUtil;

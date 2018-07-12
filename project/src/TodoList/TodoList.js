@@ -14,17 +14,23 @@ class TodoList extends Component {
         this.loadTask = this.loadTask.bind(this);
         this.printAllTasks = this.printAllTasks.bind(this);
         this.handleTaskUpdate = this.handleTaskUpdate.bind(this);
+        this.moveTaskUp = this.moveTaskUp.bind(this);
+        this.moveTaskDown = this.moveTaskDown.bind(this);
+
         this.state = this.props;
         this.setState({
             tasks:[]
         })
         console.log('this.state', this.state)
       }
-      moveTaskDown(id){
-
+      moveTaskDown(id){        
+        this.state = taskUtil.moveDown(this.state, [id]);
+        this.setState(this.state);      
       }
       moveTaskUp(id){
-
+        console.log('this.state', this.state)
+        this.state = taskUtil.moveUp(this.state, [id]);
+        this.setState(this.state);        
       }
       loadTask(){
         let testdata = [
@@ -84,6 +90,7 @@ class TodoList extends Component {
   render() {
     return (
       <div className="todo_main">
+        <button onClick={this.loadTask}>loadTask</button>
         <button onClick={this.addTask}>add</button>
         <div>
         {this.state.tasks.length === 0 ? 
@@ -97,7 +104,6 @@ class TodoList extends Component {
                     handleTaskUpdate={this.handleTaskUpdate}
             />}
         </div>
-        <button onClick={this.loadTask}>loadTask</button>
         <button onClick={this.printAllTasks}>Print: {this.state.tasks.length} items</button>
       </div>
     );
