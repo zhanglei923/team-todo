@@ -55,6 +55,7 @@ class TodoList extends Component {
                           onChange={(value)=>this.handleTaskChange(task.id, 'title', value)} 
                           onMoveUp={this.props.handleMoveUp}
                           onMoveDown={this.props.handleMoveDown}
+                          onDelete={this.props.handleDelete}
               />
           </td>
           <td>

@@ -23,7 +23,10 @@ let taskUtil = {
         state.tasks.push(newTask);
         return state;
     },
-    deleteTask:(state, id)=>{        
+    deleteTask:(state, id)=>{
+        let task = taskUtil.getTask(state.tasks, id);
+        let ok = window.confirm(`Sure to remove task "${task.title}"?`) 
+        if(!ok) return state;
         let newtasks = []
         state.tasks.forEach((task)=>{
             if(task.id !== id) newtasks.push(task)

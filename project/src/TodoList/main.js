@@ -101,6 +101,7 @@ class TodoList extends Component {
                     handleDeleteTask={this.deleteTask} 
                     handleMoveDown={this.moveTaskDown}
                     handleMoveUp={this.moveTaskUp}
+                    handleDelete={this.deleteTask}
                     handleTaskUpdate={this.handleTaskUpdate}
             />}
         </div>
