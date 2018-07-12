@@ -8,6 +8,11 @@ import moment from 'moment'
 import DatePicker from 'react-datepicker';
 import * as NumericInput from "react-numeric-input";
 
+import { Icon } from 'react-icons-kit'
+import {arrowUp} from 'react-icons-kit/icomoon/arrowUp'
+import {arrowDown} from 'react-icons-kit/icomoon/arrowDown'
+
+
 import 'react-datepicker/dist/react-datepicker.css';
 
 class TodoList extends Component {
@@ -32,6 +37,8 @@ class TodoList extends Component {
     const listItems = tasks.map((task, i) =>
       <li key={task.id} className={"task "+task.risk+' '+task.status}>
         <span>{i}</span>
+        <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>,
+        <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon size={9} icon={arrowDown} /></a>
         <input
             type="checkbox" />
         <TitleInput task={task} 
@@ -64,9 +71,8 @@ class TodoList extends Component {
           />
         </div>
         <span>{task.planned_end_date}</span>
-        <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} >Up</a>,
-        <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} >Down</a>,
-        <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >del</a>
+        &emsp;
+        <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >X</a>
         
       </li>
     );
