@@ -9,6 +9,9 @@ input{
     border: 0;
     border-bottom: 1 solid #666;
 }
+.thead{
+    font-weight: bold;
+}
 .todo_item{
     margin-left:10px;
 }
