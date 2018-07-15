@@ -1,5 +1,5 @@
 body{
-    font-size: 11px;
+    font-size: 12px;
     border: 0;
 }
 select{
@@ -45,7 +45,7 @@ input{
     width: 100%;
 }
 .task.open *{    
-    color: #bdbdbd;
+    color: #7b7676;
 }
 .task.ongoing *{
     background-color: #f5f900 !important;

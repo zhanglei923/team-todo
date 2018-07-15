@@ -35,7 +35,7 @@ class StatusSelector extends Component {
     const task = this.props.task;
     return (
         <input  className={"editing-title "+(task.title?'':'mandatory')} 
-                placeholder="Enter task description here..." 
+                placeholder="..." 
                 value={task.title} 
                 onChange={(e) => this.props.onChange(e.target.value)}             
                 onKeyDown={this.onKeyDown}   
