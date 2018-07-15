@@ -93,8 +93,10 @@ class TodoList extends Component {
                 <Icon size={14} icon={close} />
               </a>
           </td>
-          <td style={{display: this.state.config.showTaskConfig ? 'block' : 'none' }}>
+          <td style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
               <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
+          </td>
+          <td style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
               <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
           </td>
       </tr>
@@ -113,7 +115,8 @@ class TodoList extends Component {
               <th align={`left`}>MD</th>
               <th align={`left`}>Delivery</th>
               <th align={`left`}></th>
-              <th align={`left`} style={{display: this.state.config.showTaskConfig ? 'block' : 'none' }}>Status</th>
+              <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Agile</th>
+              <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Status</th>
             </tr>
           </thead>
           <tbody>
