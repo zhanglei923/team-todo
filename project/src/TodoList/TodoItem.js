@@ -116,7 +116,7 @@ class TodoList extends Component {
               <th align={`left`}>Delivery</th>
               <th align={`left`}></th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Agile</th>
-              <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Status</th>
+              <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Risk</th>
             </tr>
           </thead>
           <tbody>

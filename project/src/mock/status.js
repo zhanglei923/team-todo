@@ -1,11 +1,11 @@
 const implementStatus = [
-  {value:'open',text:''},
+  {value:'open',text:'Open'},
   {value:'ongoing',text:'Ongoing'},
   {value:'done',text:'Done'},
   {value:'delay',text:'Delay'}
 ];
 const riskStatus = [
-  {value:'normal',text:''},
+  {value:'normal',text:'--'},
   {value:'warn',text:'Warn'},
   {value:'danger',text:'Danger'}
 ]

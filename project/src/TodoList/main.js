@@ -112,7 +112,7 @@ class TodoList extends Component {
             this.state = taskUtil.addTask(this.state)
             this.setState(this.state)
         }else{
-
+            
         }
     }
     printAllTasks(){
