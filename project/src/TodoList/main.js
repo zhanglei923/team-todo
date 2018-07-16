@@ -16,7 +16,6 @@ class TodoList extends Component {
         this.loadTask = this.loadTask.bind(this);
         this.showStatusConfigBar = this.showStatusConfigBar.bind(this);
         
-        this.printAllTasks = this.printAllTasks.bind(this);
         this.handleTaskUpdate = this.handleTaskUpdate.bind(this);
         this.moveTaskUp = this.moveTaskUp.bind(this);
         this.moveTaskDown = this.moveTaskDown.bind(this);
@@ -97,7 +96,7 @@ class TodoList extends Component {
                     config={this.state.config}
             />}
         </div>
-        <button onClick={this.printAllTasks}>Print: {this.state.tasks.length} items</button>
+        <button onClick={this.printAllTasks.bind(this)}>Print: {this.state.tasks.length} items</button>
       </div>
     );
   }
