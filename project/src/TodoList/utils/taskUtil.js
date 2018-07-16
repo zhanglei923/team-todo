@@ -6,6 +6,57 @@ let taskUtil = {
         taskUtil.tasks = state.tasks;
         return state;
     },
+    loadTasks: ()=>{
+        let p = new Promise((resolve)=>{
+            let testdata = []
+            setTimeout(()=>{
+                testdata = [
+                    {
+                        "id": "item6426232742034896",
+                        "title": "1111",
+                        "status": "ongoing",
+                        "risk": "warn",
+                        "owner": "",
+                        "assistant": "",
+                        "cost": 1.5,
+                        "planned_end_date": "2018-07-13"
+                    },
+                    {
+                        "id": "item5403666890885193",
+                        "title": "222",
+                        "status": "done",
+                        "risk": "normal",
+                        "owner": "li4@company.com",
+                        "assistant": "",
+                        "cost": 2.5,
+                        "planned_end_date": "2018-07-13"
+                    },
+                    {
+                        "id": "item9282666481815387",
+                        "title": "333",
+                        "status": "open",
+                        "risk": "danger",
+                        "owner": "wang5@company.com",
+                        "assistant": "",
+                        "cost": 1.5,
+                        "planned_end_date": "2018-07-24"
+                    },
+                    {
+                        "id": "item"+Math.random(),
+                        "title": "",
+                        "status": "open",
+                        "risk": "normal",
+                        "owner": "",
+                        "assistant": "",
+                        "cost": 1,
+                        "planned_end_date": moment().format('YYYY-MM-DD')
+                    }
+                ];
+                resolve(testdata)
+            }, 800)
+        });
+        return p;
+    },
     getAllTasks:()=>{
         return taskUtil.tasks?taskUtil.tasks:[];
     },
