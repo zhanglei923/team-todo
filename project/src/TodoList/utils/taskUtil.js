@@ -6,7 +6,7 @@ let taskUtil = {
         taskUtil.tasks = state.tasks;
         return state;
     },
-    loadTasks: ()=>{
+    loadTestTasks: ()=>{
         let p = new Promise((resolve)=>{
             let testdata = []
             setTimeout(()=>{

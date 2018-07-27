@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment'
+import axios from 'axios2'
 import TodoItem from './TodoItem'
 import taskUtil from './utils/taskUtil'
 
@@ -14,6 +15,7 @@ class TodoList extends Component {
         this.deleteTask = this.deleteTask.bind(this);
         this.createTask = this.createTask.bind(this);
         this.loadTask = this.loadTask.bind(this);
+        this.loadServerTask = this.loadServerTask.bind(this);
         this.showStatusConfigBar = this.showStatusConfigBar.bind(this);
         
         this.handleTaskUpdate = this.handleTaskUpdate.bind(this);
@@ -34,13 +36,39 @@ class TodoList extends Component {
         this.setState(this.state);        
       }
       loadTask(){
-          taskUtil.loadTasks().then((testdata)=>{
+          taskUtil.loadTestTasks().then((testdata)=>{
                 this.setState({
                     tasks: testdata
                 }, ()=>{
                     taskUtil._cache(this.state)
                 })
           })
+      }
+      loadServerTask(){
+          let me = this;
+        let tasks = taskUtil.getAllTasks()
+        axios.get('/action/todos')
+            .then(function (response) {
+                let todos = response.data;
+                me.setState({
+                    tasks: todos
+                }, ()=>{
+                    taskUtil._cache(me.state)
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+      saveServerTask(){
+          let tasks = taskUtil.getAllTasks()
+        axios.post('/action/save/todos', tasks)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       }
     deleteTask(id){
         this.state = taskUtil.deleteTask(this.state, id);
@@ -79,6 +107,8 @@ class TodoList extends Component {
     return (
       <div className="todo_main">
         <button onClick={this.loadTask}>loadTask</button>
+        <button onClick={this.loadServerTask}>loadServer</button>
+        <button onClick={this.saveServerTask}>saveServer</button>
         <button onClick={this.showStatusConfigBar}>showStatusConfigBar</button>
         <div>
         {this.state.tasks.length === 0 ? 
