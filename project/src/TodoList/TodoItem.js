@@ -115,7 +115,7 @@ class TodoList extends Component {
               <th align={`left`}>Title</th>
               <th align={`left`}>Owner</th>
               <th align={`left`}>Assistant</th>
-              <th align={`left`}>MD</th>
+              <th align={`left`}>Cost</th>
               <th align={`left`}>Delivery</th>
               <th align={`left`}></th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Agile</th>

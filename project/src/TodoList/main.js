@@ -26,6 +26,9 @@ class TodoList extends Component {
         this.state = this.props;
         console.log('init.state', this.state)
       }
+      componentDidMount() {
+        this.loadServerTask()
+      }
       moveTaskDown(id){        
         this.state = taskUtil.moveDown(this.state, [id]);
         this.setState(this.state);      
@@ -114,9 +117,10 @@ class TodoList extends Component {
   render() {
     return (
       <div className="todo_main">
-        <button onClick={this.loadTask}>loadTask</button>
         <button onClick={this.loadServerTask}>loadServer</button>
         <button onClick={this.saveServerTask}>saveServer</button>
+        &emsp;
+        <button onClick={this.loadTask}>loadTestTask</button>
         <button onClick={this.showStatusConfigBar}>showStatusConfigBar</button>
         <div>
         {this.state.tasks.length === 0 ? 
