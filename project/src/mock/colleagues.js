@@ -1,11 +1,14 @@
 export default {
     "zhang3@company.com":{
-      "name":"ZHANG-SAN"
+      "name":"ZhangSan"
     },
     "li4@company.com":{
-      "name":"LI-SI"
+      "name":"LiSi"
     },
     "wang5@company.com":{
-      "name":"WANG-WU"
+      "name":"WangWu"
+    },
+    "zhao6@company.com":{
+      "name":"ZhaoLiu"
     }
   }
