@@ -96,8 +96,16 @@ class TodoList extends Component {
             this.state = taskUtil.addTask(this.state)
             this.setState(this.state)
         }else{
-            
+            //-----------
         }
+    }
+    handleAddBefore(id){
+        this.state = taskUtil.addTask(this.state, 'before', id);
+        this.setState(this.state);
+    }
+    handleAddAfter(id){
+        this.state = taskUtil.addTask(this.state, 'after', id);
+        this.setState(this.state);
     }
     printAllTasks(){
         console.log(this.state)
@@ -123,6 +131,8 @@ class TodoList extends Component {
                     handleCreate={this.createTask}
                     handleTaskUpdate={this.handleTaskUpdate}
                     handleTitleKeyUp={this.handleTitleKeyUp}
+                    handleAddBefore={this.handleAddBefore.bind(this)}
+                    handleAddAfter={this.handleAddAfter.bind(this)}
                     config={this.state.config}
             />}
         </div>

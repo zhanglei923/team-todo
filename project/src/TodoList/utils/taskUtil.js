@@ -61,6 +61,10 @@ let taskUtil = {
         return taskUtil.tasks?taskUtil.tasks:[];
     },
     getTask:(tasks, id)=>{
+        if(typeof id === 'undefined') {
+            id = tasks;
+            tasks = taskUtil.getAllTasks();
+        }
         for(let i =0,len=tasks.length;i<len;i++){
             if(tasks[i].id === id) {
                 tasks[i]._index = i;
@@ -68,7 +72,7 @@ let taskUtil = {
             }
         }
     },
-    addTask:(state) => {        
+    createBlank:() =>{
         const newid = ('item'+ Math.random()+'').replace(/\d{0,}\./g, '')
         let newTask = {
             id: newid, 
@@ -80,7 +84,23 @@ let taskUtil = {
             cost: 1, //md
             planned_end_date: moment().format('YYYY-MM-DD')
         };
-        state.tasks.push(newTask);
+        return newTask;
+    },
+    addTask:(state, dir, id) => {
+        let newTask = taskUtil.createBlank();  
+        if(typeof dir === 'undefined'){
+            state.tasks.push(newTask);
+        }else{
+            let task = taskUtil.getTask(state.tasks, id)
+            let idx = task._index;
+            let newTask = taskUtil.createBlank()
+            if(dir === 'before'){
+                state.tasks.splice(idx, 0, newTask)
+            }
+            if(dir === 'after'){
+                state.tasks.splice(idx+1, 0, newTask)
+            }
+        }        
         return taskUtil._cache(state);
     },
     deleteTask:(state, id)=>{
