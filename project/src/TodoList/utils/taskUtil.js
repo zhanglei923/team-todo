@@ -2,7 +2,7 @@ import moment from 'moment';
 let taskUtil = {
     tasks:[],
     _cache:(state)=>{
-        console.log(state)
+        //console.log(state)
         taskUtil.tasks = state.tasks;
         return state;
     },
@@ -17,7 +17,7 @@ let taskUtil = {
                         "status": "ongoing",
                         "risk": "warn",
                         "owner": "",
-                        "assistant": "",
+                        "assistant": [{ value: 'li4@company.com', label: 'LI-SI' }],
                         "cost": 1.5,
                         "planned_end_date": "2018-07-13"
                     },
@@ -27,7 +27,7 @@ let taskUtil = {
                         "status": "done",
                         "risk": "normal",
                         "owner": "li4@company.com",
-                        "assistant": "",
+                        "assistant": [],
                         "cost": 2.5,
                         "planned_end_date": "2018-07-13"
                     },
@@ -37,7 +37,7 @@ let taskUtil = {
                         "status": "open",
                         "risk": "danger",
                         "owner": "wang5@company.com",
-                        "assistant": "",
+                        "assistant": [],
                         "cost": 1.5,
                         "planned_end_date": "2018-07-24"
                     },
@@ -47,7 +47,7 @@ let taskUtil = {
                         "status": "open",
                         "risk": "normal",
                         "owner": "",
-                        "assistant": "",
+                        "assistant": [],
                         "cost": 1,
                         "planned_end_date": moment().format('YYYY-MM-DD')
                     }

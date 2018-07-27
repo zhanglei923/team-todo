@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import StatusSelector from './StatusSelector';
 import OwnerSelector from './OwnerSelector'
+import AssistentSelector from './AssistentSelector'
 import RiskSelector from './RiskSelector'
 import TitleInput from './TitleInput'
 import moment from 'moment'
@@ -65,7 +66,14 @@ class TodoList extends Component {
               <OwnerSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'owner', value)}/>
           </td>
           <td>
-              <input className={`assistant`} value={task.assistant} placeholder={"Assistant(s)"} onChange={(e)=>this.handleTaskChange(task.id, 'assistant', e.target.value)}/>
+              {/* <input className={`assistant`} value={task.assistant} placeholder={"Assistant(s)"} onChange={(e)=>this.handleTaskChange(task.id, 'assistant', e.target.value)}/>
+                 */}
+                <AssistentSelector  className={`assistant-select`} 
+                                    value={task.assistant} 
+                                    placeholder={"Assistant(s)"} 
+                                    onChange={(value)=>this.handleTaskChange(task.id, 'assistant', value)}
+                                    colleagues={colleagues}
+                            />
           </td>
           <td>
               <div className={"cost-cell"}>
