@@ -55,7 +55,8 @@ const customStyles = {
       }
       return (
         <Select
-            styles={customStyles}
+            classNamePrefix={'assistent-select'}            
+            //styles={customStyles}
             isMulti={true}
             value={selectedOption}
             onChange={this.handleChange}
