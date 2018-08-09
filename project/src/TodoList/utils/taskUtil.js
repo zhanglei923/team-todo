@@ -16,7 +16,7 @@ let taskUtil = {
                         "title": "1111",
                         "status": "ongoing",
                         "risk": "warn",
-                        "owner": "",
+                        "owner":[],
                         "assistant": [{ value: 'li4@company.com', label: 'LI-SI' }],
                         "cost": 1.5,
                         "planned_end_date": "2018-07-13"
@@ -26,7 +26,7 @@ let taskUtil = {
                         "title": "222",
                         "status": "done",
                         "risk": "normal",
-                        "owner": "li4@company.com",
+                        "owner": ["li4@company.com"],
                         "assistant": [],
                         "cost": 2.5,
                         "planned_end_date": "2018-07-13"
@@ -36,7 +36,7 @@ let taskUtil = {
                         "title": "333",
                         "status": "open",
                         "risk": "danger",
-                        "owner": "wang5@company.com",
+                        "owner": ["wang5@company.com"],
                         "assistant": [],
                         "cost": 1.5,
                         "planned_end_date": "2018-07-24"
@@ -46,7 +46,7 @@ let taskUtil = {
                         "title": "",
                         "status": "open",
                         "risk": "normal",
-                        "owner": "",
+                        "owner": [],
                         "assistant": [],
                         "cost": 1,
                         "planned_end_date": moment().format('YYYY-MM-DD')
@@ -79,7 +79,7 @@ let taskUtil = {
             title: '',
             status:'open',
             risk: 'normal',
-            owner: '',//'li4@company.com',
+            owner: [],//'li4@company.com',
             assistant:'',
             cost: 1, //md
             planned_end_date: moment().format('YYYY-MM-DD')
