@@ -5,6 +5,8 @@ import OwnerSelector from './OwnerSelector'
 import AssistentSelector from './AssistentSelector'
 import RiskSelector from './RiskSelector'
 import TitleInput from './TitleInput'
+import TextOwner from './TextOwner'
+import TextAssistent from './TextAssistent'
 import moment from 'moment'
 import DatePicker from 'react-datepicker';
 import * as NumericInput from "react-numeric-input";
@@ -63,17 +65,31 @@ class TodoList extends Component {
               />
           </td>
           <td>
-              <OwnerSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'owner', value)}/>
+            <TextOwner task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'textOwner', value)}
+                                      onMoveUp={this.props.handleMoveUp}
+                                      onMoveDown={this.props.handleMoveDown}
+                                      onDelete={this.props.handleDelete}
+                                      onCreate={this.props.handleCreate}
+                                      onTitleKeyUp={this.props.handleTitleKeyUp}
+            />
+              {/* <OwnerSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'owner', value)}/> */}
           </td>
           <td>
+          <TextAssistent task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'textAssistent', value)}
+                                      onMoveUp={this.props.handleMoveUp}
+                                      onMoveDown={this.props.handleMoveDown}
+                                      onDelete={this.props.handleDelete}
+                                      onCreate={this.props.handleCreate}
+                                      onTitleKeyUp={this.props.handleTitleKeyUp}
+            />
               {/* <input className={`assistant`} value={task.assistant} placeholder={"Assistant(s)"} onChange={(e)=>this.handleTaskChange(task.id, 'assistant', e.target.value)}/>
                  */}
-                <AssistentSelector  className={`assistant-select`} 
+                {/* <AssistentSelector  className={`assistant-select`} 
                                     value={task.assistant} 
                                     placeholder={"Assistant(s)"} 
                                     onChange={(value)=>this.handleTaskChange(task.id, 'assistant', value)}
                                     colleagues={colleagues}
-                            />
+                            /> */}
           </td>
           <td>
               <div className={"cost-cell"}>
