@@ -56,6 +56,7 @@ class TodoList extends Component {
               </td>
           <td>
               <TitleInput task={task} 
+                          idx={i}
                           onChange={(value)=>this.handleTaskChange(task.id, 'title', value)} 
                           onMoveUp={this.props.handleMoveUp}
                           onMoveDown={this.props.handleMoveDown}
@@ -65,22 +66,28 @@ class TodoList extends Component {
               />
           </td>
           <td>
-            <TextOwner task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'textOwner', value)}
-                                      onMoveUp={this.props.handleMoveUp}
-                                      onMoveDown={this.props.handleMoveDown}
-                                      onDelete={this.props.handleDelete}
-                                      onCreate={this.props.handleCreate}
-                                      onTitleKeyUp={this.props.handleTitleKeyUp}
+            <TextOwner task={task}                       
+                       idx={i}
+                       colleagues={colleagues} 
+                       onChange={(value)=>this.handleTaskChange(task.id, 'textOwner', value)}
+                        onMoveUp={this.props.handleMoveUp}
+                        onMoveDown={this.props.handleMoveDown}
+                        onDelete={this.props.handleDelete}
+                        onCreate={this.props.handleCreate}
+                        onTitleKeyUp={this.props.handleTitleKeyUp}
             />
               {/* <OwnerSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'owner', value)}/> */}
           </td>
           <td>
-          <TextAssistent task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'textAssistent', value)}
-                                      onMoveUp={this.props.handleMoveUp}
-                                      onMoveDown={this.props.handleMoveDown}
-                                      onDelete={this.props.handleDelete}
-                                      onCreate={this.props.handleCreate}
-                                      onTitleKeyUp={this.props.handleTitleKeyUp}
+            <TextAssistent task={task} 
+                          idx={i}
+                          colleagues={colleagues} 
+                          onChange={(value)=>this.handleTaskChange(task.id, 'textAssistent', value)}
+                          onMoveUp={this.props.handleMoveUp}
+                          onMoveDown={this.props.handleMoveDown}
+                          onDelete={this.props.handleDelete}
+                          onCreate={this.props.handleCreate}
+                          onTitleKeyUp={this.props.handleTitleKeyUp}
             />
               {/* <input className={`assistant`} value={task.assistant} placeholder={"Assistant(s)"} onChange={(e)=>this.handleTaskChange(task.id, 'assistant', e.target.value)}/>
                  */}
@@ -94,6 +101,7 @@ class TodoList extends Component {
           <td>
               <div className={"cost-cell"}>
                 <NumericInput 
+                       idx={i}
                     className="form-control"
                     min={0.5} max={100} value={task.cost}
                     step={0.5}
@@ -105,6 +113,7 @@ class TodoList extends Component {
           <td>
             <div className={"planned_end_date-cell"}>
                 <DatePicker
+                       idx={i}
                   className={"planned_end_date"}
                   dateFormat="YYYY-MM-DD"
                   selected={moment(task.planned_begin_date)}
@@ -118,6 +127,7 @@ class TodoList extends Component {
           <td>
               <div className={"planned_end_date-cell"}>
                 <DatePicker
+                       idx={i}
                   className={"planned_end_date"}
                   dateFormat="YYYY-MM-DD"
                   selected={moment(task.planned_end_date)}
