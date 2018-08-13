@@ -23,13 +23,14 @@ class StatusSelector extends Component {
         let focusid = this.focusid
         if(!focusid) return;
 
-        console.log(key, e)
-        
-        if(key === "ArrowUp") this.props.onMoveUp(focusid)
-        if(key === "ArrowDown")  this.props.onMoveDown(focusid)
-        if(key === "Delete")  this.props.onDelete(focusid)
-        if(key === "Enter")  this.props.onCreate()
-        
+        //console.log(key, e, e.ctrlKey)
+
+        if(e.ctrlKey){
+          if(key === "ArrowUp") this.props.onMoveUp(focusid)
+          if(key === "ArrowDown")  this.props.onMoveDown(focusid)
+          if(key === "Delete")  this.props.onDelete(focusid)
+          if(key === "Enter")  this.props.onCreate()
+        }        
       }
   render() {
     const task = this.props.task;

@@ -15,6 +15,7 @@ jsonp('http://localhost:3001/users',{}, ( err, data) => {
 
 class App extends Component {
   render() {
+    console.log(this.props)
     return (
       <TodoList tasks={tasks} colleagues={colleagues} config={{showTaskConfig:true}}/>
     );
