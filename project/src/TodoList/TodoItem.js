@@ -41,6 +41,9 @@ class TodoList extends Component {
   render() {
     const tasks = this.props.tasks;
     const colleagues = this.props.colleagues;
+    tasks.map((task, i) =>{
+       if(!task.groupName) task.groupName = '';
+    });
     const listItems = tasks.map((task, i) =>
     <React.Fragment key={i}>
       {(task.isGroup)?
