@@ -67,9 +67,10 @@ let taskUtil = {
         }        
         return taskUtil._cache(state);
     },
-    deleteTask:(state, id)=>{
+    deleteTask:(state, id, needConfirm)=>{
+        if(typeof needConfirm === 'undefined') needConfirm = true;
         let task = taskUtil.getTask(state.tasks, id);
-        let ok = window.confirm(`Sure to remove task "${task.title}"?`) 
+        let ok = needConfirm ? window.confirm(`Sure to remove task "${task.title}"?`) : true;
         if(!ok) return taskUtil._cache(state);
         let newtasks = []
         state.tasks.forEach((task)=>{

@@ -1,6 +1,11 @@
 {
     "tasks": [
         {
+            "id":"234123",
+            "isGroup": true,
+            "groupName":"Group1"
+        },
+        {
             "id": "item6426232742034896",
             "groupName":"Group1",
             "title": "1111",
@@ -26,6 +31,11 @@
             "cost": 2.5,
             "planned_begin_date": "2018-07-13",
             "planned_end_date": "2018-07-13"
+        },
+        {
+            "id":"32342342311",
+            "isGroup": true,
+            "groupName":"Group2"
         },
         {
             "id": "item9282666481815387",

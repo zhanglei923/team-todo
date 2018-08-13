@@ -74,8 +74,8 @@ class TodoList extends Component {
             console.log(error);
           });
       }
-    deleteTask(id){
-        this.state = taskUtil.deleteTask(this.state, id);
+    deleteTask(id, needConfirm){
+        this.state = taskUtil.deleteTask(this.state, id, needConfirm);
         this.setState(this.state)
     }
     createTask(){
@@ -123,8 +123,7 @@ class TodoList extends Component {
     handleGroupRemove(id){
         let task = taskUtil.getTask(this.state.tasks, id);
         if(window.confirm(`Sure to remove Group "${task.groupName}"?`)){
-            this.state = taskUtil.updateTask(this.state, id, {groupName: undefined})
-            this.setState(this.state);
+            this.deleteTask(id, false)
         }
     }
     handleGroupRename(id){
