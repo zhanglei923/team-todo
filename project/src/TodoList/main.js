@@ -68,7 +68,10 @@ class TodoList extends Component {
         }
       saveServerTask(){
           let tasks = taskUtil.getAllTasks()
-        axios.post('/action/save/todos', tasks)
+          let projectName = this.state.projectName
+        axios.post('/action/save/todos', {
+            projectName,
+            tasks})
           .then(function (response) {
             console.log(response);
           })
@@ -162,8 +165,8 @@ class TodoList extends Component {
     return (
       <div className="todo_main">
         <input value={this.state.projectName} onChange={(e) => this.handleProjectNameChange.bind(this)(e.target.value)} style={{width:'50px'}}/>
-        <button onClick={this.loadServerTask}>loadServer</button>
-        <button onClick={this.saveServerTask}>saveServer</button>
+        <button onClick={this.loadServerTask.bind(this)}>loadServer</button>
+        <button onClick={this.saveServerTask.bind(this)}>saveServer</button>
         &emsp;
         <button onClick={this.loadTask}>loadTestTask</button>
         <button onClick={this.showStatusConfigBar}>showStatusConfigBar</button>
