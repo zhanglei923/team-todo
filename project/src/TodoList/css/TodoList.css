@@ -41,7 +41,7 @@ input{
     display: inline-block;
 }
 .todo_item .editing-catagory{
-    width:50px;
+    width:72px;
     font-size: 13px;
     font-weight: bold;
 }
