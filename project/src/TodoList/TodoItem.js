@@ -68,7 +68,7 @@ class TodoList extends Component {
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddBefore(task.id)} >+Bf</a>&nbsp;
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddAfter(task.id)} >+Af</a>&nbsp;
 
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupClick(task.id)} >+G</a>
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupAdd(task.id)} >+G</a>
           </td>
           <td>
               <input

@@ -50,14 +50,14 @@ let taskUtil = {
         };
         return newTask;
     },
-    addTask:(state, dir, id) => {
+    addTask:(state, dir, id, data) => {
         let newTask = taskUtil.createBlank();  
         if(typeof dir === 'undefined'){
             state.tasks.push(newTask);
         }else{
             let task = taskUtil.getTask(state.tasks, id)
             let idx = task._index;
-            let newTask = taskUtil.createBlank()
+            let newTask = (typeof data !== 'undefined' ? data : taskUtil.createBlank());
             if(dir === 'before'){
                 state.tasks.splice(idx, 0, newTask)
             }
