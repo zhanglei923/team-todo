@@ -7,6 +7,8 @@ import RiskSelector from './RiskSelector'
 import TitleInput from './TitleInput'
 import TextOwner from './TextOwner'
 import TextAssistent from './TextAssistent'
+import WeekDisplay from './sub/WeekDisplay'
+
 import moment from 'moment'
 import DatePicker from 'react-datepicker';
 import * as NumericInput from "react-numeric-input";
@@ -136,7 +138,8 @@ class TodoList extends Component {
               </div>
           </td>
           <td>
-            <div className={"planned_end_date-cell"}>
+              <WeekDisplay date={(task.planned_begin_date)} />
+              <div style={{float:'left', display:'inline'}}>
                 <DatePicker
                        idx={i}
                   className={"planned_end_date"}
@@ -150,7 +153,8 @@ class TodoList extends Component {
               </div>
           </td>
           <td>
-              <div className={"planned_end_date-cell"}>
+              <WeekDisplay date={(task.planned_end_date)} />
+              <div style={{float:'left', display:'inline'}}>
                 <DatePicker
                        idx={i}
                   className={"planned_end_date"}
