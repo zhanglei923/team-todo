@@ -103,6 +103,19 @@ class TodoList extends Component {
               </div>
           </td>
           <td>
+            <div className={"planned_end_date-cell"}>
+                <DatePicker
+                  className={"planned_end_date"}
+                  dateFormat="YYYY-MM-DD"
+                  selected={moment(task.planned_begin_date)}
+                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_begin_date', mom.format('YYYY-MM-DD'))}
+                  //onChange={this.handleChange}
+                  isClearable={false}
+                  placeholderText="Planned End Date"
+                />
+              </div>
+          </td>
+          <td>
               <div className={"planned_end_date-cell"}>
                 <DatePicker
                   className={"planned_end_date"}
@@ -140,7 +153,8 @@ class TodoList extends Component {
               <th align={`left`}>Owner</th>
               <th align={`left`}>Assistant</th>
               <th align={`left`}>Cost</th>
-              <th align={`left`}>Delivery</th>
+              <th align={`left`}>Begin</th>
+              <th align={`left`}>End</th>
               <th align={`left`}></th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Agile</th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Risk</th>

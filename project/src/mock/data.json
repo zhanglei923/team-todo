@@ -10,6 +10,7 @@
             "textOwner":"",
             "textAssistant":"",
             "cost": 1.5,
+            "planned_begin_date": "2018-07-13",
             "planned_end_date": "2018-07-13"
         },
         {
@@ -22,6 +23,7 @@
             "textOwner":"",
             "textAssistant":"",
             "cost": 2.5,
+            "planned_begin_date": "2018-07-13",
             "planned_end_date": "2018-07-13"
         },
         {
@@ -34,6 +36,7 @@
             "textOwner":"",
             "textAssistant":"",
             "cost": 1.5,
+            "planned_begin_date": "2018-07-13",
             "planned_end_date": "2018-07-24"
         }
     ],
