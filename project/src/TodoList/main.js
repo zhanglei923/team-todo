@@ -75,7 +75,7 @@ class TodoList extends Component {
       saveServerTask(){
           let tasks = taskUtil.getAllTasks()
           let projectName = this.state.projectName
-          if(!confirm('Save?')) return;
+          if(!window.confirm('Save?')) return;
         axios.post('/action/save/todos', {
             projectName,
             tasks})

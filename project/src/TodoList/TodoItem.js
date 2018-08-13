@@ -103,7 +103,7 @@ class TodoList extends Component {
             />
               {/* <OwnerSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'owner', value)}/> */}
           </td>
-          <td>
+          <td style={{display:'none'}}>
             <TextAssistent task={task} 
                           idx={i}
                           colleagues={colleagues} 
@@ -140,9 +140,9 @@ class TodoList extends Component {
                 <DatePicker
                        idx={i}
                   className={"planned_end_date"}
-                  dateFormat="YYYY-MM-DD"
+                  dateFormat="MM-DD"
                   selected={moment(task.planned_begin_date)}
-                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_begin_date', mom.format('YYYY-MM-DD'))}
+                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_begin_date', mom.format('MM-DD'))}
                   //onChange={this.handleChange}
                   isClearable={false}
                   placeholderText="Planned End Date"
@@ -154,9 +154,9 @@ class TodoList extends Component {
                 <DatePicker
                        idx={i}
                   className={"planned_end_date"}
-                  dateFormat="YYYY-MM-DD"
+                  dateFormat="MM-DD"
                   selected={moment(task.planned_end_date)}
-                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_end_date', mom.format('YYYY-MM-DD'))}
+                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_end_date', mom.format('MM-DD'))}
                   //onChange={this.handleChange}
                   isClearable={false}
                   placeholderText="Planned End Date"
@@ -189,7 +189,7 @@ class TodoList extends Component {
               <th align={`left`}>Catagory</th>
               <th align={`left`}>Title</th>
               <th align={`left`}>Owner</th>
-              <th align={`left`}>Assistant</th>
+              <th align={`left`} style={{display:'none'}}>Assistant</th>
               <th align={`left`}>Cost</th>
               <th align={`left`}>Begin</th>
               <th align={`left`}>End</th>
