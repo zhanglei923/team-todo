@@ -3,7 +3,7 @@
     margin: 0;
 }
 body{
-    font-size: 12px;
+    font-size: 14px;
     border: 0;
 }
 select{
@@ -28,6 +28,12 @@ input{
     width:600px;
     font-size: 16px;
     font-weight: bold;
+}
+.todo_item .editing-textpeople{
+    width:100px;
+    font-size: 16px;
+    font-weight: bold;
+
 }
 .todo_item .readonly-title{
     color: rgb(36, 36, 71);

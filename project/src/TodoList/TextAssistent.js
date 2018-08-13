@@ -24,17 +24,12 @@ class TextAssistent extends Component {
         // if(!focusid) return;
 
         // console.log(key, e)
-        
-        if(key === "ArrowUp") this.props.onMoveUp(focusid)
-        if(key === "ArrowDown")  this.props.onMoveDown(focusid)
-        if(key === "Delete")  this.props.onDelete(focusid)
-        if(key === "Enter")  this.props.onCreate()
-        
+
       }
   render() {
     const task = this.props.task;
     return (
-        <input id={`assistent-input${this.props.idx}`} className={"editing-textassistent "+(task.title?'':'mandatory')} 
+        <input id={`assistent-input${this.props.idx}`} className={"editing-textpeople "+(task.title?'':'mandatory')} 
                 placeholder="..." 
                 value={task.textAssistent} 
                 onChange={(e) => this.props.onChange(e.target.value)}             

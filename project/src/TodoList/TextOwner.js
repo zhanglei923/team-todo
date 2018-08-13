@@ -25,16 +25,12 @@ class TextOwner extends Component {
 
         // console.log(key, e)
         
-        if(key === "ArrowUp") this.props.onMoveUp(focusid)
-        if(key === "ArrowDown")  this.props.onMoveDown(focusid)
-        if(key === "Delete")  this.props.onDelete(focusid)
-        if(key === "Enter")  this.props.onCreate()
-        
+
       }
   render() {
     const task = this.props.task;
     return (
-        <input  id={`owner-input${this.props.idx}`} className={"editing-texttitle "+(task.title?'':'mandatory')} 
+        <input  id={`owner-input${this.props.idx}`} className={"editing-textpeople "+(task.title?'':'mandatory')} 
                 placeholder="..." 
                 value={task.textOwner} 
                 onChange={(e) => this.props.onChange(e.target.value)}             
