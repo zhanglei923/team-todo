@@ -2,6 +2,7 @@
     "tasks": [
         {
             "id": "item6426232742034896",
+            "groupName":"Group1",
             "title": "1111",
             "status": "ongoing",
             "risk": "warn",
@@ -28,6 +29,20 @@
         },
         {
             "id": "item9282666481815387",
+            "groupName":"Group2",
+            "title": "333",
+            "status": "open",
+            "risk": "danger",
+            "owner": ["wang5@company.com"],
+            "assistant": [],
+            "textOwner":"",
+            "textAssistant":"",
+            "cost": 1.5,
+            "planned_begin_date": "2018-07-13",
+            "planned_end_date": "2018-07-24"
+        },
+        {
+            "id": "item9282643531815387",
             "title": "333",
             "status": "open",
             "risk": "danger",

@@ -16,6 +16,11 @@ input{
 .thead{
     font-weight: bold;
 }
+.groupName{
+    background-color: #666;
+    color: white;
+    height: 20px;
+}
 .todo_item{
     margin-left:10px;
 }

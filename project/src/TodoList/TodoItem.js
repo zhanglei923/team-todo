@@ -39,6 +39,14 @@ class TodoList extends Component {
     const tasks = this.props.tasks;
     const colleagues = this.props.colleagues;
     const listItems = tasks.map((task, i) =>
+    <React.Fragment>
+      {(task.groupName)?
+        <tr className={"groupName"}>
+          <td colSpan={100}>
+            {task.groupName} <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupRemove(task.id)} ><Icon size={9} icon={close} /></a>
+          </td>
+        </tr>
+      :false}
       <tr key={task.id} className={"task "+task.risk+' '+task.status}>
           <td>
               <span>[{i}]</span>
@@ -48,7 +56,9 @@ class TodoList extends Component {
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon size={9} icon={arrowDown} /></a>&nbsp;
 
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddBefore(task.id)} >+Bf</a>&nbsp;
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddAfter(task.id)} >+Af</a>
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddAfter(task.id)} >+Af</a>&nbsp;
+
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupClick(task.id)} >+G</a>
           </td>
           <td>
               <input
@@ -150,6 +160,7 @@ class TodoList extends Component {
               <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
           </td>
       </tr>
+      </React.Fragment>
     );
     return (
       <div className="todo_item">

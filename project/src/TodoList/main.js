@@ -111,6 +111,18 @@ class TodoList extends Component {
         this.state = taskUtil.addTask(this.state, 'after', id);
         this.setState(this.state);
     }
+    handleGroupClick(id){
+        let groupName=prompt('Task Title Pls?')
+        this.state = taskUtil.updateTask(this.state, id, {groupName})
+        this.setState(this.state);
+    }
+    handleGroupRemove(id){
+        let task = taskUtil.getTask(this.state.tasks, id);
+        if(window.confirm(`Sure to remove Group "${task.groupName}"?`)){
+            this.state = taskUtil.updateTask(this.state, id, {groupName: undefined})
+            this.setState(this.state);
+        }
+    }
     printAllTasks(){
         console.log(this.state)
         console.log(JSON.stringify(this.state))
@@ -138,6 +150,8 @@ class TodoList extends Component {
                     handleTitleKeyUp={this.handleTitleKeyUp}
                     handleAddBefore={this.handleAddBefore.bind(this)}
                     handleAddAfter={this.handleAddAfter.bind(this)}
+                    handleGroupClick={this.handleGroupClick.bind(this)}
+                    handleGroupRemove={this.handleGroupRemove.bind(this)}
                     config={this.state.config}
             />}
         </div>

@@ -1,4 +1,6 @@
 import moment from 'moment';
+let mockJson = require('../../mock/data.json')
+console.log(mockJson)
 let taskUtil = {
     tasks:[],
     _cache:(state)=>{
@@ -10,21 +12,7 @@ let taskUtil = {
         let p = new Promise((resolve)=>{
             let testdata = []
             setTimeout(()=>{
-                testdata = [
-                    {
-                        "id": "item6426232742034896",
-                        "title": "1111",
-                        "status": "ongoing",
-                        "risk": "warn",
-                        "owner":[],
-                        "assistant": [{ value: 'li4@company.com', label: 'LI-SI' }],
-                        "textOwner":'',
-                        "textAssistent":'',
-                        "cost": 1.5,
-                        "planned_begin_date": "2018-07-13",
-                        "planned_end_date": "2018-07-13"
-                    }
-                ];
+                testdata = mockJson.tasks;
                 resolve(testdata)
             }, 800)
         });
