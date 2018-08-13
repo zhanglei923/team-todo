@@ -35,7 +35,7 @@ class StatusSelector extends Component {
   render() {
     const task = this.props.task;
     return (
-        <input  id={`title-input${this.props.idx}`} className={"editing-title "+(task.title?'':'mandatory')} 
+        <input  id={`title-${task.id}`} className={"editing-title "+(task.title?'':'mandatory')} 
                 placeholder="..." 
                 value={task.title} 
                 onChange={(e) => this.props.onChange(e.target.value)}             

@@ -32,12 +32,18 @@ class TodoList extends Component {
       }
       moveTaskDown(id){        
         this.state = taskUtil.moveDown(this.state, [id]);
-        this.setState(this.state);      
+        this.setState(this.state, ()=>{
+            let ipt = document.getElementById(`title-${id}`);
+            ipt.focus();
+        }); 
       }
       moveTaskUp(id){
         console.log('this.state', this.state)
         this.state = taskUtil.moveUp(this.state, [id]);
-        this.setState(this.state);        
+        this.setState(this.state, ()=>{
+            let ipt = document.getElementById(`title-${id}`);
+            ipt.focus();
+        }); 
       }
       loadTask(){
           taskUtil.loadTestTasks().then((testdata)=>{
