@@ -37,6 +37,7 @@ let taskUtil = {
         const newid = ('item'+ Math.random()+'').replace(/\d{0,}\./g, '')
         let newTask = {
             id: newid, 
+            textCatagory:'',
             title: '',
             status:'open',
             risk: 'normal',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import StatusSelector from './StatusSelector';
-import OwnerSelector from './OwnerSelector'
+import TextCatagory from './TextCatagory'
 import AssistentSelector from './AssistentSelector'
 import RiskSelector from './RiskSelector'
 import TitleInput from './TitleInput'
@@ -74,6 +74,11 @@ class TodoList extends Component {
               <input
                   type="checkbox" />
               </td>
+          <td>
+              <TextCatagory task={task} 
+                          onChange={(value)=>this.handleTaskChange(task.id, 'textCatagory', value)}
+                          /> 
+          </td>
           <td>
               <TitleInput task={task} 
                           idx={i}
@@ -181,6 +186,7 @@ class TodoList extends Component {
               <th align={`left`}></th>
               <th align={`left`}></th>
               <th align={`left`}></th>
+              <th align={`left`}>Catagory</th>
               <th align={`left`}>Title</th>
               <th align={`left`}>Owner</th>
               <th align={`left`}>Assistant</th>

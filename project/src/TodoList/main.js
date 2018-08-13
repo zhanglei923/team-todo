@@ -34,7 +34,7 @@ class TodoList extends Component {
         this.state = taskUtil.moveDown(this.state, [id]);
         this.setState(this.state, ()=>{
             let ipt = document.getElementById(`title-${id}`);
-            ipt.focus();
+            if(ipt)ipt.focus();
         }); 
       }
       moveTaskUp(id){
@@ -42,7 +42,7 @@ class TodoList extends Component {
         this.state = taskUtil.moveUp(this.state, [id]);
         this.setState(this.state, ()=>{
             let ipt = document.getElementById(`title-${id}`);
-            ipt.focus();
+            if(ipt)ipt.focus();
         }); 
       }
       loadTask(){
