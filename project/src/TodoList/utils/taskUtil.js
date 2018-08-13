@@ -18,38 +18,11 @@ let taskUtil = {
                         "risk": "warn",
                         "owner":[],
                         "assistant": [{ value: 'li4@company.com', label: 'LI-SI' }],
+                        "textOwner":'',
+                        "textAssistent":'',
                         "cost": 1.5,
+                        "planned_begin_date": "2018-07-13",
                         "planned_end_date": "2018-07-13"
-                    },
-                    {
-                        "id": "item5403666890885193",
-                        "title": "222",
-                        "status": "done",
-                        "risk": "normal",
-                        "owner": ["li4@company.com"],
-                        "assistant": [],
-                        "cost": 2.5,
-                        "planned_end_date": "2018-07-13"
-                    },
-                    {
-                        "id": "item9282666481815387",
-                        "title": "333",
-                        "status": "open",
-                        "risk": "danger",
-                        "owner": ["wang5@company.com"],
-                        "assistant": [],
-                        "cost": 1.5,
-                        "planned_end_date": "2018-07-24"
-                    },
-                    {
-                        "id": "item"+Math.random(),
-                        "title": "",
-                        "status": "open",
-                        "risk": "normal",
-                        "owner": [],
-                        "assistant": [],
-                        "cost": 1,
-                        "planned_end_date": moment().format('YYYY-MM-DD')
                     }
                 ];
                 resolve(testdata)
@@ -81,7 +54,10 @@ let taskUtil = {
             risk: 'normal',
             owner: [],//'li4@company.com',
             assistant:'',
+            textOwner:'',
+            textAssistent:'',
             cost: 1, //md
+            planned_begin_date: moment().format('YYYY-MM-DD'),
             planned_end_date: moment().format('YYYY-MM-DD')
         };
         return newTask;
