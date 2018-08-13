@@ -5,6 +5,7 @@ import colleaguesj from './mock/colleagues';
 document.title='Todo list';
 const colleagues= colleaguesj;
 const tasks = [];
+const projectName = 'default'
 
 let jsonp = require('jsonp');
 
@@ -17,7 +18,7 @@ class App extends Component {
   render() {
     console.log(this.props)
     return (
-      <TodoList tasks={tasks} colleagues={colleagues} config={{showTaskConfig:true}}/>
+      <TodoList projectName={projectName} tasks={tasks} colleagues={colleagues} config={{showTaskConfig:true}}/>
     );
   }
 }

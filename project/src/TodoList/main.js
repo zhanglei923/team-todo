@@ -51,7 +51,9 @@ class TodoList extends Component {
       loadServerTask(){
           let me = this;
         let tasks = taskUtil.getAllTasks()
-        axios.get('/action/todos')
+        axios.get('/action/todos', {params: {
+                projectName: this.state.projectName
+            }})
             .then(function (response) {
                 let todos = response.data;
                 me.setState({
@@ -74,6 +76,10 @@ class TodoList extends Component {
             console.log(error);
           });
       }
+      handleProjectNameChange(value){
+        this.state.projectName = value;
+        this.setState(this.state)
+      }
     deleteTask(id, needConfirm){
         this.state = taskUtil.deleteTask(this.state, id, needConfirm);
         this.setState(this.state)
@@ -95,7 +101,7 @@ class TodoList extends Component {
         let tasks = taskUtil.getAllTasks();
         if(tasks.length <= 0) return;
         let lastOne = tasks[tasks.length-1];
-        console.log('handleTitleKeyUp', lastOne.title)
+        //console.log('handleTitleKeyUp', lastOne.title)
         if(lastOne.title){
             this.state = taskUtil.addTask(this.state)
             this.setState(this.state)
@@ -155,6 +161,7 @@ class TodoList extends Component {
   render() {
     return (
       <div className="todo_main">
+        <input value={this.state.projectName} onChange={(e) => this.handleProjectNameChange.bind(this)(e.target.value)} style={{width:'50px'}}/>
         <button onClick={this.loadServerTask}>loadServer</button>
         <button onClick={this.saveServerTask}>saveServer</button>
         &emsp;
