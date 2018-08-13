@@ -14,6 +14,7 @@ import * as NumericInput from "react-numeric-input";
 import { Icon } from 'react-icons-kit'
 import {arrowUp} from 'react-icons-kit/icomoon/arrowUp'
 import {arrowDown} from 'react-icons-kit/icomoon/arrowDown'
+import {pencil} from 'react-icons-kit/icomoon/pencil'
 import {close} from 'react-icons-kit/fa/close'
 
 
@@ -39,11 +40,20 @@ class TodoList extends Component {
     const tasks = this.props.tasks;
     const colleagues = this.props.colleagues;
     const listItems = tasks.map((task, i) =>
-    <React.Fragment>
+    <React.Fragment key={i}>
       {(task.groupName)?
-        <tr className={"groupName"}>
+        <tr key={"group"+i} className={"groupName"}>
           <td colSpan={100}>
-            {task.groupName} <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupRemove(task.id)} ><Icon size={9} icon={close} /></a>
+            <div style={{float:'left'}}>
+              {task.groupName}
+            </div>
+            <div style={{marginRight: '30px', float:'left'}}>
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupMoveDown(task.id)} ><Icon size={9} icon={arrowDown} /></a>
+              &nbsp;
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupRename(task.id)} ><Icon size={12} icon={pencil} /></a>  
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupRemove(task.id)} ><Icon size={12} icon={close} /></a>    
+            </div>      
           </td>
         </tr>
       :false}

@@ -112,7 +112,11 @@ class TodoList extends Component {
         this.setState(this.state);
     }
     handleGroupClick(id){
-        let groupName=prompt('Task Title Pls?')
+        let groupName = window.prompt('Task Title Pls?')
+        if(!groupName){
+            alert('Can not be null');
+            return;
+        }
         this.state = taskUtil.updateTask(this.state, id, {groupName})
         this.setState(this.state);
     }
@@ -122,6 +126,24 @@ class TodoList extends Component {
             this.state = taskUtil.updateTask(this.state, id, {groupName: undefined})
             this.setState(this.state);
         }
+    }
+    handleGroupRename(id){
+        let task = taskUtil.getTask(this.state.tasks, id);
+        let newName = window.prompt(`Change title "${task.groupName}" to:`);
+        if(!newName){
+            alert('Can not be null');
+            return;
+        }
+        this.state = taskUtil.updateTask(this.state, id, {groupName: newName})
+        this.setState(this.state);
+    }
+    moveGroupUp(id){
+        this.state = taskUtil.moveGroupUp(this.state, id);
+        this.setState(this.state);
+    }
+    moveGroupDown(id){
+        this.state = taskUtil.moveGroupDown(this.state, id);
+        this.setState(this.state);
     }
     printAllTasks(){
         console.log(this.state)
@@ -152,6 +174,9 @@ class TodoList extends Component {
                     handleAddAfter={this.handleAddAfter.bind(this)}
                     handleGroupClick={this.handleGroupClick.bind(this)}
                     handleGroupRemove={this.handleGroupRemove.bind(this)}
+                    handleGroupRename={this.handleGroupRename.bind(this)}
+                    handleGroupMoveDown={this.moveGroupDown.bind(this)}
+                    handleGroupMoveUp={this.moveGroupUp.bind(this)}
                     config={this.state.config}
             />}
         </div>
