@@ -27,7 +27,8 @@ class TodoList extends Component {
         console.log('init.state', this.state)
       }
       componentDidMount() {
-        this.loadServerTask()
+        //this.loadServerTask()
+        this.createTask()
       }
       moveTaskDown(id){        
         this.state = taskUtil.moveDown(this.state, [id]);
