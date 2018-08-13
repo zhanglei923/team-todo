@@ -46,8 +46,8 @@ let taskUtil = {
             textOwner:'',
             textAssistent:'',
             cost: 1, //md
-            planned_begin_date: moment().format('YYYY-MM-DD'),
-            planned_end_date: moment().format('YYYY-MM-DD')
+            planned_begin_date: null,
+            planned_end_date: null
         };
         return newTask;
     },
