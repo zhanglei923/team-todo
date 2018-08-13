@@ -5,7 +5,7 @@ const implementStatus = [
   {value:'delay',text:'Delay'}
 ];
 const riskStatus = [
-  {value:'normal',text:'--'},
+  {value:'normal',text:'Normal'},
   {value:'warn',text:'Warn'},
   {value:'danger',text:'Danger'}
 ]

@@ -76,7 +76,7 @@ input{
 .task.normal{
 }
 .task.warn *{
-    color:orange;
+    color:#a57111;
 }
 .task.danger *{
     color: red;
