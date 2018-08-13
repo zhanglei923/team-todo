@@ -144,11 +144,11 @@ class TodoList extends Component {
                        idx={i}
                   className={"planned_end_date"}
                   dateFormat="MM-DD"
-                  selected={moment(task.planned_begin_date)}
-                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_begin_date', mom.format('MM-DD'))}
+                  selected={task.planned_begin_date?moment(task.planned_begin_date):null}
+                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_begin_date', !mom?'':mom.format('MM-DD'))}
                   //onChange={this.handleChange}
-                  isClearable={false}
-                  placeholderText="Planned End Date"
+                  isClearable={true}
+                  placeholderText="Begin"
                 />
               </div>
           </td>
@@ -159,11 +159,11 @@ class TodoList extends Component {
                        idx={i}
                   className={"planned_end_date"}
                   dateFormat="MM-DD"
-                  selected={moment(task.planned_end_date)}
-                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_end_date', mom.format('MM-DD'))}
+                  selected={task.planned_end_date?moment(task.planned_end_date):null}
+                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_end_date', !mom?'':mom.format('MM-DD'))}
                   //onChange={this.handleChange}
-                  isClearable={false}
-                  placeholderText="Planned End Date"
+                  isClearable={true}
+                  placeholderText="End"
                 />
               </div>
           </td>

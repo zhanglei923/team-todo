@@ -16,8 +16,15 @@ class WeekDisplay extends Component {
       }
   render() {
     const date = this.props.date;
+    //console.log('date', date)
     return (
-        <div style={{float:'left', display:'inline'}}>({m.get(moment(date).day()+'')})</div>
+        <React.Fragment>
+            {date?
+            <div style={{float:'left', display:'inline'}}>({m.get(moment(date).day()+'')})</div>
+            :
+            <div/>
+            }
+        </React.Fragment>
     );
   }
 }
