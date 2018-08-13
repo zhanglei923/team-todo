@@ -29,7 +29,7 @@ class TextAssistent extends Component {
   render() {
     const task = this.props.task;
     return (
-        <input id={`assistent-input${this.props.idx}`} className={"editing-textpeople "+(task.title?'':'mandatory')} 
+        <input id={`assistent-input${this.props.idx}`} className={"editing-textpeople "} 
                 placeholder="..." 
                 value={task.textAssistent} 
                 onChange={(e) => this.props.onChange(e.target.value)}             

@@ -9,7 +9,7 @@ class TextCatagory extends Component {
   render() {
     const task = this.props.task;
     return (
-        <input  className={"editing-catagory "+(task.title?'':'mandatory')} 
+        <input  className={"editing-catagory "} 
                 placeholder="..." 
                 value={task.textCatagory} 
                 onChange={(e) => this.props.onChange(e.target.value)}             
