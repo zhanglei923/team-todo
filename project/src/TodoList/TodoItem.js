@@ -181,6 +181,9 @@ class TodoList extends Component {
           <td style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
               <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
           </td>
+          <td>
+              <input className={'description'} task={task} value={task.description} onChange={(e)=>this.handleTaskChange(task.id, 'description', e.target.value)}/>
+          </td>
       </tr>
       }
       </React.Fragment>
@@ -203,6 +206,7 @@ class TodoList extends Component {
               <th align={`left`}></th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Agile</th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Risk</th>
+              <th align={`left`}>Desc</th>
             </tr>
           </thead>
           <tbody>

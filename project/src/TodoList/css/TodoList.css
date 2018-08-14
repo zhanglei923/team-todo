@@ -16,6 +16,9 @@ input{
 .thead{
     font-weight: bold;
 }
+.react-datepicker__close-icon{
+    background-color: lightblue !important;
+}
 .btn-load{
     background-color: #4d62c5;
     color: wheat;
@@ -31,7 +34,7 @@ input{
     margin-left:10px;
 }
 .todo_item .editing-title{
-    width:600px;
+    width:521px;
     font-size: 16px;
     font-weight: bold;
 }
@@ -61,7 +64,7 @@ input{
     display:inline-block;
 }
 .todo_item .planned_end_date{
-    width:72px;
+    width:63px;
 }
 .todo_item .cost-cell{
     display:inline-block;

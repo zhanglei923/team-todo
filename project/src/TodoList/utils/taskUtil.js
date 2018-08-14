@@ -47,7 +47,8 @@ let taskUtil = {
             textAssistent:'',
             cost: 1, //md
             planned_begin_date: null,
-            planned_end_date: null
+            planned_end_date: null,
+            description: ''
         };
         return newTask;
     },
