@@ -64,6 +64,7 @@ class TodoList extends Component {
           })
       }
       loadServerTask(){
+          if(!window.confirm(`Load tasks of "${this.state.projectName}"`)) return;
           let me = this;
         let tasks = taskUtil.getAllTasks()
         axios.get('/action/todos', {params: {
@@ -202,10 +203,9 @@ class TodoList extends Component {
     return (
       <div className="todo_main">
         <ProjectSelect projects={this.state.projects} projectName={this.state.projectName} onChange={this.handleProjectNameChange.bind(this)} />
-        <input value={this.state.projectName} onChange={(e) => this.handleProjectNameChange.bind(this)(e.target.value)} style={{width:'50px'}}/>
+        <input style={{display:'none', width:'80px'}} value={this.state.projectName} onChange={(e) => this.handleProjectNameChange.bind(this)(e.target.value)}/>
         <button className={'btn btn-load'} onClick={this.loadServerTask.bind(this)}>Load</button>
         <button id="saveBtn" className={'btn btn-save'} style={{display:'none'}} onClick={this.saveServerTask.bind(this)}>Save</button>
-        <button onClick={this.createProject.bind(this)}>createProject</button>
         <div>
         {this.state.tasks.length === 0 ? 
             'No-data' :
@@ -231,6 +231,7 @@ class TodoList extends Component {
             />}
         </div>
         <div style={{position:'fixed',right:0,bottom:0}}>
+            <button onClick={this.createProject.bind(this)}>CreateProject</button>
             <button onClick={this.printAllTasks.bind(this)}>Print: {this.state.tasks.length} items</button>
             &emsp;
             <button onClick={this.loadTask}>loadTestTask</button>
