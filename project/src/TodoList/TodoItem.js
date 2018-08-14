@@ -158,7 +158,7 @@ class TodoList extends Component {
                   className={"planned_end_date"}
                   dateFormat="MM-DD"
                   selected={task.planned_begin_date?moment(task.planned_begin_date):null}
-                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_begin_date', !mom?'':mom.format('MM-DD'))}
+                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_begin_date', !mom?'':mom.format('YYYY-MM-DD'))}
                   //onChange={this.handleChange}
                   isClearable={true}
                   placeholderText="Begin"
@@ -173,7 +173,7 @@ class TodoList extends Component {
                   className={"planned_end_date"}
                   dateFormat="MM-DD"
                   selected={task.planned_end_date?moment(task.planned_end_date):null}
-                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_end_date', !mom?'':mom.format('MM-DD'))}
+                  onChange={(mom)=>this.handleTaskChange(task.id, 'planned_end_date', !mom?'':mom.format('YYYY-MM-DD'))}
                   //onChange={this.handleChange}
                   isClearable={true}
                   placeholderText="End"

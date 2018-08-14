@@ -16,11 +16,22 @@ class WeekDisplay extends Component {
       }
   render() {
     const date = this.props.date;
+    let dayText;
+    if(date){
+        const dateDate = moment(date).toDate();
+        const todayDate = moment().toDate();
+        //console.log('?', dateDate*1 , todayDate*1)
+        let offsetMs = dateDate - todayDate;
+        let day = offsetMs / (24*60*60*1000)
+        day=Math.round(day*10)
+        dayText = (day/10)+'d';
+        //console.log(date, dayText)
+    }
     //console.log('date', date)
     return (
         <React.Fragment>
             {date?
-            <div style={{float:'left', display:'inline'}}>({m.get(moment(date).day()+'')})</div>
+            <div style={{float:'left', display:'inline'}}>({m.get(moment(date).day()+'')})[{dayText?dayText:false}]</div>
             :
             <div/>
             }
