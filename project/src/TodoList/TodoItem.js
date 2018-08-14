@@ -78,6 +78,7 @@ class TodoList extends Component {
                   : 
                   <a href="javascript:void(0)" onClick={(e)=>this.props.handleBeSubTask(task.id, true)} ><Icon size={9} icon={arrowRight} /></a>
               }
+              &emsp;
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddBefore(task.id)} >+Bf</a>&nbsp;
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddAfter(task.id)} >+Af</a>&nbsp;
 
