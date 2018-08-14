@@ -8,6 +8,10 @@ import 'reset-css';
 import './css/TodoList.css';
 import { isMoment } from 'moment';
 
+window.saveTasks = ()=>{
+    document.getElementById('saveBtn').click()
+}
+
 //
 class TodoList extends Component {
     constructor(props) {
@@ -76,11 +80,28 @@ class TodoList extends Component {
           let tasks = taskUtil.getAllTasks()
           let projectName = this.state.projectName
           if(!window.confirm('Save?')) return;
-        axios.post('/action/save/todos', {
+            axios.post('/action/save/todos', {
             projectName,
             tasks})
           .then(function (response) {
             console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+      createProject(){
+        let projectName = prompt('New Project Name?');
+        if(!projectName){
+            alert('Name Can Not Be Null.')
+            return;
+        }
+        let me = this;
+        axios.post('/action/create/project', {
+                                        projectName,
+                                    })
+          .then(function (response) {
+            me.handleProjectNameChange(projectName)
           })
           .catch(function (error) {
             console.log(error);
@@ -172,8 +193,9 @@ class TodoList extends Component {
     return (
       <div className="todo_main">
         <input value={this.state.projectName} onChange={(e) => this.handleProjectNameChange.bind(this)(e.target.value)} style={{width:'50px'}}/>
+        <button onClick={this.createProject.bind(this)}>createProject</button>
         <button onClick={this.loadServerTask.bind(this)}>loadServer</button>
-        <button onClick={this.saveServerTask.bind(this)}>saveServer</button>
+        <button id="saveBtn" style={{display:'none'}} onClick={this.saveServerTask.bind(this)}>saveServer</button>
         &emsp;
         <button onClick={this.loadTask}>loadTestTask</button>
         <button onClick={this.showStatusConfigBar}>showStatusConfigBar</button>
