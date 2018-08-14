@@ -16,6 +16,12 @@ input{
 .thead{
     font-weight: bold;
 }
+.btn-load{
+    background-color: #4d62c5;
+    color: wheat;
+    width: 99px;
+    margin-right:15px;
+}
 .groupName{
     background-color: #666;
     color: white;

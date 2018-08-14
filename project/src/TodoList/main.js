@@ -3,6 +3,7 @@ import moment from 'moment'
 import axios from 'axios2'
 import TodoItem from './TodoItem'
 import taskUtil from './utils/taskUtil'
+import ProjectSelect from './sub/ProjectSelect'
 
 import 'reset-css';
 import './css/TodoList.css';
@@ -66,6 +67,9 @@ class TodoList extends Component {
             }})
             .then(function (response) {
                 let todos = response.data;
+                if(todos.length === 0){
+                    todos = [taskUtil.createBlank()]
+                }
                 me.setState({
                     tasks: todos
                 }, ()=>{
@@ -102,6 +106,7 @@ class TodoList extends Component {
                                     })
           .then(function (response) {
             me.handleProjectNameChange(projectName)
+            alert(response.data)
           })
           .catch(function (error) {
             console.log(error);
@@ -192,13 +197,11 @@ class TodoList extends Component {
   render() {
     return (
       <div className="todo_main">
+        <ProjectSelect projects={this.state.projects} projectName={this.state.projectName} onChange={this.handleProjectNameChange.bind(this)} />
         <input value={this.state.projectName} onChange={(e) => this.handleProjectNameChange.bind(this)(e.target.value)} style={{width:'50px'}}/>
+        <button className={'btn btn-load'} onClick={this.loadServerTask.bind(this)}>Load</button>
+        <button id="saveBtn" className={'btn btn-save'} style={{display:'none'}} onClick={this.saveServerTask.bind(this)}>Save</button>
         <button onClick={this.createProject.bind(this)}>createProject</button>
-        <button onClick={this.loadServerTask.bind(this)}>loadServer</button>
-        <button id="saveBtn" style={{display:'none'}} onClick={this.saveServerTask.bind(this)}>saveServer</button>
-        &emsp;
-        <button onClick={this.loadTask}>loadTestTask</button>
-        <button onClick={this.showStatusConfigBar}>showStatusConfigBar</button>
         <div>
         {this.state.tasks.length === 0 ? 
             'No-data' :
@@ -222,7 +225,12 @@ class TodoList extends Component {
                     config={this.state.config}
             />}
         </div>
-        <button onClick={this.printAllTasks.bind(this)}>Print: {this.state.tasks.length} items</button>
+        <div style={{position:'fixed',right:0,bottom:0}}>
+            <button onClick={this.printAllTasks.bind(this)}>Print: {this.state.tasks.length} items</button>
+            &emsp;
+            <button onClick={this.loadTask}>loadTestTask</button>
+            <button onClick={this.showStatusConfigBar}>showStatusConfigBar</button>
+        </div>
       </div>
     );
   }
