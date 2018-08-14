@@ -16,6 +16,8 @@ import * as NumericInput from "react-numeric-input";
 import { Icon } from 'react-icons-kit'
 import {arrowUp} from 'react-icons-kit/icomoon/arrowUp'
 import {arrowDown} from 'react-icons-kit/icomoon/arrowDown'
+import {arrowRight} from 'react-icons-kit/icomoon/arrowRight'
+import {arrowLeft} from 'react-icons-kit/icomoon/arrowLeft'
 import {pencil} from 'react-icons-kit/icomoon/pencil'
 import {close} from 'react-icons-kit/fa/close'
 
@@ -43,6 +45,8 @@ class TodoList extends Component {
     const colleagues = this.props.colleagues;
     tasks.map((task, i) =>{
        if(!task.groupName) task.groupName = '';
+       if(!task.description) task.description = '';
+       if(!task.isSubTaskOf) task.isSubTaskOf = '';
     });
     const listItems = tasks.map((task, i) =>
     <React.Fragment key={i}>
@@ -54,7 +58,7 @@ class TodoList extends Component {
             </div>
             <div style={{marginRight: '30px', float:'left'}}>
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon size={9} icon={arrowDown} /></a>
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon size={9} icon={arrowDown} /></a>        
               &nbsp;
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupRename(task.id)} ><Icon size={12} icon={pencil} /></a>  
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupRemove(task.id)} ><Icon size={12} icon={close} /></a>    
@@ -69,7 +73,11 @@ class TodoList extends Component {
           <td>
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>&nbsp;
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon size={9} icon={arrowDown} /></a>&nbsp;
-
+              {task.isSubTaskOf ? 
+                  <a href="javascript:void(0)" onClick={(e)=>this.props.handleBeSubTask(task.id, false)} ><Icon size={9} icon={arrowLeft} /></a>
+                  : 
+                  <a href="javascript:void(0)" onClick={(e)=>this.props.handleBeSubTask(task.id, true)} ><Icon size={9} icon={arrowRight} /></a>
+              }
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddBefore(task.id)} >+Bf</a>&nbsp;
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddAfter(task.id)} >+Af</a>&nbsp;
 
@@ -85,7 +93,8 @@ class TodoList extends Component {
                           /> 
           </td>
           <td>
-              <TitleInput task={task} 
+              <TitleInput 
+                          task={task} 
                           idx={i}
                           onChange={(value)=>this.handleTaskChange(task.id, 'title', value)} 
                           onMoveUp={this.props.handleMoveUp}

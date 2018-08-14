@@ -32,9 +32,12 @@ class StatusSelector extends Component {
           if(key === "Enter")  this.props.onCreate()
         }
       }
+
   render() {
     const task = this.props.task;
     return (
+      <React.Fragment>
+        {task.isSubTaskOf ? <div className="subtask" >-</div> : false}
         <input  id={`title-${task.id}`} className={"editing-title "+(task.title?'':'mandatory')} 
                 placeholder="Title..." 
                 value={task.title} 
@@ -43,6 +46,7 @@ class StatusSelector extends Component {
                 onKeyUp={this.onKeyUp}          
                 onFocus={ this.onFocus } 
         />
+      </React.Fragment> 
     );
   }
 }

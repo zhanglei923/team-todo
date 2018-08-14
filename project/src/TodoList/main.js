@@ -35,6 +35,10 @@ class TodoList extends Component {
         //this.loadServerTask()
         this.createTask()
       }
+      handleBeSubTask(id, bool){   
+        this.state = taskUtil.beSubTask(this.state, id, bool);
+        this.setState(this.state); 
+      }
       moveTaskDown(id){        
         this.state = taskUtil.moveDown(this.state, [id]);
         this.setState(this.state, ()=>{
@@ -209,6 +213,7 @@ class TodoList extends Component {
                     tasks={this.state.tasks} 
                     colleagues={this.state.colleagues}
                     handleDeleteTask={this.deleteTask} 
+                    handleBeSubTask={this.handleBeSubTask.bind(this)}
                     handleMoveDown={this.moveTaskDown}
                     handleMoveUp={this.moveTaskUp}
                     handleDelete={this.deleteTask}

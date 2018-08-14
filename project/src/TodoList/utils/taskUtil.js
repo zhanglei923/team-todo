@@ -89,6 +89,15 @@ let taskUtil = {
         })
         return taskUtil._cache(state);
     },
+    beSubTask:(state, id, bool)=>{
+        let me = taskUtil;
+        let task = me.getTask(state.tasks, id)
+        if(task._index > 0){
+            let prevTask = state.tasks[task._index-1]
+            task.isSubTaskOf = bool ? prevTask.id : undefined;
+        }
+        return taskUtil._cache(state);
+    },
     moveUp:(state, idlist)=>{
         let me = taskUtil;
         let task = me.getTask(state.tasks, idlist[0])
