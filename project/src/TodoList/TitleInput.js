@@ -31,7 +31,7 @@ class StatusSelector extends Component {
           if(key === "Delete")  this.props.onDelete(focusid)
           if(key === "Enter")  this.props.onCreate()
           if(key === "s")  {
-            saveTasks(false)
+            window.saveTasks(false)
             e.preventDefault()
           }
         }

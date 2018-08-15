@@ -24,7 +24,12 @@ class TextOwner extends Component {
         // if(!focusid) return;
 
         // console.log(key, e)
-        
+        if(e.ctrlKey){
+          if(key === "s")  {
+            window.saveTasks(false)
+            e.preventDefault()
+          }
+        }
 
       }
   render() {
