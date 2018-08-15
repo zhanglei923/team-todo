@@ -34,6 +34,9 @@ class TodoList extends Component {
       componentDidMount() {
         //this.loadServerTask()
         this.createTask()
+        setTimeout(()=>{
+            document.getElementById('btn-load').click()
+        }, 800)
       }
       handleBeSubTask(id, bool){   
         this.state = taskUtil.beSubTask(this.state, id, bool);
@@ -47,7 +50,7 @@ class TodoList extends Component {
         }); 
       }
       moveTaskUp(id){
-        console.log('this.state', this.state)
+        //console.log('this.state', this.state)
         this.state = taskUtil.moveUp(this.state, [id]);
         this.setState(this.state, ()=>{
             let ipt = document.getElementById(`title-${id}`);

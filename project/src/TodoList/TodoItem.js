@@ -206,8 +206,8 @@ class TodoList extends Component {
               <th align={`left`}></th>
               <th align={`left`}></th>
               <th align={`left`}></th>
-              <th align={`left`}>Catagory</th>
-              <th align={`left`}>Title</th>
+              <th align={`left`}>Tip</th>
+              <th align={`left`}>Subject</th>
               <th align={`left`}>Owner</th>
               <th align={`left`} style={{display:'none'}}>Assistant</th>
               <th align={`left`}>Cost</th>
