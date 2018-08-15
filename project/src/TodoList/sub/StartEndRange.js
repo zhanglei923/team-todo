@@ -14,7 +14,7 @@ class StartEndRange extends Component {
     if(d1 && d2){
         dm1 = moment(d1)
         dm2 = moment(d2)
-        range = dateUtil.getTimeSpan(dm1, dm2, 'end')
+        range = dateUtil.getTimeSpan(dm2, dm1, 'end')
     }
 
     return (
