@@ -42,6 +42,9 @@ input{
 .todo_item .hovering{
     border-bottom: 1px solid blue !important;
 }
+.todo_item .hovering input{
+    border-bottom: 1px solid blue !important;
+}
 .todo_item .editing-title{
     margin-left: 7px;
     width:521px;
