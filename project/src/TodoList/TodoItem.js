@@ -151,7 +151,7 @@ class TodoList extends Component {
               </div>
           </td>
           <td>
-              <WeekDisplay date={(task.planned_begin_date)} />
+              <WeekDisplay date={(task.planned_begin_date)} is={'begin'}/>
               <div style={{float:'left', display:'inline'}}>
                 <DatePicker
                        idx={i}
@@ -166,7 +166,7 @@ class TodoList extends Component {
               </div>
           </td>
           <td>
-              <WeekDisplay date={(task.planned_end_date)} />
+              <WeekDisplay date={(task.planned_end_date)} is={'end'}/>
               <div style={{float:'left', display:'inline'}}>
                 <DatePicker
                        idx={i}
