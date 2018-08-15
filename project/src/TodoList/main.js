@@ -64,7 +64,7 @@ class TodoList extends Component {
           })
       }
       loadServerTask(){
-          if(!window.confirm(`Load tasks of "${this.state.projectName}"`)) return;
+          //if(!window.confirm(`Load tasks of "${this.state.projectName}"`)) return;
           let me = this;
         let tasks = taskUtil.getAllTasks()
         axios.get('/action/todos', {params: {
@@ -119,7 +119,9 @@ class TodoList extends Component {
       }
       handleProjectNameChange(value){
         this.state.projectName = value;
-        this.setState(this.state)
+        this.setState(this.state, ()=>{
+            document.getElementById('btn-load').click()
+        })
       }
     deleteTask(id, needConfirm){
         this.state = taskUtil.deleteTask(this.state, id, needConfirm);
@@ -202,9 +204,10 @@ class TodoList extends Component {
   render() {
     return (
       <div className="todo_main">
+        Task:&nbsp;
         <ProjectSelect projects={this.state.projects} projectName={this.state.projectName} onChange={this.handleProjectNameChange.bind(this)} />
         <input style={{display:'none', width:'80px'}} value={this.state.projectName} onChange={(e) => this.handleProjectNameChange.bind(this)(e.target.value)}/>
-        <button className={'btn btn-load'} onClick={this.loadServerTask.bind(this)}>Load</button>
+        <button id={'btn-load'} style={{display:'none'}} className={'btn btn-load'} onClick={this.loadServerTask.bind(this)}>Load</button>
         <button id="saveBtn" className={'btn btn-save'} style={{display:'none'}} onClick={this.saveServerTask.bind(this)}>Save</button>
         <div>
         {this.state.tasks.length === 0 ? 

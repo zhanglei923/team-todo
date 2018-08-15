@@ -23,7 +23,7 @@ class WeekDisplay extends Component {
         if(this.props.is==='end') dateMom.hours(19-1)
         const dateDate = dateMom.toDate();
         let todayMom = moment();
-        todayMom.hours(19-1)
+        //todayMom.hours(19-1)
         const todayDate = todayMom.toDate();
         //console.log('?', dateDate*1 , todayDate*1)
         let offsetMs = dateDate - todayDate;
