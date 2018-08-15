@@ -107,7 +107,7 @@ input{
 .task.status_normal{
 }
 .task.risk_warn *{
-    color:#a57111;
+    color:#ec4a18;
 }
 .task.risk_danger *{
     color: red;    
