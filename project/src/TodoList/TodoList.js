@@ -8,6 +8,7 @@ import TitleInput from './TitleInput'
 import TextOwner from './TextOwner'
 import TextAssistent from './TextAssistent'
 import WeekDisplay from './sub/WeekDisplay'
+import StartEndRange from './sub/StartEndRange'
 
 import moment from 'moment'
 import DatePicker from 'react-datepicker';
@@ -81,18 +82,17 @@ class TodoList extends Component {
               <span>[{i}]</span>
           </td>
           <td>
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>&nbsp;
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon size={9} icon={arrowDown} /></a>&nbsp;
               {task.isSubTaskOf ? 
                   <a href="javascript:void(0)" onClick={(e)=>this.props.handleBeSubTask(task.id, false)} ><Icon size={9} icon={arrowLeft} /></a>
                   : 
                   <a href="javascript:void(0)" onClick={(e)=>this.props.handleBeSubTask(task.id, true)} ><Icon size={9} icon={arrowRight} /></a>
               }
-              &emsp;
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddBefore(task.id)} >+Bf</a>&nbsp;
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddAfter(task.id)} >+Af</a>&nbsp;
-
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupAdd(task.id)} >+G</a>
+              &nbsp;
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddBefore(task.id)} >+Bf</a>,
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddAfter(task.id)} >Af</a>,
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupAdd(task.id)} >Gr</a>
           </td>
           <td>
               <input
@@ -191,6 +191,9 @@ class TodoList extends Component {
               </div>
           </td>
           <td>
+              <StartEndRange task={task}/>
+          </td>
+          <td>
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >
                 <Icon size={14} icon={close} />
               </a>
@@ -223,6 +226,7 @@ class TodoList extends Component {
               <th align={`left`}>Cost</th>
               <th align={`left`}>Start</th>
               <th align={`left`}>End</th>
+              <th align={`left`}>Day(s)</th>
               <th align={`left`}></th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Agile</th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Risk</th>
