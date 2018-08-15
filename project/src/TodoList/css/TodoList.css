@@ -44,10 +44,11 @@ input{
     font-size: 16px;
     font-weight: bold;
 }
-.todo_item .subtask{
-    width: 20px;
-    height: 10px;
-    display: inline-block;
+.todo_item .subtask .subtasktd{
+    padding-left:12px;
+}
+.todo_item .subtask .subtasktd .editing-title{
+    width:500px;
 }
 .todo_item .editing-textpeople{
     width:100px;

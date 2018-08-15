@@ -37,7 +37,7 @@ class TodoList extends Component {
         this.createTask()
         setTimeout(()=>{
             document.getElementById('btn-load').click()
-        }, 800)
+        }, 10)
       }
       handleBeSubTask(id, bool){   
         this.state = taskUtil.beSubTask(this.state, id, bool);

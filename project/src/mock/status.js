@@ -1,6 +1,6 @@
 const implementStatus = [
   {value:'open',text:''},
-  {value:'ongoing',text:'ONGOING'},
+  {value:'ongoing',text:'INPROGRESS'},
   {value:'done',text:'DONE'},
   {value:'delay',text:'DELAYED!'}
 ];

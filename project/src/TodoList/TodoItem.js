@@ -66,7 +66,7 @@ class TodoList extends Component {
           </td>
         </tr>
       :
-      <tr key={task.id} className={"task "+task.risk+' '+task.status}>
+      <tr key={task.id} className={"task "+task.risk+' '+task.status+' '+(task.isSubTaskOf?'subtask':'')}>
           <td>
               <span>[{i}]</span>
           </td>
@@ -93,7 +93,7 @@ class TodoList extends Component {
                           onChange={(value)=>this.handleTaskChange(task.id, 'textCatagory', value)}
                           /> 
           </td>
-          <td>
+          <td className={task.isSubTaskOf?"subtasktd":""}>
               <TitleInput 
                           task={task} 
                           idx={i}
@@ -105,7 +105,7 @@ class TodoList extends Component {
                           onTitleKeyUp={this.props.handleTitleKeyUp}
               />
           </td>
-          <td>
+          <td className={task.isSubTaskOf?"subtasktd":""}>
             <TextOwner task={task}                       
                        idx={i}
                        colleagues={colleagues} 
@@ -185,10 +185,10 @@ class TodoList extends Component {
                 <Icon size={14} icon={close} />
               </a>
           </td>
-          <td style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
+          <td className={task.isSubTaskOf?"subtasktd":""} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
               <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
           </td>
-          <td style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
+          <td className={task.isSubTaskOf?"subtasktd":""} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
               <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
           </td>
           <td>
