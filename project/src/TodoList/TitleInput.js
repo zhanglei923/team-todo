@@ -37,7 +37,7 @@ class StatusSelector extends Component {
     const task = this.props.task;
     return (
       <React.Fragment>
-        {task.isSubTaskOf ? <div className="subtask" >-</div> : false}
+        {task.isSubTaskOf ? <div className="subtask" >&nbsp;&nbsp;&nbsp;-</div> : false}
         <input  id={`title-${task.id}`} className={"editing-title "+(task.title?'':'mandatory')} 
                 placeholder="Title..." 
                 value={task.title} 

@@ -1,13 +1,13 @@
 const implementStatus = [
-  {value:'open',text:'Open'},
-  {value:'ongoing',text:'Ongoing'},
-  {value:'done',text:'Done'},
-  {value:'delay',text:'Delay'}
+  {value:'open',text:''},
+  {value:'ongoing',text:'ONGOING'},
+  {value:'done',text:'DONE'},
+  {value:'delay',text:'DELAYED!'}
 ];
 const riskStatus = [
-  {value:'normal',text:'Normal'},
-  {value:'warn',text:'Warn'},
-  {value:'danger',text:'Danger'}
+  {value:'normal',text:''},
+  {value:'warn',text:'WARN'},
+  {value:'danger',text:'DANGER'}
 ]
 
 export { implementStatus as implementStatus, riskStatus as riskStatus};
