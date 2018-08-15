@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment'
 import axios from 'axios2'
-import TodoItem from './TodoItem'
+import TodoList from './TodoList'
 import taskUtil from './utils/taskUtil'
 import ProjectList from './sub/ProjectList'
 
@@ -14,7 +14,7 @@ window.saveTasks = ()=>{
 }
 
 //
-class TodoList extends Component {
+class TeamTodo extends Component {
     constructor(props) {
         super(props);
         this.deleteTask = this.deleteTask.bind(this);
@@ -215,7 +215,7 @@ class TodoList extends Component {
         <div>
         {this.state.tasks.length === 0 ? 
             'No-data' :
-             <TodoItem
+             <TodoList
                     tasks={this.state.tasks} 
                     colleagues={this.state.colleagues}
                     handleDeleteTask={this.deleteTask} 
@@ -249,4 +249,4 @@ class TodoList extends Component {
   }
 }
 
-export default TodoList;
+export default TeamTodo;

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
+import dateUtil from '../utils/dateUtil'
+
 const m = new Map(); // 空Map
 m.set('1', '一');
 m.set('2', '二');
@@ -19,17 +21,9 @@ class WeekDisplay extends Component {
     let dayText;
     if(date){
         let dateMom = moment(date);
-        if(this.props.is==='begin') dateMom.hours(9-1)
-        if(this.props.is==='end') dateMom.hours(19-1)
-        const dateDate = dateMom.toDate();
         let todayMom = moment();
-        //todayMom.hours(19-1)
-        const todayDate = todayMom.toDate();
-        //console.log('?', dateDate*1 , todayDate*1)
-        let offsetMs = dateDate - todayDate;
-        let day = offsetMs / (24*60*60*1000)
-        day=Math.round(day*10)
-        dayText = (day/10)+'d';
+
+        dayText = dayText = dateUtil.getTimeSpan(dateMom, todayMom, this.props.is)
         //console.log(date, dayText)
     }
     //console.log('date', date)
