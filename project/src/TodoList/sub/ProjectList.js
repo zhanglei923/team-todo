@@ -29,6 +29,8 @@ class ProjectList extends Component {
         this.props.onChange(projectName)
         this.setState({
             projectName
+        }, ()=>{
+            window.localStorage.setItem('team-todo_projectName', projectName);
         })
       }
   render() {

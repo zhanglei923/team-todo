@@ -5,7 +5,8 @@ import colleaguesj from './mock/colleagues';
 document.title='Todo list';
 const colleagues= colleaguesj;
 const tasks = [];
-const projectName = 'default'
+let localPrjName = window.localStorage.getItem('team-todo_projectName');
+const projectName = localPrjName ? localPrjName : 'default';
 
 let jsonp = require('jsonp');
 
