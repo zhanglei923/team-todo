@@ -4,6 +4,7 @@ import axios from 'axios2'
 import TodoItem from './TodoItem'
 import taskUtil from './utils/taskUtil'
 import ProjectSelect from './sub/ProjectSelect'
+import ProjectList from './sub/ProjectList'
 
 import 'reset-css';
 import './css/TodoList.css';
@@ -206,6 +207,8 @@ class TodoList extends Component {
     }
   render() {
     return (
+    <React.Fragment>
+      <ProjectList projects={this.state.projects} projectName={this.state.projectName} onChange={this.handleProjectNameChange.bind(this)} />
       <div className="todo_main">
         Task:&nbsp;
         <ProjectSelect projects={this.state.projects} projectName={this.state.projectName} onChange={this.handleProjectNameChange.bind(this)} />
@@ -244,6 +247,7 @@ class TodoList extends Component {
             <button onClick={this.showStatusConfigBar}>showStatusConfigBar</button>
         </div>
       </div>
+    </React.Fragment>
     );
   }
 }

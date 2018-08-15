@@ -16,8 +16,14 @@ input{
 .thead{
     font-weight: bold;
 }
-.react-datepicker__close-icon{
-    background-color: lightblue !important;
+.projectlist{
+    position: fixed;
+    width: 180px;
+    height: 100%;
+    background-color: #d5deff;
+}
+.todo_main{
+    margin-left: 180px;
 }
 .btn-load{
     background-color: #4d62c5;
