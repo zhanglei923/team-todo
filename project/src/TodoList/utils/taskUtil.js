@@ -1,6 +1,6 @@
 import moment from 'moment';
 let mockJson = require('../../mock/data.json')
-console.log(mockJson)
+//console.log(mockJson)
 let taskUtil = {
     tasks:[],
     _cache:(state)=>{

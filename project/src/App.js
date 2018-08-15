@@ -9,14 +9,14 @@ const projectName = 'default'
 
 let jsonp = require('jsonp');
 
-jsonp('http://localhost:3001/users',{}, ( err, data) => {
-  console.log( err, data)
-});
+// jsonp('http://localhost:3001/users',{}, ( err, data) => {
+//   console.log( err, data)
+// });
 
 
 class App extends Component {
   render() {
-    console.log(this.props)
+    //console.log(this.props)
     return (
       <TodoList projects={['default']} projectName={projectName} tasks={tasks} colleagues={colleagues} config={{showTaskConfig:true}}/>
     );

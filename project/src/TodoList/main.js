@@ -3,7 +3,6 @@ import moment from 'moment'
 import axios from 'axios2'
 import TodoItem from './TodoItem'
 import taskUtil from './utils/taskUtil'
-import ProjectSelect from './sub/ProjectSelect'
 import ProjectList from './sub/ProjectList'
 
 import 'reset-css';
@@ -210,8 +209,6 @@ class TodoList extends Component {
     <React.Fragment>
       <ProjectList projects={this.state.projects} projectName={this.state.projectName} onChange={this.handleProjectNameChange.bind(this)} />
       <div className="todo_main">
-        Task:&nbsp;
-        <ProjectSelect projects={this.state.projects} projectName={this.state.projectName} onChange={this.handleProjectNameChange.bind(this)} />
         <input style={{display:'none', width:'80px'}} value={this.state.projectName} onChange={(e) => this.handleProjectNameChange.bind(this)(e.target.value)}/>
         <button id={'btn-load'} style={{display:'none'}} className={'btn btn-load'} onClick={this.loadServerTask.bind(this)}>Load</button>
         <button id="saveBtn" className={'btn btn-save'} style={{display:'none'}} onClick={this.saveServerTask.bind(this)}>Save</button>

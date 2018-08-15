@@ -66,7 +66,7 @@ class TodoList extends Component {
           </td>
         </tr>
       :
-      <tr key={task.id} className={"task "+task.risk+' '+task.status+' '+(task.isSubTaskOf?'subtask':'')}>
+      <tr key={task.id} className={"task risk_"+task.risk+' status_'+task.status+' '+(task.isSubTaskOf?'subtask':'')}>
           <td>
               <span>[{i}]</span>
           </td>

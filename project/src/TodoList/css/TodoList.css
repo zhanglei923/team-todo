@@ -14,7 +14,6 @@ input{
     border-bottom: 1 solid #666;
 }
 .thead{
-    font-weight: bold;
 }
 .projectlist{
     position: fixed;
@@ -36,16 +35,20 @@ input{
     color: white;
     height: 20px;
 }
+.todo_main thead{
+    font-weight: bold;
+    background-color: #d5deff;
+}
 .todo_item{
-    margin-left:10px;
 }
 .todo_item .editing-title{
+    margin-left: 7px;
     width:521px;
     font-size: 16px;
     font-weight: bold;
 }
 .todo_item .subtask .subtasktd{
-    padding-left:12px;
+    padding-left:24px;
 }
 .todo_item .subtask .subtasktd .editing-title{
     width:500px;
@@ -84,6 +87,9 @@ input{
 }
 .todo_item .cost-cell input{
     width: 100%;
+}
+.todo_item .status_backup *{
+    color: gray !important;
 }
 .task.open *{    
     color: #000;

@@ -12,7 +12,7 @@ class ProjectList extends Component {
         axios.get('/action/projects')
         .then(function (response) {
             let projects = response.data;
-            console.log(projects)
+            //console.log(projects)
             me.setState({
                 projects: projects
             })
@@ -20,6 +20,9 @@ class ProjectList extends Component {
         .catch(function (error) {
             console.log(error);
         });
+      }
+      onCheckboxChange(checkbox){
+
       }
       onChange(a){
         let projectName = a.getAttribute('val')
@@ -33,7 +36,10 @@ class ProjectList extends Component {
     let projectName = this.state.projectName;
     this.state.projects.map((prj, i) => listItems.push(
                                             <li key={i}>
-                                                <input type="checkbox" checked={prj===this.state.projectName?"true":""}/>
+                                                <input type="checkbox" 
+                                                        checked={prj===this.state.projectName?"true":""}
+                                                        onChange={(e) => this.onCheckboxChange.bind(this)(e.target)}
+                                                />
                                                 <a href="javascript:void(0)" 
                                                     val={prj} 
                                                     onClick={(e) => this.onChange.bind(this)(e.target)}
@@ -41,8 +47,8 @@ class ProjectList extends Component {
                                             </li>));
     return (
         <div className="projectlist">
-            <div style={{margin: '10px 10px 10px 0', fontWeight:"bolder"}}>Projects:</div> 
-            <ul>
+            <div style={{margin: '2px 10px 10px 0', fontWeight:"bolder"}}>Projects:</div> 
+            <ul style={{marginLeft: '10px'}}>
                 {listItems}
             </ul>
         </div>
