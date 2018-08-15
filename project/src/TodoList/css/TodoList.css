@@ -39,7 +39,8 @@ input{
     font-weight: bold;
     background-color: #d5deff;
 }
-.todo_item{
+.todo_item .hovering{
+    border-bottom: 1px solid blue !important;
 }
 .todo_item .editing-title{
     margin-left: 7px;
@@ -89,25 +90,24 @@ input{
     width: 100%;
 }
 .todo_item .status_backup *{
-    color: gray !important;
+    color: #c1c1c1 !important;
 }
-.task.open *{    
-    color: #000;
+.task.status_open *{    
+    color: #111;
 }
-.task.ongoing *{
+.task.status_ongoing *{
     background-color: #f5f900 !important;
 }
-.task.done *{
+.task.status_done *{
     background-color: greenyellow !important;
 }
-.task.normal{
+.task.status_normal{
 }
-.task.warn *{
+.task.risk_warn *{
     color:#a57111;
 }
-.task.danger *{
-    color: red;
-    
+.task.risk_danger *{
+    color: red;    
 }
 .task .mandatory {
     border:1px solid #ff7e7e;
