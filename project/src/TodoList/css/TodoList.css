@@ -115,3 +115,15 @@ input{
 .task .mandatory {
     border:1px solid #ff7e7e;
 }
+.todo_item .daysLost{
+    float: left;
+    color: #e0b8b8;
+}
+.todo_item .daysLeft{
+    float: left;
+    color: #6fd26f;
+}
+.todo_item .daysRange{
+    float: left;
+    color: #7f7fb7;
+}

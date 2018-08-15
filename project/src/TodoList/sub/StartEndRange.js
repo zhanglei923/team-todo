@@ -8,17 +8,33 @@ class StartEndRange extends Component {
       }
   render() {
     const task = this.props.task;
-    let d1 = task.planned_begin_date
-    let d2 = task.planned_end_date
-    let dm1, dm2, range;
-    if(d1 && d2){
-        dm1 = moment(d1)
-        dm2 = moment(d2)
-        range = dateUtil.getTimeSpan(dm2, dm1, 'end')
+    let beginDate = task.planned_begin_date
+    let endDate = task.planned_end_date
+    var dm1, dm2, daysRange;
+    if(beginDate && endDate){
+        dm1 = moment(beginDate)
+        dm2 = moment(endDate)
+        daysRange = dateUtil.getTimeSpan(dm2, dm1, 'end')
+    }
+    var daysLost;
+    if(beginDate){
+        dm1 = moment(beginDate)
+        dm2 = moment()
+        daysLost = dateUtil.getTimeSpan(dm1, dm2, 'begin')
+    }
+    var daysLeft;
+    if(endDate){
+        dm1 = moment(endDate)
+        dm2 = moment()
+        daysLeft = dateUtil.getTimeSpan(dm1, dm2, 'end')
     }
 
     return (
-        <div>{range ? range : ''}</div>
+        <div>
+            {daysLost ? <div className="daysLost">{daysLost}</div>:false}
+            {daysLeft ? <div className="daysLeft">{daysLeft}</div>:false}
+            {daysRange ? <div className="daysRange">{daysRange}</div>:false}
+        </div>
     );
   }
 }

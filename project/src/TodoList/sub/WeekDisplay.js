@@ -30,7 +30,7 @@ class WeekDisplay extends Component {
     return (
         <React.Fragment>
             {date?
-            <div style={{float:'left', display:'inline'}}>({m.get(moment(date).day()+'')})[{dayText?dayText:false}]</div>
+            <div style={{float:'left', display:'inline'}}>({m.get(moment(date).day()+'')})</div>
             :
             <div/>
             }
