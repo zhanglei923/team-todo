@@ -10,7 +10,8 @@ let dateUtil = {
         let offsetMs = dateDate - todayDate;
         let day = offsetMs / (24*60*60*1000)
         day=Math.round(day*10)
-        let dayText = (day/10)+'';
+        day=(day/10);
+        let dayText = (day>0?'+':'')+day+'';
         return dayText;
     }
 };
