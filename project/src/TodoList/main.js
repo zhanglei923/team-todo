@@ -9,8 +9,12 @@ import 'reset-css';
 import './css/TodoList.css';
 import { isMoment } from 'moment';
 
-window.saveTasks = ()=>{
-    document.getElementById('saveBtn').click()
+let needConfirmSave = true;
+window.saveTasks = (needConfirm)=>{
+    if(typeof needConfirm ==='undefined') needConfirm = true;
+    needConfirmSave = needConfirm;
+    var btn = document.getElementById('saveBtn')
+    btn.click()
 }
 
 //
@@ -91,16 +95,8 @@ class TeamTodo extends Component {
       saveServerTask(){
           let tasks = taskUtil.getAllTasks()
           let projectName = this.state.projectName
-          if(!window.confirm('Save?')) return;
-            axios.post('/action/save/todos', {
-            projectName,
-            tasks})
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+          if(needConfirmSave && !window.confirm('Save?')) return;
+          taskUtil.saveToServer(projectName, tasks);
       }
       createProject(){
         let projectName = prompt('New Project Name?');

@@ -30,6 +30,10 @@ class StatusSelector extends Component {
           if(key === "ArrowDown")  this.props.onMoveDown(focusid)
           if(key === "Delete")  this.props.onDelete(focusid)
           if(key === "Enter")  this.props.onCreate()
+          if(key === "s")  {
+            saveTasks(false)
+            e.preventDefault()
+          }
         }
       }
 

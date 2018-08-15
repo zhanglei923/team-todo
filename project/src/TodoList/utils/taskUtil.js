@@ -1,4 +1,5 @@
 import moment from 'moment';
+import axios from 'axios2'
 let mockJson = require('../../mock/data.json')
 //console.log(mockJson)
 let taskUtil = {
@@ -117,6 +118,17 @@ let taskUtil = {
             state.tasks[task._index] = task0;
         }
         return taskUtil._cache(state);
+    },
+    saveToServer:(projectName, tasks, succFn, failFn)=>{
+        axios.post('/action/save/todos', {
+            projectName,
+            tasks})
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
 };
 export default taskUtil;
