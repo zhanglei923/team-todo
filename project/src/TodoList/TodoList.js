@@ -122,7 +122,7 @@ class TodoList extends Component {
                           onMoveUp={this.props.handleMoveUp}
                           onMoveDown={this.props.handleMoveDown}
                           onDelete={this.props.handleDelete}
-                          onCreate={this.props.handleCreate}
+                          onEnterDown={this.props.handleEnterDown}
                           onTitleKeyUp={this.props.handleTitleKeyUp}
               />
           </td>
@@ -134,7 +134,7 @@ class TodoList extends Component {
                         onMoveUp={this.props.handleMoveUp}
                         onMoveDown={this.props.handleMoveDown}
                         onDelete={this.props.handleDelete}
-                        onCreate={this.props.handleCreate}
+                        onEnterDown={this.props.handleEnterDown}
                         onTitleKeyUp={this.props.handleTitleKeyUp}
             />
               {/* <OwnerSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'owner', value)}/> */}
@@ -147,7 +147,7 @@ class TodoList extends Component {
                           onMoveUp={this.props.handleMoveUp}
                           onMoveDown={this.props.handleMoveDown}
                           onDelete={this.props.handleDelete}
-                          onCreate={this.props.handleCreate}
+                          onEnterDown={this.props.handleEnterDown}
                           onTitleKeyUp={this.props.handleTitleKeyUp}
             />
               {/* <input className={`assistant`} value={task.assistant} placeholder={"Assistant(s)"} onChange={(e)=>this.handleTaskChange(task.id, 'assistant', e.target.value)}/>

@@ -61,6 +61,9 @@ class TeamTodo extends Component {
             if(ipt)ipt.focus();
         }); 
       }
+      handleEnterDown(id){
+          this.handleAddAfter(id)
+      }
       loadTask(){
           taskUtil.loadTestTasks().then((testdata)=>{
                 this.setState({
@@ -153,11 +156,17 @@ class TeamTodo extends Component {
     }
     handleAddBefore(id){
         this.state = taskUtil.addTask(this.state, 'before', id);
-        this.setState(this.state);
+        this.setState(this.state, ()=>{
+            let ipt = document.getElementById(`title-${id}`);
+            if(ipt)ipt.focus();
+        });
     }
     handleAddAfter(id){
         this.state = taskUtil.addTask(this.state, 'after', id);
-        this.setState(this.state);
+        this.setState(this.state, ()=>{
+            let ipt = document.getElementById(`title-${id}`);
+            if(ipt)ipt.focus();
+        });
     }
     handleGroupAdd(id){
         let groupName = window.prompt('Task Title Pls?')
@@ -232,6 +241,7 @@ class TeamTodo extends Component {
                     handleBeSubTask={this.handleBeSubTask.bind(this)}
                     handleMoveDown={this.moveTaskDown}
                     handleMoveUp={this.moveTaskUp}
+                    handleEnterDown={this.handleEnterDown.bind(this)}
                     handleDelete={this.deleteTask}
                     handleCreate={this.createTask}
                     handleTaskUpdate={this.handleTaskUpdate}
