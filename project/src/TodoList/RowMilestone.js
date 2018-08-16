@@ -29,18 +29,15 @@ class RowMilestone extends Component {
     return (
         <tr className={"mileStone"}>
           <td colSpan={100} style={{position:'relative'}}>
-            <div style={{float:'left',padding:'2px 0 0 2px'}}>
-              
-            </div>
-            <div className="milestone-tip" style={{marginLeft: '22px', float:'left',padding:'2px 0 0 2px'}}>
+            <div className="milestone-tip" style={{marginLeft: '0', float:'left',padding:'2px 0 0 2px'}}>
                 <div>
                     <input className={'millestonename'} 
                             id={`title-${task.id}`}
-                            value={task.milestoneName?task.milestoneName:'Milestone'}
+                            value={task.milestoneName}
                             onChange={(e) => this.props.onChange(e.target.value)}             
                             onKeyDown={(e)=>this.onKeyDown.bind(this)(e, task.id)}  
-                            
-                            />
+                            placeholder="Milestone"                            
+                        />
                 </div> 
                 <div>
                     <a href="javascript:void(0)" style={{marginLeft:'5px'}} onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>

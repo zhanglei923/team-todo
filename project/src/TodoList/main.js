@@ -181,6 +181,7 @@ class TeamTodo extends Component {
         this.state = taskUtil.addTask(this.state, 'after', id, {
             "id": ('G'+Math.random()).replace(/\./ig, ''),
             "isMilestong": true,
+            "milestoneName": name,
             name
         });
         this.setState(this.state);

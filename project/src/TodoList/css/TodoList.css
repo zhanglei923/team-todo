@@ -42,17 +42,19 @@ input{
 }
 .mileStone .millestonename
 {
-    width: 59px;
+    width: 80px;
     float: left;
     background-color: #c12929;
     color: white;
 }
 .milestone-tip{
     position: absolute;
-    left:-84px;
+    left:-82px;
     top: -16px;
     background-color: #c12929;
     color: white;
+    border-radius:3px;
+    -moz-border-radius:8px; /* Old Firefox */
 }
 .todo_main thead{
     font-weight: bold;
