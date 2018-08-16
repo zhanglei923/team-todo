@@ -37,21 +37,21 @@ input{
     height: 20px;
 }
 .mileStone{
-    background-color: red;
+    background-color: #c12929;
     height:5px;
 }
 .mileStone .millestonename
 {
     width: 59px;
     float: left;
-    background-color: red;
+    background-color: #c12929;
     color: white;
 }
 .milestone-tip{
     position: absolute;
     left:-84px;
     top: -16px;
-    background-color: red;
+    background-color: #c12929;
     color: white;
 }
 .todo_main thead{

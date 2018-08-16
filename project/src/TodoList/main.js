@@ -178,7 +178,7 @@ class TeamTodo extends Component {
             alert('Can not be null');
             return;
         }
-        this.state = taskUtil.addTask(this.state, 'before', id, {
+        this.state = taskUtil.addTask(this.state, 'after', id, {
             "id": ('G'+Math.random()).replace(/\./ig, ''),
             "isMilestong": true,
             name
