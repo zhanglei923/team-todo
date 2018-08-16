@@ -121,6 +121,8 @@ class TodoList extends Component {
                           onChange={(value)=>this.handleTaskChange(task.id, 'title', value)} 
                           onMoveUp={this.props.handleMoveUp}
                           onMoveDown={this.props.handleMoveDown}
+                          onBeSubtask={this.props.handleBeSubtask}
+                          onUnSubtask={this.props.handleUnSubtask}
                           onDelete={this.props.handleDelete}
                           onEnterDown={this.props.handleEnterDown}
                           onTitleKeyUp={this.props.handleTitleKeyUp}

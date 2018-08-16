@@ -61,6 +61,12 @@ class TeamTodo extends Component {
             if(ipt)ipt.focus();
         }); 
       }
+      handleBeSubtask(id){
+        this.handleBeSubTask(id, false)
+      }
+      handleUnSubtask(id){
+        this.handleBeSubTask(id, true)        
+      }
       handleEnterDown(id){
           this.handleAddAfter(id)
       }
@@ -244,6 +250,8 @@ class TeamTodo extends Component {
                     handleBeSubTask={this.handleBeSubTask.bind(this)}
                     handleMoveDown={this.moveTaskDown}
                     handleMoveUp={this.moveTaskUp}
+                    handleBeSubtask={this.handleBeSubtask.bind(this)}
+                    handleUnSubtask={this.handleUnSubtask.bind(this)}
                     handleEnterDown={this.handleEnterDown.bind(this)}
                     handleDelete={this.deleteTask}
                     handleCreate={this.createTask}
