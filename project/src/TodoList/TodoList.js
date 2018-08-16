@@ -224,7 +224,7 @@ class TodoList extends Component {
     );
     return (
       <div className="todo_item">
-        <table id="todo_item_table" border="1">
+        <table id="todo_item_table" class="todo_item_table" border="0">
           <thead>
             <tr className={`thead`}>
               <th align={`left`}></th>
