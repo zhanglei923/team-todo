@@ -2,6 +2,8 @@ import moment from 'moment';
 import axios from 'axios2'
 let mockJson = require('../../mock/data.json')
 //console.log(mockJson)
+const DOWN = 1, UP = 0;
+
 let taskUtil = {
     tasks:[],
     _cache:(state)=>{
@@ -125,6 +127,49 @@ let taskUtil = {
             state.tasks[task._index] = task0;
         }
         return taskUtil._cache(state);
+    },
+    getNextTask:(state, id)=>{
+        let me = taskUtil;
+        return me.getNeighborTask(state, id, DOWN)
+    },
+    getPrevTask:(state, id)=>{
+        let me = taskUtil;
+        return me.getNeighborTask(state, id, UP)
+    },
+    getNeighborTask:(state, id, dir)=>{
+        let me = taskUtil;
+
+        let tasks = [];
+        state.tasks.forEach((task)=>{
+            if(!task.groupName && !task.isMilestong) tasks.push(task);
+        })
+        var taskIdx;
+        tasks.forEach((task, i)=>{
+            if(task.id === id){
+                taskIdx=i;
+            }
+        })
+        //console.log(taskIdx)
+        var targetIdx;
+        if(dir === UP) targetIdx = taskIdx-1;
+        if(dir === DOWN) targetIdx = taskIdx+1;
+        //console.log(dir === UP, dir === DOWN, DOWN, taskIdx, targetIdx)
+        var targetTask = tasks[targetIdx];
+        if(!targetTask) return null;
+        
+        return me.getTask(state.tasks, targetTask.id);
+    },
+    focusNeighbor:(state, id, dir)=>{
+        let me = taskUtil;
+        var targetTask = me.getNeighborTask(state, id, dir)
+        //console.log(targetTask)
+        if(targetTask){
+            let ipt = me.getTitleInput(targetTask.id);
+            if(ipt)ipt.focus()
+        }
+    },
+    getTitleInput: (id)=>{
+        return document.getElementById(`title-${id}`);
     },
     saveToServer:(projectName, tasks, succFn, failFn)=>{
         document.getElementById('todo_item_table').setAttribute('class', 'saving_to_server')

@@ -123,6 +123,7 @@ class TodoList extends Component {
                           onMoveDown={this.props.handleMoveDown}
                           onBeSubtask={this.props.handleBeSubtask}
                           onUnSubtask={this.props.handleUnSubtask}
+                          onFocusNeighbor={this.props.handleFocusNeighbor}
                           onDelete={this.props.handleDelete}
                           onEnterDown={this.props.handleEnterDown}
                           onTitleKeyUp={this.props.handleTitleKeyUp}

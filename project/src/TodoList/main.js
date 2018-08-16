@@ -70,6 +70,9 @@ class TeamTodo extends Component {
       handleEnterDown(id){
           this.handleAddAfter(id)
       }
+      handleFocusNeighbor(id, dir){
+          taskUtil.focusNeighbor(this.state, id, dir)
+      }
       loadTask(){
           taskUtil.loadTestTasks().then((testdata)=>{
                 this.setState({
@@ -253,6 +256,7 @@ class TeamTodo extends Component {
                     handleBeSubtask={this.handleBeSubtask.bind(this)}
                     handleUnSubtask={this.handleUnSubtask.bind(this)}
                     handleEnterDown={this.handleEnterDown.bind(this)}
+                    handleFocusNeighbor={this.handleFocusNeighbor.bind(this)}
                     handleDelete={this.deleteTask}
                     handleCreate={this.createTask}
                     handleTaskUpdate={this.handleTaskUpdate}

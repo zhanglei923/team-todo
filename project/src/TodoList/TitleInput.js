@@ -36,6 +36,9 @@ class StatusSelector extends Component {
             window.saveTasks(false)
             e.preventDefault()
           }
+        }else{
+          if(key === "ArrowUp") this.props.onFocusNeighbor(focusid, 0)
+          if(key === "ArrowDown")  this.props.onFocusNeighbor(focusid, 1)
         }
       }
 
