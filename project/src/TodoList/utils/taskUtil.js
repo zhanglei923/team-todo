@@ -138,26 +138,27 @@ let taskUtil = {
     },
     getNeighborTask:(state, id, dir)=>{
         let me = taskUtil;
+        let task = me.getTask(state.tasks, id);
+        let idx = task._index;
 
-        let tasks = [];
-        state.tasks.forEach((task)=>{
-            if(!task.groupName && !task.isMilestong) tasks.push(task);
-        })
-        var taskIdx;
-        tasks.forEach((task, i)=>{
-            if(task.id === id){
-                taskIdx=i;
+        let nexttask;
+        if(dir === DOWN)
+        for(let i=idx+1;i<state.tasks.length;i++){
+            nexttask = state.tasks[i];
+            if(!nexttask)break;
+            if(!nexttask.groupName && !nexttask.isMilestong){
+                break;
             }
-        })
-        //console.log(taskIdx)
-        var targetIdx;
-        if(dir === UP) targetIdx = taskIdx-1;
-        if(dir === DOWN) targetIdx = taskIdx+1;
-        //console.log(dir === UP, dir === DOWN, DOWN, taskIdx, targetIdx)
-        var targetTask = tasks[targetIdx];
-        if(!targetTask) return null;
-        
-        return me.getTask(state.tasks, targetTask.id);
+        }
+        if(dir === UP)
+        for(let i=idx-1;i>=0;i--){
+            nexttask = state.tasks[i];
+            if(!nexttask)break;
+            if(!nexttask.groupName && !nexttask.isMilestong){
+                break;
+            }
+        }
+        return nexttask;
     },
     focusNeighbor:(state, id, dir)=>{
         let me = taskUtil;
