@@ -42,7 +42,7 @@ input{
 }
 .mileStone .millestonename
 {
-    width: 80px;
+    width: 64px;
     float: left;
     background-color: #c12929;
     color: white;
@@ -50,7 +50,7 @@ input{
 .milestone-tip{
     position: absolute;
     left:-82px;
-    top: -16px;
+    top: -7px;
     background-color: #c12929;
     color: white;
     border-radius:3px;
