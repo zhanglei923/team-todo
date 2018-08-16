@@ -120,11 +120,15 @@ let taskUtil = {
         return taskUtil._cache(state);
     },
     saveToServer:(projectName, tasks, succFn, failFn)=>{
+        document.getElementById('todo_item_table').setAttribute('class', 'saving_to_server')
         axios.post('/action/save/todos', {
             projectName,
             tasks})
           .then(function (response) {
             console.log(response);
+            setTimeout(()=>{
+                document.getElementById('todo_item_table').removeAttribute('class', 'saving_to_server')
+            }, 0)
           })
           .catch(function (error) {
             console.log(error);

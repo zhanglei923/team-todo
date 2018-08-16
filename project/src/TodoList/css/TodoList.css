@@ -22,6 +22,9 @@ input{
     height: 100%;
     background-color: #d5deff;
 }
+.saving_to_server td{
+    border:1px solid #1e9016 !important;
+}
 .todo_main{
     margin-left: 180px;
 }
