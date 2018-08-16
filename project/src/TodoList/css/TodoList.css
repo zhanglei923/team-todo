@@ -144,12 +144,16 @@ input{
 .todo_item .daysLost{
     float: left;
     color: #e0b8b8;
+    font-size: 3px;
+    -webkit-text-size-adjust:3px;
 }
 .todo_item .daysLeft{
     float: left;
-    color: #6fd26f;
+    background-color: #d1f3d1 !important;
+    border: 1px solid #3ba518;
 }
 .todo_item .daysRange{
     float: left;
     color: #7f7fb7;
+    font-size: 3px;
 }

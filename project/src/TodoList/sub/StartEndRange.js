@@ -32,7 +32,7 @@ class StartEndRange extends Component {
     return (
         <div>
             {daysLost ? <div className="daysLost">{daysLost}</div>:false}
-            {daysLeft ? <div className="daysLeft">{daysLeft}</div>:false}
+            {daysLeft ? <div className="daysLeft">{!/^-/.test(daysLeft)?daysLeft:'0'}</div>:false}
             {daysRange ? <div className="daysRange">{daysRange}</div>:false}
         </div>
     );
