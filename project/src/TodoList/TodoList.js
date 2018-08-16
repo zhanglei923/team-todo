@@ -10,6 +10,8 @@ import TextAssistent from './TextAssistent'
 import WeekDisplay from './sub/WeekDisplay'
 import StartEndRange from './sub/StartEndRange'
 
+import RowGroup from './RowGroup'
+
 import moment from 'moment'
 import DatePicker from 'react-datepicker';
 import * as NumericInput from "react-numeric-input";
@@ -58,20 +60,16 @@ class TodoList extends Component {
     });
     const listItems = tasks.map((task, i) =>
     <React.Fragment key={i}>
-      {(task.isGroup)?
-        <tr key={"group"+i} className={"groupName"}>
-          <td colSpan={100}>
-            <div style={{float:'left',padding:'2px 0 0 2px'}}>
-              {task.groupName}
-            </div>
-            <div style={{marginLeft: '22px', float:'left',padding:'2px 0 0 2px'}}>
-              <a href="javascript:void(0)" style={{marginLeft:'5px'}} onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>
-              <a href="javascript:void(0)" style={{marginLeft:'5px'}} onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon size={9} icon={arrowDown} /></a>
-              <a href="javascript:void(0)" style={{marginLeft:'5px'}} onClick={(e)=>this.props.handleGroupRename(task.id)} ><Icon size={12} icon={pencil} /></a>  
-              <a href="javascript:void(0)" style={{marginLeft:'5px'}} onClick={(e)=>this.props.handleGroupRemove(task.id)} ><Icon size={12} icon={close} /></a>    
-            </div>      
-          </td>
-        </tr>
+      {(task.isGroup || task.isMilestong)?(
+        (task.isGroup)?
+        <RowGroup key={"group"+i}
+          task={task}
+          handleMoveUp={this.props.handleMoveUp.bind(this)}
+          handleMoveUp={this.props.handleMoveDown.bind(this)}
+          handleMoveUp={this.props.handleGroupRename.bind(this)}
+          handleMoveUp={this.props.handleGroupRemove.bind(this)}
+        />:false
+      )
       :
       <tr key={task.id} 
           className={"task risk_"+task.risk+' status_'+task.status+' '+(task.isSubTaskOf?'subtask':'')}

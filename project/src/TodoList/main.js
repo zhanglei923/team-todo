@@ -172,6 +172,19 @@ class TeamTodo extends Component {
         });
         this.setState(this.state);
     }
+    handleMilestoneAdd(id){
+        let name = window.prompt('Milestone Name Pls?')
+        if(!name){
+            alert('Can not be null');
+            return;
+        }
+        this.state = taskUtil.addTask(this.state, 'before', id, {
+            "id": ('G'+Math.random()).replace(/\./ig, ''),
+            "isMilestong": true,
+            name
+        });
+        this.setState(this.state);
+    }
     handleGroupRemove(id){
         let task = taskUtil.getTask(this.state.tasks, id);
         if(window.confirm(`Sure to remove Group "${task.groupName}"?`)){
