@@ -32,13 +32,13 @@ input{
     margin-right:15px;
 }
 .groupName{
-    background-color: #7e7e92;
+    background-color: #a0a0af;
     color: white;
     height: 20px;
 }
 .mileStone{
     background-color: #c12929;
-    height:5px;
+    height:3px;
 }
 .mileStone .millestonename
 {
@@ -48,9 +48,12 @@ input{
     color: white;
 }
 .milestone-tip{
+    padding: 1px 0px 1px 2px;
+    margin-left: 0;
+    float:left;
     position: absolute;
     left:-82px;
-    top: -7px;
+    top: -8px;
     background-color: #c12929;
     color: white;
     border-radius:3px;
@@ -61,10 +64,12 @@ input{
     background-color: #d5deff;
 }
 .todo_item .hovering{
-    border-bottom: 1px solid blue !important;
+    padding-top:3px;
+    padding-bottom: 3px;
+    border: 2px dotted blue !important;
 }
 .todo_item .hovering input{
-    border-bottom: 1px solid blue !important;
+    /* border-bottom: 1px solid blue !important; */
 }
 .todo_item .editing-title{
     margin-left: 7px;

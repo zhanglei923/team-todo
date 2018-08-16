@@ -29,7 +29,7 @@ class RowMilestone extends Component {
     return (
         <tr className={"mileStone"}>
           <td colSpan={100} style={{position:'relative'}}>
-            <div className="milestone-tip" style={{marginLeft: '0', float:'left',padding:'2px 0 0 2px'}}>
+            <div className="milestone-tip">
                 <div>
                     <input className={'millestonename'} 
                             id={`title-${task.id}`}
