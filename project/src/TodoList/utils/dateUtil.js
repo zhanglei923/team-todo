@@ -1,4 +1,14 @@
 import moment from 'moment';
+
+const m = new Map(); // 空Map
+m.set('1', '一');
+m.set('2', '二');
+m.set('3', '三');
+m.set('4', '四');
+m.set('5', '五');
+m.set('6', '六');
+m.set('0', '日');
+
 let dateUtil = {
     getTimeSpan:(dateMom, todayMom, is)=>{
         if(is==='begin') dateMom.hours(9-1)
@@ -13,6 +23,9 @@ let dateUtil = {
         day=(day/10);
         let dayText = (day>0?'+':'')+day+'';
         return dayText;
+    },
+    getWeekDameName: (date)=>{
+        return m.get(moment(date).day()+'');
     }
 };
 export default dateUtil;

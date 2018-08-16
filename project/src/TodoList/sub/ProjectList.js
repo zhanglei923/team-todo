@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios2'
 import moment from 'moment';
+import dateUtil from '../utils/dateUtil'
 
 class ProjectList extends Component {
     constructor(props) {
@@ -49,7 +50,10 @@ class ProjectList extends Component {
                                             </li>));
     return (
         <div className="projectlist">
-            <div style={{margin: '2px 10px 10px 0', fontWeight:"bolder"}}>Projects:</div> 
+            <span style={{margin: '2px 10px 10px 0', fontWeight:"bolder"}}>
+                Projects:
+            </span> {'('+dateUtil.getWeekDameName(new Date())+')'+moment().format('YYYY-MM-DD')}
+            <hr/>
             <ul style={{marginLeft: '10px'}}>
                 {listItems}
             </ul>
