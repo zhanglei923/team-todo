@@ -238,6 +238,7 @@ class TeamTodo extends Component {
                     handleAddBefore={this.handleAddBefore.bind(this)}
                     handleAddAfter={this.handleAddAfter.bind(this)}
                     handleGroupAdd={this.handleGroupAdd.bind(this)}
+                    handleMilestoneAdd={this.handleMilestoneAdd.bind(this)}
                     handleGroupRemove={this.handleGroupRemove.bind(this)}
                     handleGroupRename={this.handleGroupRename.bind(this)}
                     handleGroupMoveDown={this.moveGroupDown.bind(this)}

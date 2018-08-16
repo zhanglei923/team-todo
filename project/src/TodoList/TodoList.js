@@ -11,6 +11,7 @@ import WeekDisplay from './sub/WeekDisplay'
 import StartEndRange from './sub/StartEndRange'
 
 import RowGroup from './RowGroup'
+import RowMilestone from './RowMilestone'
 
 import moment from 'moment'
 import DatePicker from 'react-datepicker';
@@ -62,13 +63,23 @@ class TodoList extends Component {
     <React.Fragment key={i}>
       {(task.isGroup || task.isMilestong)?(
         (task.isGroup)?
-        <RowGroup key={"group"+i}
-          task={task}
-          handleMoveUp={this.props.handleMoveUp.bind(this)}
-          handleMoveUp={this.props.handleMoveDown.bind(this)}
-          handleMoveUp={this.props.handleGroupRename.bind(this)}
-          handleMoveUp={this.props.handleGroupRemove.bind(this)}
-        />:false
+          <RowGroup key={"group"+i}
+                      task={task}
+                      handleMoveUp={this.props.handleMoveUp.bind(this)}
+                      handleMoveUp={this.props.handleMoveDown.bind(this)}
+                      handleMoveUp={this.props.handleGroupRename.bind(this)}
+                      handleMoveUp={this.props.handleGroupRemove.bind(this)}
+        />:(
+          task.isMilestong?
+          <RowMilestone key={"group"+i}
+                      task={task}
+                      handleMoveUp={this.props.handleMoveUp.bind(this)}
+                      handleMoveUp={this.props.handleMoveDown.bind(this)}
+                      handleMoveUp={this.props.handleGroupRename.bind(this)}
+                      handleMoveUp={this.props.handleGroupRemove.bind(this)}
+
+          />:false
+        )
       )
       :
       <tr key={task.id} 
@@ -90,7 +101,8 @@ class TodoList extends Component {
               &nbsp;
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddBefore(task.id)} >+Bf</a>,
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddAfter(task.id)} >Af</a>,
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupAdd(task.id)} >Gr</a>
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupAdd(task.id)} >Gr</a>,
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleMilestoneAdd(task.id)} >Ms</a>
           </td>
           <td>
               <input
