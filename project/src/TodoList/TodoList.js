@@ -66,17 +66,17 @@ class TodoList extends Component {
           <RowGroup key={"group"+i}
                       task={task}
                       handleMoveUp={this.props.handleMoveUp.bind(this)}
-                      handleMoveUp={this.props.handleMoveDown.bind(this)}
-                      handleMoveUp={this.props.handleGroupRename.bind(this)}
-                      handleMoveUp={this.props.handleGroupRemove.bind(this)}
+                      handleMoveDown={this.props.handleMoveDown.bind(this)}
+                      handleGroupRename={this.props.handleGroupRename.bind(this)}
+                      handleGroupRemove={this.props.handleGroupRemove.bind(this)}
         />:(
           task.isMilestong?
           <RowMilestone key={"group"+i}
                       task={task}
                       handleMoveUp={this.props.handleMoveUp.bind(this)}
-                      handleMoveUp={this.props.handleMoveDown.bind(this)}
-                      handleMoveUp={this.props.handleGroupRename.bind(this)}
-                      handleMoveUp={this.props.handleGroupRemove.bind(this)}
+                      handleMoveDown={this.props.handleMoveDown.bind(this)}
+                      handleGroupRename={this.props.handleGroupRename.bind(this)}
+                      handleGroupRemove={this.props.handleGroupRemove.bind(this)}
 
           />:false
         )
