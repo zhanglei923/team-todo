@@ -34,7 +34,7 @@ let taskUtil = {
             }
         }
     },
-    createBlank:() =>{
+    createBlank:(updateData) =>{
         const newid = ('item'+ Math.random()+'').replace(/\d{0,}\./g, '')
         let newTask = {
             id: newid, 
@@ -49,18 +49,25 @@ let taskUtil = {
             cost: 1, //md
             planned_begin_date: null,
             planned_end_date: null,
-            description: ''
+            description: '',
+            isSubTaskOf: undefined
         };
+        if(typeof updateData !== 'undefined' && updateData)
+        for(let key in updateData){
+            newTask[key] = updateData[key];
+        }
         return newTask;
     },
-    addTask:(state, dir, id, data) => {
-        let newTask = taskUtil.createBlank();  
+    addTask:(state, dir, id, data, updateData) => {
+        if(typeof data === 'undefined') data = null;
+        if(typeof updateData === 'undefined' || !updateData) updateData = {};
+        let newTask = taskUtil.createBlank(updateData);  
         if(typeof dir === 'undefined'){
             state.tasks.push(newTask);
         }else{
             let task = taskUtil.getTask(state.tasks, id)
             let idx = task._index;
-            let newTask = (typeof data !== 'undefined' ? data : taskUtil.createBlank());
+            let newTask = ((typeof data !== 'undefined' && data) ? data : taskUtil.createBlank(updateData));
             if(dir === 'before'){
                 state.tasks.splice(idx, 0, newTask)
             }

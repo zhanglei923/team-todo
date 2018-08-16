@@ -162,7 +162,10 @@ class TeamTodo extends Component {
         });
     }
     handleAddAfter(id){
-        this.state = taskUtil.addTask(this.state, 'after', id);
+        let task = taskUtil.getTask(this.state.tasks, id)
+        this.state = taskUtil.addTask(this.state, 'after', id, null, {
+            isSubTaskOf: task.isSubTaskOf
+        });
         this.setState(this.state, ()=>{
             let ipt = document.getElementById(`title-${id}`);
             if(ipt)ipt.focus();
