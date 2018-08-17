@@ -64,6 +64,10 @@ input{
     color: white;
     border-radius:3px;
     -moz-border-radius:8px; /* Old Firefox */
+
+    filter:alpha(opacity=82); /*支持 IE 浏览器*/
+    -moz-opacity:0.82; /*支持 FireFox 浏览器*/
+    opacity:0.82; /*支持 Chrome, Opera, Safari 等浏览器*/
 }
 .todo_main thead{
     font-weight: bold;
