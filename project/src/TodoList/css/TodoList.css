@@ -43,14 +43,14 @@ input{
     height: 20px;
 }
 .mileStone{
-    background-color: #c12929;
-    height:3px;
+    background-color: #f30404;
+    height:1px;
 }
 .mileStone .millestonename
 {
     width: 64px;
     float: left;
-    background-color: #c12929;
+    background-color: #f30404;
     color: white;
 }
 .milestone-tip{
@@ -60,7 +60,7 @@ input{
     position: absolute;
     left:-82px;
     top: -8px;
-    background-color: #c12929;
+    background-color: #f30404;
     color: white;
     border-radius:3px;
     -moz-border-radius:8px; /* Old Firefox */
