@@ -11,8 +11,8 @@ m.set('0', '日');
 
 let dateUtil = {
     getTimeSpan:(dateMom, todayMom, is)=>{
-        if(is==='begin') dateMom.hours(9-1)
-        if(is==='end') dateMom.hours(19-1)
+        if(is==='begin') dateMom.hours(9-1) && dateMom.minutes(0)
+        if(is==='end') dateMom.hours(19-1) && dateMom.minutes(0)
         const dateDate = dateMom.toDate();
         //todayMom.hours(19-1)
         const todayDate = todayMom.toDate();
