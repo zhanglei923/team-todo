@@ -197,7 +197,7 @@ input{
     border: 1px solid #3ba518;
 }
 .todo_item .daysLeft.out-of-time{    
-    background-color: #ecc8c8 !important;
+    background-color: #ffe7e7 !important;
     border: 1px solid #e64f4f;
 }
 .todo_item .daysRange{
