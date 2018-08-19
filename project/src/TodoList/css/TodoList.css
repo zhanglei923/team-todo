@@ -176,10 +176,10 @@ input{
 }
 .task.status_normal{
 }
-.task.risk_warn *{
+.task.risk_warn .editing-title{
     color:#ffb426;
 }
-.task.risk_danger *{
+.task.risk_danger .editing-title{
     color: red;    
 }
 .task .mandatory {
