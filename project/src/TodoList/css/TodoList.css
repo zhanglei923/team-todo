@@ -109,6 +109,9 @@ input{
     padding-bottom: 3px;
     border: 2px dotted blue !important;
 }
+.todo_item .hovering *{
+    background-color: #eee !important;
+}
 .todo_item .hovering input{
     /* border-bottom: 1px solid blue !important; */
 }
