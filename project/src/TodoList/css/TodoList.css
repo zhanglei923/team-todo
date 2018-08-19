@@ -16,6 +16,14 @@ input{
 }
 .thead{
 }
+.react-datepicker__day--today{
+    background-color: red !important;
+    color:white;
+}
+.react-datepicker__day--selected{
+    background-color: blue !important;
+    color:white;
+}
 .projectlist{
     position: fixed;
     width: 180px;
@@ -107,10 +115,10 @@ input{
 .todo_item .hovering{
     padding-top:3px;
     padding-bottom: 3px;
-    border: 2px dotted blue !important;
+    border: 2px dotted blue;
 }
 .todo_item .hovering *{
-    background-color: #eee !important;
+    background-color: #eee;
 }
 .todo_item .hovering input{
     /* border-bottom: 1px solid blue !important; */
@@ -163,16 +171,16 @@ input{
     width: 100%;
 }
 .todo_item .status_backup *{
-    color: #c1c1c1 !important;
+    color: #c1c1c1;
 }
 .task.status_open *{    
     color: #111;
 }
 .task.status_ongoing *{
-    background-color: #f5f900 !important;
+    background-color: #f5f900;
 }
 .task.status_done *{
-    background-color: greenyellow !important;
+    background-color: greenyellow;
 }
 .task.status_normal{
 }

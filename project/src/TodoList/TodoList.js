@@ -185,7 +185,7 @@ class TodoList extends Component {
                   onChange={(mom)=>this.handleTaskChange(task.id, 'planned_begin_date', !mom?'':mom.format('YYYY-MM-DD'))}
                   //onChange={this.handleChange}
                   isClearable={true}
-                  placeholderText="s"
+                  placeholderText="st"
                 />
               </div>
           </td>
@@ -200,7 +200,7 @@ class TodoList extends Component {
                   onChange={(mom)=>this.handleTaskChange(task.id, 'planned_end_date', !mom?'':mom.format('YYYY-MM-DD'))}
                   //onChange={this.handleChange}
                   isClearable={true}
-                  placeholderText="e"
+                  placeholderText="ed"
                 />
               </div>
           </td>
