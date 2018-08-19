@@ -31,12 +31,12 @@ class StatusSelector extends Component {
           if(key === "ArrowLeft") this.props.onBeSubtask(focusid)
           if(key === "ArrowRight")  this.props.onUnSubtask(focusid)
           if(key === "Delete")  this.props.onDelete(focusid)
-          if(key === "Enter")  this.props.onEnterDown(focusid)
           if(key === "s")  {
             window.saveTasks(false)
             e.preventDefault()
           }
         }else{
+          if(key === "Enter")  this.props.onEnterDown(focusid)
           if(key === "ArrowUp") this.props.onFocusNeighbor(focusid, 0)
           if(key === "ArrowDown")  this.props.onFocusNeighbor(focusid, 1)
         }
