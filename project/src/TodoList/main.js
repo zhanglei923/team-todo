@@ -203,13 +203,14 @@ class TeamTodo extends Component {
             "id": ('G'+Math.random()).replace(/\./ig, ''),
             "isMilestong": true,
             "milestoneName": name,
+            "milestoneStatus": '',
             name
         });
         this.setState(this.state);
     }
     handleGroupRemove(id){
         let task = taskUtil.getTask(this.state.tasks, id);
-        if(window.confirm(`Sure to remove Group "${task.groupName}"?`)){
+        if(window.confirm(`Sure to remove "${task.groupName}"?`)){
             this.deleteTask(id, false)
         }
     }

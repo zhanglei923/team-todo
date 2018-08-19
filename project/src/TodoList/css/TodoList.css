@@ -1,10 +1,10 @@
 *{
     padding: 0;
     margin: 0;
-    font-size: 14px;
+    font-size: 12px;
 }
 body{
-    font-size: 14px;
+    font-size: 12px;
     border: 0;
 }
 select{
@@ -42,6 +42,17 @@ input{
     color: white;
     height: 20px;
 }
+.mileStone.done .milestone-tip, .mileStone.done .milestone-toolbar,.mileStone.done  *{
+    background-color: green;
+    color: white;
+    filter:alpha(opacity=70); /*支持 IE 浏览器*/
+    -moz-opacity:0.70; /*支持 FireFox 浏览器*/
+    opacity:0.70; /*支持 Chrome, Opera, Safari 等浏览器*/
+}
+.mileStone.done .millestonename{
+    background-color: green;
+    color: white;
+}
 .mileStone{
     background-color: #f30404;
     height:1px;
@@ -65,9 +76,29 @@ input{
     border-radius:3px;
     -moz-border-radius:8px; /* Old Firefox */
 
-    filter:alpha(opacity=82); /*支持 IE 浏览器*/
-    -moz-opacity:0.82; /*支持 FireFox 浏览器*/
-    opacity:0.82; /*支持 Chrome, Opera, Safari 等浏览器*/
+    filter:alpha(opacity=75); /*支持 IE 浏览器*/
+    -moz-opacity:0.75; /*支持 FireFox 浏览器*/
+    opacity:0.75; /*支持 Chrome, Opera, Safari 等浏览器*/
+}
+.milestone-toolbar{
+    padding: 1px 0px 1px 2px;
+    margin-left: 0;
+    float: right;
+    position: absolute;
+    right: -72px;
+    top: -8px;
+    background-color: #f30404;
+    color: white;
+    border-radius: 3px;
+    -moz-border-radius: 8px;
+    filter: alpha(opacity=82);
+    -moz-opacity: 0.82;
+    opacity: 0.82;
+    width: 70px;
+}
+.milestone-toolbar select{
+    background-color: red;
+    color: white;
 }
 .todo_main thead{
     font-weight: bold;
@@ -84,7 +115,7 @@ input{
 .todo_item .editing-title{
     margin-left: 7px;
     width:452px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 }
 .todo_item .subtask .subtasktd{
@@ -107,7 +138,7 @@ input{
 .todo_item .editing-catagory{
     width:72px;
     font-size: 13px;
-    font-weight: bold;
+    /* font-weight: normal; */
 }
 .todo_item .assistant{
     width: 80px;

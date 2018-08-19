@@ -73,10 +73,10 @@ class TodoList extends Component {
           task.isMilestong?
           <RowMilestone key={"group"+i}
                       task={task}
-                      onChange={(value)=>this.handleTaskChange(task.id, 'milestoneName', value)} 
+                      onMilestongNameChange={(value)=>this.handleTaskChange(task.id, 'milestoneName', value)} 
+                      onMilestongStatusChange={(value)=>this.handleTaskChange(task.id, 'milestoneStatus', value)} 
                       handleMoveUp={this.props.handleMoveUp.bind(this)}
                       handleMoveDown={this.props.handleMoveDown.bind(this)}
-                      handleGroupRename={this.props.handleGroupRename.bind(this)}
                       handleGroupRemove={this.props.handleGroupRemove.bind(this)}
 
           />:false

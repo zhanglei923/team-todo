@@ -27,14 +27,14 @@ class RowMilestone extends Component {
   render() {
     const task = this.props.task;
     return (
-        <tr className={"mileStone"}>
+        <tr className={"mileStone " + (task.milestoneStatus?task.milestoneStatus:'')}>
           <td colSpan={100} style={{position:'relative'}}>
             <div className="milestone-tip">
                 <div>
                     <input className={'millestonename'} 
                             id={`title-${task.id}`}
                             value={task.milestoneName}
-                            onChange={(e) => this.props.onChange(e.target.value)}             
+                            onChange={(e) => this.props.onMilestongNameChange(e.target.value)}             
                             onKeyDown={(e)=>this.onKeyDown.bind(this)(e, task.id)}  
                             placeholder="Milestone"                            
                         />
@@ -43,7 +43,13 @@ class RowMilestone extends Component {
                     <a href="javascript:void(0)" style={{marginLeft:'5px'}} onClick={(e)=>this.props.handleGroupRename(task.id)} ><Icon size={12} icon={pencil} /></a>   */}
                     <a href="javascript:void(0)" style={{marginLeft:'5px'}} onClick={(e)=>this.props.handleGroupRemove(task.id)} ><Icon size={12} icon={close} /></a>   
                 </div> 
-            </div>      
+            </div>   
+            <div className="milestone-toolbar">
+                  <select defaultValue="" value={task.milestoneStatus} onChange={(e)=>this.props.onMilestongStatusChange(e.target.value)}>
+                    <option value="">OPEN</option>
+                    <option value="done">DONE</option>
+                  </select>
+            </div>   
           </td>
         </tr>
     );
