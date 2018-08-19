@@ -42,15 +42,15 @@ input{
     color: white;
     height: 20px;
 }
-.mileStone.done .milestone-tip, .mileStone.done .milestone-toolbar,.mileStone.done  *{
+.mileStone.done .milestone-tip, .mileStone.done .millestonename, .mileStone.done .milestone-toolbar,.mileStone.done  *{
     background-color: green;
     color: white;
     filter:alpha(opacity=95); /*支持 IE 浏览器*/
     -moz-opacity:0.95; /*支持 FireFox 浏览器*/
     opacity:0.95; /*支持 Chrome, Opera, Safari 等浏览器*/
 }
-.mileStone.done .millestonename{
-    background-color: green;
+.mileStone.focus .milestone-tip, .mileStone.focus .millestonename, .mileStone.focus .milestone-toolbar,.mileStone.focus  *{
+    background-color: red;
     color: white;
 }
 .mileStone{

@@ -47,6 +47,7 @@ class RowMilestone extends Component {
             <div className="milestone-toolbar">
                   <select defaultValue="" value={task.milestoneStatus} onChange={(e)=>this.props.onMilestongStatusChange(e.target.value)}>
                     <option value="">OPEN</option>
+                    <option value="focus">FOCUS</option>
                     <option value="done">DONE</option>
                   </select>
             </div>   
