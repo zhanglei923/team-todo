@@ -136,7 +136,7 @@ class TodoList extends Component {
                           /> 
           </td>
           <td className={task.isSubTaskOf?"subtasktd":""}>
-              {(task.status === 'done'?<span>{task.title}</span>:<TitleInput 
+              {(task.status === 'xxxxxx'?<span>{task.title}</span>:<TitleInput 
                           task={task} 
                           idx={i}
                           onChange={(value)=>this.handleTaskChange(task.id, 'title', value)} 
