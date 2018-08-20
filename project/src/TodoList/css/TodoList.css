@@ -185,6 +185,8 @@ input{
 .task.status_done *{
     background-color: greenyellow;
     color:#989898;
+    font-weight: normal;
+    font-size: 9px;
 }
 .task.status_normal{
 
