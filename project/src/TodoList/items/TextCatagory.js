@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import taskUtil from './utils/taskUtil'
+import taskUtil from '../utils/taskUtil'
 
 class TextCatagory extends Component {
     focusid=1

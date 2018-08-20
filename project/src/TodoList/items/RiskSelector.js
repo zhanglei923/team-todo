@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {implementStatus, riskStatus} from '../mock/status';
+import {implementStatus, riskStatus} from '../../mock/status';
 
 class RiskSelector extends Component {
     constructor(props) {

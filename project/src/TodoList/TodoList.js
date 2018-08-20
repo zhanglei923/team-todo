@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import StatusSelector from './StatusSelector';
-import TextCatagory from './TextCatagory'
-import AssistentSelector from './AssistentSelector'
-import RiskSelector from './RiskSelector'
-import TitleInput from './TitleInput'
-import TextOwner from './TextOwner'
-import TextAssistent from './TextAssistent'
+import StatusSelector from './items/StatusSelector';
+import TextCatagory from './items/TextCatagory'
+import AssistentSelector from './items/AssistentSelector'
+import RiskSelector from './items/RiskSelector'
+import TitleInput from './items/TitleInput'
+import TextOwner from './items/TextOwner'
+import TextAssistent from './items/TextAssistent'
 import WeekDisplay from './sub/WeekDisplay'
 import StartEndRange from './sub/StartEndRange'
 
