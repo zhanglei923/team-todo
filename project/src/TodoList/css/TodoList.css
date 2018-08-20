@@ -34,7 +34,7 @@ input{
     min-width: 1660px;
 }
 .saving_to_server td{
-    border-left:4px solid #1e9016 !important;
+    border:1px solid red !important;
 }
 .todo_main{
     margin-left: 180px;
@@ -125,15 +125,15 @@ input{
 }
 .todo_item .editing-title{
     margin-left: 7px;
-    width:100%;
-    font-size: 14px;
+    width:444px;
+    font-size: 13px;
     font-weight: bold;
 }
 .todo_item .subtask .subtasktd{
     padding-left:24px;
 }
 .todo_item .subtask .subtasktd .editing-title{
-    width:500px;
+    width:400px;
 }
 .todo_item .editing-textpeople{
     width:92px;
