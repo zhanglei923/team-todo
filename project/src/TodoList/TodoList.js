@@ -232,7 +232,7 @@ class TodoList extends Component {
             <tr className={`thead`}>
               <th align={`left`}></th>
               <th align={`left`}></th>
-              <th align={`left`}></th>
+              <th align={`left`}><input type="checkbox" /></th>
               <th align={`left`}>Tip</th>
               <th align={`left`}>Subject</th>
               <th align={`left`}>Owner</th>
@@ -242,7 +242,7 @@ class TodoList extends Component {
               <th align={`left`}>End</th>
               <th align={`left`}>Day(s)</th>
               <th align={`left`}></th>
-              <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Agile</th>
+              <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Status</th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Risk</th>
               <th align={`left`}>Desc</th>
             </tr>

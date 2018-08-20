@@ -48,7 +48,7 @@ input{
 .groupName{
     background-color: #a0a0af;
     color: white;
-    height: 20px;
+    height: 14px;
 }
 .mileStone.done .milestone-tip, .mileStone.done .millestonename, .mileStone.done .milestone-toolbar,.mileStone.done  *{
     background-color: #95a795;

@@ -8,11 +8,14 @@ class StatusSelector extends Component {
   render() {
     const task = this.props.task;
     return (
-        <select value={task.status} onChange={(e)=>this.props.onChange(e.target.value)}>
-            {implementStatus.map((item, i) => {
-                return <option key={i} value={item.value}>{item.text}</option>
-            })}
-        </select>
+        <React.Fragment>
+        {(task.isSubTaskOf&&task.status!=='open') ? <span>-</span> : false}
+            <select value={task.status} onChange={(e)=>this.props.onChange(e.target.value)}>
+                {implementStatus.map((item, i) => {
+                    return <option key={i} value={item.value}>{item.text}</option>
+                })}
+            </select>
+        </React.Fragment>
     );
   }
 }
