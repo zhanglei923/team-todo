@@ -50,6 +50,16 @@ input{
     color: white;
     height: 14px;
 }
+.mileStone.open td{
+    background-color:#ffa5a5;
+}
+.mileStone.open .milestone-tip{
+    border-bottom: 1px solid #ffa5a5;
+}
+.mileStone.open .milestone-tip, .mileStone.open .millestonename, .mileStone.open .milestone-toolbar,.mileStone.open  *{
+    background-color: #eee;
+    color: #000;
+}
 .mileStone.done .milestone-tip, .mileStone.done .millestonename, .mileStone.done .milestone-toolbar,.mileStone.done  *{
     background-color: #95a795;
     color: white;
@@ -69,18 +79,14 @@ input{
 {
     width: 64px;
     float: left;
-    background-color: #ffbf6f;
-    color: white;
 }
 .milestone-tip{
     padding: 1px 0px 1px 2px;
     margin-left: 0;
     float:left;
     position: absolute;
-    left:-83px;
-    top: -15px;
-    background-color: #ffbf6f;
-    color: white;
+    left: -82px;
+    top: -16px;
     border-radius:3px;
     -moz-border-radius:8px; /* Old Firefox */
 
@@ -95,8 +101,6 @@ input{
     position: absolute;
     right: -71px;
     top: -17px;
-    background-color: #ffbf6f;
-    color: white;
     border-radius: 3px;
     -moz-border-radius: 8px;
     filter: alpha(opacity=95);
@@ -105,8 +109,6 @@ input{
     width: 70px;
 }
 .milestone-toolbar select{
-    background-color: #ffbf6f;
-    color: white;
 }
 .todo_main thead{
     font-weight: bold;

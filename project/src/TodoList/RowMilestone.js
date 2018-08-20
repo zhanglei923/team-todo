@@ -14,7 +14,7 @@ class RowMilestone extends Component {
   render() {
     const task = this.props.task;
     return (
-        <tr className={"mileStone " + (task.milestoneStatus?task.milestoneStatus:'')}>
+        <tr className={"mileStone " + (task.milestoneStatus?task.milestoneStatus:'open')}>
           <td colSpan={100} style={{position:'relative'}}>
             <div className="milestone-tip">
                 <div>
@@ -33,8 +33,8 @@ class RowMilestone extends Component {
             </div>   
             <div className="milestone-toolbar">
                   <select defaultValue="" value={task.milestoneStatus} onChange={(e)=>this.props.onMilestongStatusChange(e.target.value)}>
-                    <option value="">OPEN</option>
-                    <option value="focus">FOCUS</option>
+                    <option value="open">OPEN</option>
+                    <option value="focus">TARGET</option>
                     <option value="done">DONE</option>
                   </select>
             </div>   
