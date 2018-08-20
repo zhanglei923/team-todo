@@ -51,25 +51,25 @@ input{
     height: 20px;
 }
 .mileStone.done .milestone-tip, .mileStone.done .millestonename, .mileStone.done .milestone-toolbar,.mileStone.done  *{
-    background-color: green;
+    background-color: #95a795;
     color: white;
     filter:alpha(opacity=95); /*支持 IE 浏览器*/
     -moz-opacity:0.95; /*支持 FireFox 浏览器*/
     opacity:0.95; /*支持 Chrome, Opera, Safari 等浏览器*/
 }
 .mileStone.focus .milestone-tip, .mileStone.focus .millestonename, .mileStone.focus .milestone-toolbar,.mileStone.focus  *{
-    background-color: red;
+    background-color: #b99090;
     color: white;
 }
 .mileStone{
-    background-color: #f00;
+    background-color: #b99090;
     height:1px;
 }
 .mileStone .millestonename
 {
     width: 64px;
     float: left;
-    background-color: #ffb65c;
+    background-color: #ffbf6f;
     color: white;
 }
 .milestone-tip{
@@ -79,7 +79,7 @@ input{
     position: absolute;
     left:-83px;
     top: -15px;
-    background-color: #ffb65c;
+    background-color: #ffbf6f;
     color: white;
     border-radius:3px;
     -moz-border-radius:8px; /* Old Firefox */
@@ -95,7 +95,7 @@ input{
     position: absolute;
     right: -71px;
     top: -17px;
-    background-color: #ffb65c;
+    background-color: #ffbf6f;
     color: white;
     border-radius: 3px;
     -moz-border-radius: 8px;
@@ -105,7 +105,7 @@ input{
     width: 70px;
 }
 .milestone-toolbar select{
-    background-color: #ffb65c;
+    background-color: #ffbf6f;
     color: white;
 }
 .todo_main thead{

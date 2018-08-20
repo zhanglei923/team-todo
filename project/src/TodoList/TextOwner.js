@@ -35,6 +35,8 @@ class TextOwner extends Component {
   render() {
     const task = this.props.task;
     return (
+      <React.Fragment>
+      {task.isSubTaskOf ? <span>-</span> : false}
         <input  id={`owner-input${this.props.idx}`} className={"editing-textpeople "+(task.title?'':'mandatory')} 
                 placeholder="..." 
                 value={task.textOwner} 
@@ -43,6 +45,7 @@ class TextOwner extends Component {
                 onKeyUp={this.onKeyUp}          
                 onFocus={ this.onFocus } 
         />
+        </React.Fragment>
     );
   }
 }
