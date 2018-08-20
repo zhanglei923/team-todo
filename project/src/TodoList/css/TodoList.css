@@ -125,7 +125,7 @@ input{
 }
 .todo_item .editing-title{
     margin-left: 7px;
-    width:452px;
+    width:100%;
     font-size: 14px;
     font-weight: bold;
 }

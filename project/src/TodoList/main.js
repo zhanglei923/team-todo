@@ -94,6 +94,11 @@ class TeamTodo extends Component {
                 if(todos.length === 0){
                     todos = [taskUtil.createBlank()]
                 }
+                // for(var i=0;i<300;i++){
+                //     var blank = taskUtil.createBlank()
+                //     blank.title='asdfasdfasdfasd'
+                //     todos.push(blank)
+                // }
                 me.setState({
                     tasks: todos
                 }, ()=>{
