@@ -184,9 +184,10 @@ input{
 }
 .task.status_done *{
     background-color: greenyellow;
+    color:#989898;
 }
 .task.status_normal{
-    
+
 }
 .task.risk_warn .editing-title{
     color:#ffb426;
