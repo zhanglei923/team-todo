@@ -10,7 +10,7 @@ class RiskSelector extends Component {
     return (
     <React.Fragment>
         {(task.isSubTaskOf&&task.risk!=='normal') ? <span>-</span> : false}
-        <select value={task.risk} onChange={(e)=>this.props.onChange(e.target.value)}>
+        <select className={"riskSel "+(task.risk==='normal'?'dark':'')} value={task.risk} onChange={(e)=>this.props.onChange(e.target.value)}>
             {riskStatus.map((item, i) => {
                 return <option key={i} value={item.value}>{item.text}</option>
             })}

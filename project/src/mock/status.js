@@ -1,12 +1,12 @@
 const implementStatus = [
-  {value:'open',text:''},
+  {value:'open',text:'OPEN'},
   {value:'ongoing',text:'INPROGRESS'},
   {value:'done',text:'DONE'},
   // {value:'delay',text:'DELAYED!'},
   {value:'backup',text:'BACKUP'}
 ];
 const riskStatus = [
-  {value:'normal',text:''},
+  {value:'normal',text:'NO'},
   {value:'warn',text:'WARN'},
   {value:'danger',text:'DANGER'}
 ]

@@ -190,6 +190,12 @@ input{
 .task.risk_danger .editing-title{
     color: red;    
 }
+.statusSel.dark{
+    color: #eee;
+}
+.riskSel.dark{
+    color: #eee;
+}
 .task .mandatory {
     border:1px solid #ff7e7e;
 }
