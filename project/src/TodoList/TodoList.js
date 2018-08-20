@@ -136,7 +136,7 @@ class TodoList extends Component {
                           /> 
           </td>
           <td className={task.isSubTaskOf?"subtasktd":""}>
-              <TitleInput 
+              {(task.status === 'done'?<span>{task.title}</span>:<TitleInput 
                           task={task} 
                           idx={i}
                           onChange={(value)=>this.handleTaskChange(task.id, 'title', value)} 
@@ -149,7 +149,7 @@ class TodoList extends Component {
                           onEnterDown={this.props.handleEnterDown}
                           onTitleKeyUp={this.props.handleTitleKeyUp}
                           handleKeyDown={this.handleKeyDown.bind(this)}
-              />
+              />)}
           </td>
           <td className={task.isSubTaskOf?"subtasktd":""}>
             <TextOwner task={task}                       
