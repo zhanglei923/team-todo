@@ -12,9 +12,8 @@ class TextCatagory extends Component {
         <input  className={"editing-catagory "} 
                 placeholder="..." 
                 value={task.textCatagory} 
-                onChange={(e) => this.props.onChange(e.target.value)}             
-                onKeyDown={this.onKeyDown}   
-                onKeyUp={this.onKeyUp}          
+                onChange={(e) => this.props.onChange(e.target.value)}            
+                onKeyDown={(e)=>this.props.handleKeyDown(e, task.id)}  
                 onFocus={ this.onFocus } 
         />
     );

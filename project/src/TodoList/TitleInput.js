@@ -26,15 +26,7 @@ class StatusSelector extends Component {
         //console.log(key, e, e.ctrlKey)
 
         if(e.ctrlKey){
-          if(key === "ArrowUp") this.props.onMoveUp(focusid)
-          if(key === "ArrowDown")  this.props.onMoveDown(focusid)
-          if(key === "ArrowLeft") this.props.onBeSubtask(focusid)
-          if(key === "ArrowRight")  this.props.onUnSubtask(focusid)
-          if(key === "Delete")  this.props.onDelete(focusid)
-          if(key === "s")  {
-            window.saveTasks(false)
-            e.preventDefault()
-          }
+          this.props.handleKeyDown(e, focusid)
         }else{
           if(key === "Enter")  this.props.onEnterDown(focusid)
           if(key === "ArrowUp") this.props.onFocusNeighbor(focusid, 0)

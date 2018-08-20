@@ -44,6 +44,25 @@ class TodoList extends Component {
         state = Object.assign(state, {[key]: value})
         this.setState(state);
       }
+      handleKeyDown (e, taskid) {
+        // "ArrowUp"
+        // "ArrowDown"
+        let key = e.key;
+
+        //console.log(key, e, e.ctrlKey)
+
+        if(e.ctrlKey){
+          if(key === "ArrowUp") this.props.handleMoveUp(taskid)
+          if(key === "ArrowDown")  this.props.handleMoveDown(taskid)
+          if(key === "ArrowLeft") this.props.handleBeSubtask(taskid)
+          if(key === "ArrowRight")  this.props.handleUnSubtask(taskid)
+          if(key === "Delete")  this.props.handleDelete(taskid)
+          if(key === "s")  {
+            window.saveTasks(false)
+            e.preventDefault()
+          }
+        }
+      }
       onMouseOver(tr){
         if(!/hovering/.test(tr.className))
         tr.className = tr.className+' hovering';
@@ -78,6 +97,7 @@ class TodoList extends Component {
                       handleMoveUp={this.props.handleMoveUp.bind(this)}
                       handleMoveDown={this.props.handleMoveDown.bind(this)}
                       handleGroupRemove={this.props.handleGroupRemove.bind(this)}
+                      handleKeyDown={this.handleKeyDown.bind(this)}
 
           />:false
         )
@@ -112,6 +132,7 @@ class TodoList extends Component {
           <td>
               <TextCatagory task={task} 
                           onChange={(value)=>this.handleTaskChange(task.id, 'textCatagory', value)}
+                          handleKeyDown={this.handleKeyDown.bind(this)}
                           /> 
           </td>
           <td className={task.isSubTaskOf?"subtasktd":""}>
@@ -127,6 +148,7 @@ class TodoList extends Component {
                           onDelete={this.props.handleDelete}
                           onEnterDown={this.props.handleEnterDown}
                           onTitleKeyUp={this.props.handleTitleKeyUp}
+                          handleKeyDown={this.handleKeyDown.bind(this)}
               />
           </td>
           <td className={task.isSubTaskOf?"subtasktd":""}>

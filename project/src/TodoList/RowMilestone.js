@@ -11,19 +11,6 @@ class RowMilestone extends Component {
     constructor(props) {
         super(props);
       }
-      onKeyDown (e, taskid) {
-        // "ArrowUp"
-        // "ArrowDown"
-        let key = e.key;
-
-        //console.log(key, e, e.ctrlKey)
-
-        if(e.ctrlKey){
-          if(key === "ArrowUp") this.props.handleMoveUp(taskid)
-          if(key === "ArrowDown")  this.props.handleMoveDown(taskid)
-          let target = e.currentTarget
-        }
-      }
   render() {
     const task = this.props.task;
     return (
@@ -34,8 +21,8 @@ class RowMilestone extends Component {
                     <input className={'millestonename'} 
                             id={`title-${task.id}`}
                             value={task.milestoneName}
-                            onChange={(e) => this.props.onMilestongNameChange(e.target.value)}             
-                            onKeyDown={(e)=>this.onKeyDown.bind(this)(e, task.id)}  
+                            onChange={(e) => this.props.onMilestongNameChange(e.target.value)}            
+                            onKeyDown={(e) => this.props.handleKeyDown(e, task.id)}  
                             placeholder="Milestone"                            
                         />
                     {/* <a href="javascript:void(0)" style={{marginLeft:'5px'}} onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>
