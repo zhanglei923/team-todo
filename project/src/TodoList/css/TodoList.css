@@ -150,6 +150,7 @@ input{
     width:72px;
     font-size: 13px;
     /* font-weight: normal; */
+    text-align: right;
 }
 .todo_item .assistant{
     width: 80px;
