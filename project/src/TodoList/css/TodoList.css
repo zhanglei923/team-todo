@@ -31,7 +31,7 @@ input{
     background-color: #d5deff;
 }
 .todo_item_table{
-    min-width: 1660px;
+    /* min-width: 1660px; */
 }
 .saving_to_server td{
     border:1px solid red !important;

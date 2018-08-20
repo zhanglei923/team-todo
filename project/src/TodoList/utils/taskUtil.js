@@ -180,7 +180,9 @@ let taskUtil = {
           .then(function (response) {
             console.log(response);
             setTimeout(()=>{
-                document.getElementById('todo_item_table').removeAttribute('class', 'saving_to_server')
+                let oldclasses = document.getElementById('todo_item_table').getAttribute('class');
+                let newclass = oldclasses.replace(/saving_to_server/ig, '')
+                document.getElementById('todo_item_table').setAttribute('class', newclass)
             }, 0)
           })
           .catch(function (error) {
