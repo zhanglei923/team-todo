@@ -34,14 +34,15 @@ class RowFinished extends Component {
                   {task.title}
                 </span>
             </td>
+            <td>{task.textOwner}</td>
             <td/>
             <td/>
-            <td/>
-            <td colSpan={100}>
+            <td>
               {task.planned_end_date?<WeekDisplay date={(task.planned_end_date)} is={'end'}/>:false}
               {task.planned_end_date?('['+moment(task.planned_end_date).format('MM-DD')+']'):false}
+            </td>
+            <td colSpan={100}>
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleTaskChange(task.id, 'status', 'open')}>RE-OPEN</a>
-
             </td>
         </tr>
     );

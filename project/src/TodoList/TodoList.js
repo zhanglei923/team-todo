@@ -234,11 +234,6 @@ class TodoList extends Component {
           <td>
               <StartEndRange task={task}/>
           </td>
-          <td>
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >
-                <Icon size={14} icon={close} />
-              </a>
-          </td>
           <td className={task.isSubTaskOf?"subtasktd":""} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
               <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
           </td>
@@ -247,6 +242,11 @@ class TodoList extends Component {
           </td>
           <td>
               <input className={'description'} task={task} value={task.description} onChange={(e)=>this.handleTaskChange(task.id, 'description', e.target.value)}/>
+          </td>
+          <td>
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >
+                <Icon size={14} icon={close} style={{color:'#ccc'}}/>
+              </a>
           </td>
       </tr>)
       }
@@ -268,10 +268,10 @@ class TodoList extends Component {
               <th align={`left`}>Start</th>
               <th align={`left`}>End</th>
               <th align={`left`}>Day(s)</th>
-              <th align={`left`}></th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Status</th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Risk</th>
               <th align={`left`}>Desc</th>
+              <th align={`left`}></th>
             </tr>
           </thead>
           <tbody>
