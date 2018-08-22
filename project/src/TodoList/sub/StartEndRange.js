@@ -42,6 +42,7 @@ class StartEndRange extends Component {
                         : 
                         <div className="daysRange">{daysRange}</div>
             ):false}
+            {!daysLost&&!daysLeft&&!daysRange?"-":false}
         </div>
     );
   }
