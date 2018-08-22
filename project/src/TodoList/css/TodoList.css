@@ -285,7 +285,7 @@ table, tr, td, th{
     text-decoration: none;
 }
 .task .mandatory {
-    border:1px solid #ff7e7e;
+    border:1px solid #f1bebe;
 }
 .todo_item .daysLost{
     float: left;
