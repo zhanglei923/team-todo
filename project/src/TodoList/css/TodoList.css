@@ -24,6 +24,15 @@ input{
     background-color: blue !important;
     color:white;
 }
+.invisibleDoneTasks{
+    height:1px;
+    border:0;
+    border-bottom: 1px solid #eee;
+    background-color: greenyellow;
+}
+.invisibleDoneTasks td{
+    padding-left:222px;
+}
 .projectlist{
     position: fixed;
     width: 180px;
@@ -198,10 +207,10 @@ input{
     color: red;    
 }
 .statusSel.dark{
-    color: #eee;
+    color: #ddd;
 }
 .riskSel.dark{
-    color: #eee;
+    color: #ddd;
 }
 .task .mandatory {
     border:1px solid #ff7e7e;

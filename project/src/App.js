@@ -19,7 +19,10 @@ class App extends Component {
   render() {
     //console.log(this.props)
     return (
-      <TodoList projects={['default']} projectName={projectName} tasks={tasks} colleagues={colleagues} config={{showTaskConfig:true}}/>
+      <TodoList projects={['default']} projectName={projectName} tasks={tasks} colleagues={colleagues} config={{
+        showTaskConfig: true,
+        hideDoneTasks: true
+      }}/>
     );
   }
 }

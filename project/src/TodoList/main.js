@@ -32,7 +32,7 @@ class TeamTodo extends Component {
         this.moveTaskDown = this.moveTaskDown.bind(this);
         this.handleTitleKeyUp = this.handleTitleKeyUp.bind(this);        
 
-        this.state = this.props;
+        this.state = Object.assign({}, this.props) ;
         console.log('init.state', this.state)
       }
       componentDidMount() {
@@ -114,6 +114,10 @@ class TeamTodo extends Component {
           let projectName = this.state.projectName
           if(needConfirmSave && !window.confirm('Save?')) return;
           taskUtil.saveToServer(projectName, tasks);
+      }
+      hideDoneTasks(){
+        this.state.config.hideDoneTasks = !this.state.config.hideDoneTasks;
+        this.setState(this.state);
       }
       createProject(){
         let projectName = prompt('New Project Name?');
@@ -282,6 +286,7 @@ class TeamTodo extends Component {
             />}
         </div>
         <div style={{position:'fixed',right:0,bottom:0}}>
+            <button onClick={this.hideDoneTasks.bind(this)}>{this.state.config.hideDoneTasks?"showDoneTasks": "hideDoneTasks"}</button>
             <button onClick={this.createProject.bind(this)}>CreateProject</button>
             <button onClick={this.printAllTasks.bind(this)}>Print: {this.state.tasks.length} items</button>
             &emsp;

@@ -71,6 +71,7 @@ class TodoList extends Component {
         tr.className = tr.className.replace(/hovering/ig,'')
       }
   render() {
+    const props = this.props;
     const tasks = this.props.tasks;
     const colleagues = this.props.colleagues;
     tasks.map((task, i) =>{
@@ -103,7 +104,14 @@ class TodoList extends Component {
         )
       )
       :
-      <tr key={task.id} 
+      ((props.config.hideDoneTasks && task.status==='done')?
+      <tr key={task.id}  className={"invisibleDoneTasks"}>
+          <td colSpan={100} style={{position:'relative'}}>
+            {task.title}
+          </td>
+        </tr>
+      : 
+        <tr key={task.id} 
           className={"task risk_"+task.risk+' status_'+task.status+' '+(task.isSubTaskOf?'subtask':'')}
           onMouseOver={(e)=>this.onMouseOver.bind(this)(e.currentTarget)}
           onMouseOut={(e)=>this.onMouseOut.bind(this)(e.currentTarget)}
@@ -243,7 +251,7 @@ class TodoList extends Component {
           <td>
               <input className={'description'} task={task} value={task.description} onChange={(e)=>this.handleTaskChange(task.id, 'description', e.target.value)}/>
           </td>
-      </tr>
+      </tr>)
       }
       </React.Fragment>
     );
