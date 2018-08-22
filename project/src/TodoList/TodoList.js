@@ -138,7 +138,7 @@ class TodoList extends Component {
                           handleKeyDown={this.handleKeyDown.bind(this)}
                           /> 
           </td>
-          <td className={task.isSubTaskOf?"subtasktd":""}>
+          <td className={'task_title '+(task.isSubTaskOf?"subtasktd ":" ")+(task.status==='ongoing'?"ongoing ":" ")}>
               {(task.status === 'xxxxxx'?<span>{task.title}</span>:<TitleInput 
                           task={task} 
                           idx={i}

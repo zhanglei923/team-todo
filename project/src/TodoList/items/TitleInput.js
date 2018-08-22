@@ -42,7 +42,7 @@ class StatusSelector extends Component {
     return (
       <React.Fragment>
         {task.isSubTaskOf ? <span className="subtask" >
-                              -{task.status==='open'?<Icon size={14} icon={bubble2} className="icon_open" />:false} 
+                              -
                             </span> : false}
         {task.status==='ongoing'?<Icon size={14} icon={clock} className="icon_inprogress"/>:false}        
         {task.status==='open'?<Icon size={14} icon={bubble2} className="icon_open" />:false}    

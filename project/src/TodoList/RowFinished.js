@@ -26,8 +26,8 @@ class RowFinished extends Component {
             <td>
               <span style={{float:'right'}}>{task.textCatagory}</span>
             </td>
-            <td>
-                <span className={'task_title'} style={{marginLeft:(task.isSubTaskOf ? 29 : 2)}}>
+            <td className={'task_title'}>
+                <span style={{marginLeft:(task.isSubTaskOf ? 29 : 2)}}>
                   {(task.isSubTaskOf?'-':'')}
                     <Icon size={14} icon={checkmark} className="icon_done"/>
                   {task.title}

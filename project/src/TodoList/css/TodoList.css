@@ -33,6 +33,18 @@ input{
     background-color: blue !important;
     color:white;
 }
+.task_title.ongoing{
+    background-color: yellow;
+}
+.task_title.ongoing *{
+    background-color: yellow;
+}
+.finished_task  .task_title{
+    background-color: greenyellow
+}
+.finished_task  .task_title *{
+    background-color: greenyellow
+}
 .finished_task .task_title{
     font-Size:13px;
     /* height:1px; */
@@ -52,7 +64,7 @@ input{
     margin-right: 337px;
 }
 .finished_task.hovering *{
-    background-color: #efabc4 !important;
+    background-color: #ead7de !important;
 }
 .projectlist{
     position: fixed;
@@ -75,7 +87,10 @@ input{
     width: 99px;
     margin-right:15px;
 }
-.groupName, .groupName *{
+.task_group, .task_group *{
+
+}
+.task_group_title, .task_group_title *{
     background-color: #e4e4ec;
     color: #666;
     height: 14px;
