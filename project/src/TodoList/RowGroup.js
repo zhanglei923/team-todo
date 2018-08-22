@@ -17,11 +17,11 @@ class RowGroup extends Component {
     return (
         <tr className={"task_group"}>
           <td colSpan={3}></td>
-          <td colSpan={100} className="task_group_title">
+          <td colSpan={2} className="task_group_title">
             <span>
               <input type="checkbox"  style={{float:'left'}} />
               <Icon style={{color:'#ddd',float:'left',marginLeft:3}} size={13} icon={folderOpen} />
-              <input style={{float:'left',padding:'2px 0 0 2px'}}
+              <input id={`group-${task.id}`} style={{float:'left',padding:'2px 0 0 2px'}}
                     value={task.groupName}
                     onChange={(e) => this.props.onNameChange(e.target.value)}            
                     onKeyDown={(e) => this.props.handleKeyDown(e, task.id)}  
@@ -31,9 +31,10 @@ class RowGroup extends Component {
               {/* <a href="javascript:void(0)" style={{marginLeft:'5px'}} onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon style={{color:'#ddd'}} size={9} icon={arrowUp} /></a>
               <a href="javascript:void(0)" style={{marginLeft:'5px'}} onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon style={{color:'#ddd'}} size={9} icon={arrowDown} /></a>
               <a href="javascript:void(0)" style={{marginLeft:'5px'}} onClick={(e)=>this.props.handleGroupRename(task.id)} ><Icon style={{color:'#ddd'}} size={12} icon={pencil} /></a>   */}
-              <a href="javascript:void(0)" style={{marginLeft:'5px'}} onClick={(e)=>this.props.handleGroupRemove(task.id)} ><Icon style={{color:'#ddd'}} size={12} icon={close} /></a>    
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupRemove(task.id)} ><Icon style={{color:'#ddd'}} size={9} icon={close} /></a>    
             </div>      
           </td>
+          <td colSpan={100}></td>
         </tr>
     );
   }

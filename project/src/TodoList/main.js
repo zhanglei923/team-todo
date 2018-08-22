@@ -50,6 +50,8 @@ class TeamTodo extends Component {
         this.state = taskUtil.moveDown(this.state, [id]);
         this.setState(this.state, ()=>{
             let ipt = document.getElementById(`title-${id}`);
+            if(!ipt) ipt = document.getElementById(`group-${id}`);
+            if(!ipt) ipt = document.getElementById(`milestone-${id}`);
             if(ipt)ipt.focus();
         }); 
       }
@@ -58,6 +60,8 @@ class TeamTodo extends Component {
         this.state = taskUtil.moveUp(this.state, [id]);
         this.setState(this.state, ()=>{
             let ipt = document.getElementById(`title-${id}`);
+            if(!ipt) ipt = document.getElementById(`group-${id}`);
+            if(!ipt) ipt = document.getElementById(`milestone-${id}`);
             if(ipt)ipt.focus();
         }); 
       }

@@ -19,7 +19,7 @@ class RowMilestone extends Component {
             <div className="milestone-tip">
                 <div>
                     <input className={'millestonename'} 
-                            id={`title-${task.id}`}
+                            id={`milestone-${task.id}`}
                             value={task.milestoneName}
                             onChange={(e) => this.props.onMilestongNameChange(e.target.value)}            
                             onKeyDown={(e) => this.props.handleKeyDown(e, task.id)}  

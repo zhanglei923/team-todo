@@ -68,7 +68,7 @@ class TodoList extends Component {
         if(!/hovering/.test(tr.className))
         tr.className = tr.className+' hovering';
 
-        document.getElementById('title-'+taskid).select()
+        //document.getElementById('title-'+taskid).select()
       }
       onMouseOut(tr){
         tr.className = tr.className.replace(/hovering/ig,'')

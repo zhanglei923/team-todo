@@ -59,6 +59,9 @@ input{
     /* background-color: greenyellow; */
     color:green;
 }
+.finished_task{
+    height:20px
+}
 .finished_task td{
     margin-left: 7px;
     font-size: 12px;
@@ -103,9 +106,8 @@ input{
 
 }
 .task_group_title, .task_group_title *{
-    background-color: #e4e4ec;
+    background-color: #bac5ef;
     color: #666;
-    height: 14px;
 }
 .mileStone.open td{
     background-color:#ffa5a5;
