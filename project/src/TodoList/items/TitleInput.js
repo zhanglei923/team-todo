@@ -65,7 +65,7 @@ class StatusSelector extends Component {
             onFocus={ this.onFocus } 
         />
         </span>
-        {task.status==='open'?(<span>
+        {task.status!=='done'?(<span>
                                 {task.risk==='danger'?<Icon size={18} icon={ic_error} className="icon_danger" />:false}
                                 {task.risk==='warn'?<Icon size={18} icon={ic_warning} className="icon_warn" />:false}
                                 </span>)
