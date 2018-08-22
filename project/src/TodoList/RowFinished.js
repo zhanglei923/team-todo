@@ -7,6 +7,7 @@ import {arrowRight} from 'react-icons-kit/icomoon/arrowRight'
 import {arrowLeft} from 'react-icons-kit/icomoon/arrowLeft'
 import {pencil} from 'react-icons-kit/icomoon/pencil'
 import {close} from 'react-icons-kit/fa/close'
+import WeekDisplay from './sub/WeekDisplay'
 
 class RowFinished extends Component {
     constructor(props) {
@@ -27,8 +28,9 @@ class RowFinished extends Component {
           <td/>
           <td/>
           <td colSpan={100}>
-            &emsp;{(task.planned_end_date?('['+moment(task.planned_end_date).format('MM-DD')+']'):'')}
-            &emsp;<a href="javascript:void(0)" onClick={(e)=>this.props.handleTaskChange(task.id, 'status', 'open')}>reopen</a>
+            {task.planned_end_date?<WeekDisplay date={(task.planned_end_date)} is={'end'}/>:false}
+            {task.planned_end_date?('['+moment(task.planned_end_date).format('MM-DD')+']'):false}
+            <a href="javascript:void(0)" onClick={(e)=>this.props.handleTaskChange(task.id, 'status', 'open')}>RE-OPEN</a>
 
           </td>
         </tr>
