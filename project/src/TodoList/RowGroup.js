@@ -16,7 +16,7 @@ class RowGroup extends Component {
     const task = this.props.task;
     return (
         <tr className={"task_group"}>
-          <td colSpan={3}>
+          <td colSpan={3} style={{backgroundColor:'#eee'}}>
               <input type="checkbox"  style={{float:'left'}} />*
           </td>
           <td colSpan={2} className="task_group_title">
