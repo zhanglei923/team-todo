@@ -40,10 +40,10 @@ input{
     color:white;
 }
 .task_title.ongoing{
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 .task_title.ongoing *{
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 .finished_task  .task_title{
     background-color: greenyellow
