@@ -31,8 +31,8 @@ input{
     background-color: greenyellow;
 }
 .invisibleDoneTasks td{
-    padding-left:222px;
-    color: #afafaf;
+    margin-left: 7px;
+    font-size: 12px;
 }
 .invisibleDoneTasks td a{
     /* background-color: greenyellow; */

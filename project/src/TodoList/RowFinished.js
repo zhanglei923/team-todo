@@ -12,14 +12,24 @@ class RowFinished extends Component {
     constructor(props) {
         super(props);
       }
+      shouldComponentUpdate(nextProps, nextState){
+        return false;
+      }
   render() {
     const task = this.props.task;
     return (
         <tr key={task.id}  className={"invisibleDoneTasks"}>
-          <td colSpan={100} style={{position:'relative'}}>
-            <span style={{marginLeft:(task.isSubTaskOf?17:0)}}>{(task.isSubTaskOf?'-':'')+task.title}</span>
+          <td colSpan={4}/>  
+          <td>
+            <span style={{marginLeft:(task.isSubTaskOf?24:8)}}>{(task.isSubTaskOf?'-':'')+task.title}</span>
+          </td>
+          <td/>
+          <td/>
+          <td/>
+          <td colSpan={100}>
             &emsp;{(task.planned_end_date?('['+moment(task.planned_end_date).format('MM-DD')+']'):'')}
-            &emsp;<a href="javascript:void(0)" onClick={(e)=>this.handleTaskChange(task.id, 'status', 'open')}>reopen</a>
+            &emsp;<a href="javascript:void(0)" onClick={(e)=>this.props.handleTaskChange(task.id, 'status', 'open')}>reopen</a>
+
           </td>
         </tr>
     );

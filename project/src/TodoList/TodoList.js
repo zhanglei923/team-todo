@@ -106,7 +106,7 @@ class TodoList extends Component {
       )
       :
       ((props.config.hideDoneTasks && task.status==='done')?
-        <RowFinished task={task}/>
+        <RowFinished task={task} handleTaskChange={this.handleTaskChange.bind(this)}/>
         : 
         <tr key={task.id} 
           className={"task risk_"+task.risk+' status_'+task.status+' '+(task.isSubTaskOf?'subtask':'')}
