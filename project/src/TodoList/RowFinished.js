@@ -39,7 +39,7 @@ class RowFinished extends Component {
             <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
             <td>
               {task.planned_end_date?<WeekDisplay date={(task.planned_end_date)} is={'end'}/>:false}
-              {task.planned_end_date?('['+moment(task.planned_end_date).format('MM-DD')+']'):false}
+              {task.planned_end_date?(''+moment(task.planned_end_date).format('MM-DD')+''):false}
               {!task.planned_end_date?'-':false}
             </td>
             <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
