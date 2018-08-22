@@ -106,11 +106,9 @@ class TodoList extends Component {
       :
       ((props.config.hideDoneTasks && task.status==='done')?
       <tr key={task.id}  className={"invisibleDoneTasks"}>
-          <td colSpan={8} style={{position:'relative'}}>
-            {task.title}
-          </td>
           <td colSpan={100} style={{position:'relative'}}>
-            <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>          
+            <span style={{marginLeft:(task.isSubTaskOf?17:0)}}>{(task.isSubTaskOf?'-':'')+task.title}</span>
+            &emsp;<a href="javascript:void(0)" onClick={(e)=>this.handleTaskChange(task.id, 'status', 'open')}>reopen</a>
           </td>
         </tr>
       : 
