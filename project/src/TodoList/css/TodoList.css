@@ -27,11 +27,16 @@ input{
 .invisibleDoneTasks{
     height:1px;
     border:0;
-    border-bottom: 1px solid #eee;
+    /* border-bottom: 1px solid #eee; */
     background-color: greenyellow;
 }
 .invisibleDoneTasks td{
     padding-left:222px;
+    color: #afafaf;
+}
+.invisibleDoneTasks td *{
+    background-color: greenyellow;
+    color: #afafaf;
 }
 .projectlist{
     position: fixed;
