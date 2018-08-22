@@ -16,9 +16,9 @@ class RowFinished extends Component {
     const task = this.props.task;
     return (
         <tr key={task.id}  className={"invisibleDoneTasks"}>
+          <td><input type="checkbox"/></td>
           <td/> 
           <td/>
-          <td><input type="checkbox"/></td>
           <td/>
           <td>
             <Icon size={14} icon={checkmark} className="icon_done"/>

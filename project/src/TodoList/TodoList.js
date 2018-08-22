@@ -86,10 +86,9 @@ class TodoList extends Component {
         (task.isGroup)?
           <RowGroup key={"group"+i}
                       task={task}
-                      handleMoveUp={this.props.handleMoveUp.bind(this)}
-                      handleMoveDown={this.props.handleMoveDown.bind(this)}
-                      handleGroupRename={this.props.handleGroupRename.bind(this)}
+                      onNameChange={(value)=>this.handleTaskChange(task.id, 'groupName', value)} 
                       handleGroupRemove={this.props.handleGroupRemove.bind(this)}
+                      handleKeyDown={this.handleKeyDown.bind(this)}
         />:(
           task.isMilestong?
           <RowMilestone key={"group"+i}
@@ -114,6 +113,9 @@ class TodoList extends Component {
           onMouseOut={(e)=>this.onMouseOut.bind(this)(e.currentTarget)}
       >
           <td>
+            <input type="checkbox" />
+          </td>
+          <td>
               <span>[{i}]</span>
           </td>
           <td>
@@ -130,10 +132,6 @@ class TodoList extends Component {
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupAdd(task.id)} >Gr</a>,
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleMilestoneAdd(task.id)} >Ms</a>
           </td>
-          <td>
-              <input
-                  type="checkbox" />
-              </td>
           <td>
               <TextCatagory task={task} 
                           onChange={(value)=>this.handleTaskChange(task.id, 'textCatagory', value)}
