@@ -35,7 +35,7 @@ class RowGroup extends Component {
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupRemove(task.id)} ><Icon style={{color:'#ddd'}} size={9} icon={close} /></a>    
             </div>      
           </td>
-          <td colSpan={100}></td>
+          <td colSpan={100} style={{backgroundColor:'#eee'}}></td>
         </tr>
     );
   }
