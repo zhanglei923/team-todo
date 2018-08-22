@@ -23,7 +23,7 @@ class RowFinished extends Component {
           >
             <td><input type="checkbox"/></td>
             <td><span>[{this.props.i}]</span></td>
-            <td/>
+            <td>-</td>
             <td>
               <span style={{float:'right'}}>{task.textCatagory}</span>
             </td>
@@ -34,16 +34,21 @@ class RowFinished extends Component {
                   {task.title}
                 </span>
             </td>
-            <td>{task.textOwner}</td>
-            <td/>
-            <td/>
+            <td>{task.textOwner?task.textOwner:'-'}</td>
+            <td>-</td>
+            <td>-</td>
             <td>
               {task.planned_end_date?<WeekDisplay date={(task.planned_end_date)} is={'end'}/>:false}
               {task.planned_end_date?('['+moment(task.planned_end_date).format('MM-DD')+']'):false}
+              {!task.planned_end_date?'-':false}
             </td>
-            <td colSpan={100}>
+            <td>-</td>
+            <td>
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleTaskChange(task.id, 'status', 'open')}>RE-OPEN</a>
             </td>
+            <td>-</td>
+            <td>-</td>
+            <td colSpan={100}></td>
         </tr>
     );
   }

@@ -64,11 +64,9 @@ class TodoList extends Component {
           }
         }
       }
-      onMouseOver(tr, taskid){
+      onMouseMove(tr, taskid){
         if(!/hovering/.test(tr.className))
         tr.className = tr.className+' hovering';
-
-        document.getElementById('title-'+taskid).select()
       }
       onMouseOut(tr){
         tr.className = tr.className.replace(/hovering/ig,'')
@@ -111,7 +109,8 @@ class TodoList extends Component {
         : 
         <tr key={task.id} 
           className={"task risk_"+task.risk+' status_'+task.status+' '+(task.isSubTaskOf?'subtask':'')}
-          onMouseMove={(e)=>this.onMouseOver.bind(this)(e.currentTarget, task.id)}
+          onMouseMove={(e)=>this.onMouseMove.bind(this)(e.currentTarget, task.id)}
+          onMouseEnter={(e)=>document.getElementById('title-'+task.id).select()}
           onMouseOut={(e)=>this.onMouseOut.bind(this)(e.currentTarget, task.id)}
       >
           <td>
@@ -245,7 +244,7 @@ class TodoList extends Component {
           </td>
           <td>
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >
-                <Icon size={14} icon={close} style={{color:'#ccc'}}/>
+                <Icon size={14} icon={close} style={{color:'#aaa'}}/>
               </a>
           </td>
       </tr>)
