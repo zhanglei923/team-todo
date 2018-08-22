@@ -68,7 +68,7 @@ class TodoList extends Component {
         if(!/hovering/.test(tr.className))
         tr.className = tr.className+' hovering';
 
-        //document.getElementById('title-'+taskid).select()
+        document.getElementById('title-'+taskid).select()
       }
       onMouseOut(tr){
         tr.className = tr.className.replace(/hovering/ig,'')
@@ -111,7 +111,7 @@ class TodoList extends Component {
         : 
         <tr key={task.id} 
           className={"task risk_"+task.risk+' status_'+task.status+' '+(task.isSubTaskOf?'subtask':'')}
-          onMouseOver={(e)=>this.onMouseOver.bind(this)(e.currentTarget, task.id)}
+          onMouseMove={(e)=>this.onMouseOver.bind(this)(e.currentTarget, task.id)}
           onMouseOut={(e)=>this.onMouseOut.bind(this)(e.currentTarget, task.id)}
       >
           <td>
