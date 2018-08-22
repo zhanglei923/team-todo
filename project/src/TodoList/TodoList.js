@@ -240,7 +240,7 @@ class TodoList extends Component {
               <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
           </td>
           <td>
-              <input className={'description'} task={task} value={task.description} onChange={(e)=>this.handleTaskChange(task.id, 'description', e.target.value)}/>
+              <input className={'description'} placeholder="..." task={task} value={task.description} onChange={(e)=>this.handleTaskChange(task.id, 'description', e.target.value)}/>
           </td>
           <td>
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >

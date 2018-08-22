@@ -34,7 +34,7 @@ class RowFinished extends Component {
                   {task.title}
                 </span>
             </td>
-            <td>{task.textOwner?task.textOwner:'-'}</td>
+            <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/>{task.textOwner?task.textOwner:''}</td>
             <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
             <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
             <td>
