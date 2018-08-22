@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { Icon } from 'react-icons-kit'
 import {clock} from 'react-icons-kit/icomoon/clock'
 import {bubble2} from 'react-icons-kit/icomoon/bubble2'
+import {notification} from 'react-icons-kit/icomoon/notification'
+import {warning} from 'react-icons-kit/icomoon/warning'
+import {ic_warning} from 'react-icons-kit/md/ic_warning'
+import {ic_error} from 'react-icons-kit/md/ic_error'
+import {pause} from 'react-icons-kit/fa/pause'
+import {play} from 'react-icons-kit/fa/play'
 import taskUtil from '../utils/taskUtil'
 
 class StatusSelector extends Component {
@@ -44,8 +50,12 @@ class StatusSelector extends Component {
         {task.isSubTaskOf ? <span className="subtask" >
                               -
                             </span> : false}
-        {task.status==='ongoing'?<Icon size={14} icon={clock} className="icon_inprogress"/>:false}        
-        {task.status==='open'?<Icon size={14} icon={bubble2} className="icon_open" />:false}    
+        {task.status==='ongoing'?<Icon size={14} icon={pause} className="icon_inprogress"/>:false}        
+        {task.status==='open'?(<span>
+                                <Icon size={14} icon={play} className="icon_open" />
+                                </span>)
+                        :false}    
+        <span>
         <input id={`title-${task.id}`} className={"editing-title "+(task.title?'':'mandatory')} 
             placeholder="Title..." 
             value={task.title} 
@@ -54,6 +64,12 @@ class StatusSelector extends Component {
             onKeyUp={this.onKeyUp}          
             onFocus={ this.onFocus } 
         />
+        </span>
+        {task.status==='open'?(<span>
+                                {task.risk==='danger'?<Icon size={18} icon={ic_error} className="icon_danger" />:false}
+                                {task.risk==='warn'?<Icon size={18} icon={ic_warning} className="icon_warn" />:false}
+                                </span>)
+                        :false}
       </React.Fragment> 
     );
   }

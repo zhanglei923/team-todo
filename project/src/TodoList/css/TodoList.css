@@ -17,16 +17,22 @@ input{
 .thead{
 }
 .icon_done{
-    color:green;
+    color:#58a958;
 }
 .icon_inprogress{
-    color: #b5711c;
+    color: #ef972a;
 }
 .icon_open{
     color:#aaa;
 }
+.icon_warn{
+    color: #b5711c;
+}
+.icon_danger{
+    color:#f00;
+}
 .react-datepicker__day--today{
-    background-color: red !important;
+    background-color: #bb5a5a !important;
     color:white;
 }
 .react-datepicker__day--selected{
@@ -238,10 +244,12 @@ input{
 
 }
 .task.risk_warn .editing-title{
-    color:#ffb426;
+    /* color:#b5711c;
+    font-weight: bold; */
 }
 .task.risk_danger .editing-title{
-    color: red;    
+    /* color: red;    
+    font-weight: bold; */
 }
 .statusSel.dark{
     color: #ddd;

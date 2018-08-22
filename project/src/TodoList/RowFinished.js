@@ -3,6 +3,7 @@ import moment from 'moment'
 import { Icon } from 'react-icons-kit'
 import {lock} from 'react-icons-kit/icomoon/lock'
 import {checkmark} from 'react-icons-kit/icomoon/checkmark'
+import {stop} from 'react-icons-kit/fa/stop'
 import WeekDisplay from './sub/WeekDisplay'
 
 class RowFinished extends Component {
@@ -29,7 +30,7 @@ class RowFinished extends Component {
             <td className={'task_title'}>
                 <span style={{marginLeft:(task.isSubTaskOf ? 29 : 2)}}>
                   {(task.isSubTaskOf?'-':'')}
-                    <Icon size={14} icon={checkmark} className="icon_done"/>
+                    <Icon size={14} icon={stop} className="icon_done"/>
                   {task.title}
                 </span>
             </td>

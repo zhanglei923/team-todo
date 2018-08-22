@@ -118,7 +118,7 @@ class TodoList extends Component {
           <td>
               <span>[{i}]</span>
           </td>
-          <td class="row_toolbar">
+          <td className="row_toolbar">
               {/* <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon style={{color:'#ccc'}} size={9} icon={arrowUp} /></a>
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon style={{color:'#ccc'}} size={9} icon={arrowDown} /></a>&nbsp; */}
               {/* {task.isSubTaskOf ? 
