@@ -30,7 +30,7 @@ class RowFinished extends Component {
             <td className={'task_title'}>
                 <span style={{marginLeft:(task.isSubTaskOf ? 29 : 2)}}>
                   {(task.isSubTaskOf?'-':'')}
-                    <Icon size={14} icon={stop} className="icon_done"/>
+                    <Icon size={12} icon={stop} className="icon_done"/>
                   {task.title}
                 </span>
             </td>

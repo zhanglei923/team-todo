@@ -50,9 +50,9 @@ class StatusSelector extends Component {
         {task.isSubTaskOf ? <span className="subtask" >
                               -
                             </span> : false}
-        {task.status==='ongoing'?<Icon size={14} icon={pause} className="icon_inprogress"/>:false}        
+        {task.status==='ongoing'?<Icon size={12} icon={pause} className="icon_inprogress"/>:false}        
         {task.status==='open'?(<span>
-                                <Icon size={14} icon={play} className="icon_open" />
+                                <Icon size={12} icon={play} className="icon_open" />
                                 </span>)
                         :false}    
         <span>
