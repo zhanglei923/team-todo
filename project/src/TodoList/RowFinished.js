@@ -22,7 +22,7 @@ class RowFinished extends Component {
         <tr key={task.id}  className={"invisibleDoneTasks"}>
           <td colSpan={4}/>  
           <td>
-            <span style={{marginLeft:(task.isSubTaskOf?24:8)}}>{(task.isSubTaskOf?'-':'')+task.title}</span>
+            <span style={{fontSize:13,marginLeft:(task.isSubTaskOf?24:8)}}>{(task.isSubTaskOf?'-':'')+task.title}</span>
           </td>
           <td/>
           <td/>
