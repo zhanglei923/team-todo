@@ -12,6 +12,7 @@ import StartEndRange from './sub/StartEndRange'
 
 import RowGroup from './RowGroup'
 import RowMilestone from './RowMilestone'
+import RowFinished from './RowFinished'
 
 import moment from 'moment'
 import DatePicker from 'react-datepicker';
@@ -105,13 +106,8 @@ class TodoList extends Component {
       )
       :
       ((props.config.hideDoneTasks && task.status==='done')?
-      <tr key={task.id}  className={"invisibleDoneTasks"}>
-          <td colSpan={100} style={{position:'relative'}}>
-            <span style={{marginLeft:(task.isSubTaskOf?17:0)}}>{(task.isSubTaskOf?'-':'')+task.title}</span>
-            &emsp;<a href="javascript:void(0)" onClick={(e)=>this.handleTaskChange(task.id, 'status', 'open')}>reopen</a>
-          </td>
-        </tr>
-      : 
+        <RowFinished task={task}/>
+        : 
         <tr key={task.id} 
           className={"task risk_"+task.risk+' status_'+task.status+' '+(task.isSubTaskOf?'subtask':'')}
           onMouseOver={(e)=>this.onMouseOver.bind(this)(e.currentTarget)}
