@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment'
 import { Icon } from 'react-icons-kit'
-import {arrowUp} from 'react-icons-kit/icomoon/arrowUp'
-import {arrowDown} from 'react-icons-kit/icomoon/arrowDown'
-import {arrowRight} from 'react-icons-kit/icomoon/arrowRight'
-import {arrowLeft} from 'react-icons-kit/icomoon/arrowLeft'
-import {pencil} from 'react-icons-kit/icomoon/pencil'
-import {close} from 'react-icons-kit/fa/close'
+import {lock} from 'react-icons-kit/icomoon/lock'
+import {checkmark} from 'react-icons-kit/icomoon/checkmark'
 import WeekDisplay from './sub/WeekDisplay'
 
 class RowFinished extends Component {
@@ -20,8 +16,12 @@ class RowFinished extends Component {
     const task = this.props.task;
     return (
         <tr key={task.id}  className={"invisibleDoneTasks"}>
-          <td colSpan={4}/>  
+          <td/> 
+          <td/>
+          <td><input type="checkbox"/></td>
+          <td/>
           <td>
+            <Icon size={14} icon={checkmark} className="icon_done"/>
             <span style={{fontSize:13,marginLeft:(task.isSubTaskOf?24:8)}}>{(task.isSubTaskOf?'-':'')+task.title}</span>
           </td>
           <td/>

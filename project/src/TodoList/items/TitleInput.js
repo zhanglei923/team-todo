@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Icon } from 'react-icons-kit'
+import {clock} from 'react-icons-kit/icomoon/clock'
 import taskUtil from '../utils/taskUtil'
 
 class StatusSelector extends Component {
@@ -39,6 +41,7 @@ class StatusSelector extends Component {
     return (
       <React.Fragment>
         {task.isSubTaskOf ? <span className="subtask" >-</span> : false}
+        {task.status==='ongoing'?<Icon size={14} icon={clock} className="icon_inprogress"/>:false}        
         <input  id={`title-${task.id}`} className={"editing-title "+(task.title?'':'mandatory')} 
                 placeholder="Title..." 
                 value={task.title} 

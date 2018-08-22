@@ -16,6 +16,12 @@ input{
 }
 .thead{
 }
+.icon_done{
+    color:rgba(202, 202, 202, 1);
+}
+.icon_inprogress{
+    color: #b5711c;
+}
 .react-datepicker__day--today{
     background-color: red !important;
     color:white;
@@ -28,7 +34,8 @@ input{
     /* height:1px; */
     border:0;
     /* border-bottom: 1px solid #eee; */
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
+    color:blue;
 }
 .invisibleDoneTasks td{
     margin-left: 7px;
@@ -36,7 +43,7 @@ input{
 }
 .invisibleDoneTasks td a{
     /* background-color: greenyellow; */
-    color: #afafaf;
+    color: #ddd;
     float: right;
     margin-right: 337px;
 }
@@ -145,7 +152,7 @@ input{
     margin-left: 7px;
     width:444px;
     font-size: 13px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 .todo_item .subtask .subtasktd{
     padding-left:24px;
@@ -169,6 +176,7 @@ input{
     font-size: 13px;
     /* font-weight: normal; */
     text-align: right;
+    margin-right:4px;
 }
 .todo_item .assistant{
     width: 80px;
@@ -196,10 +204,10 @@ input{
     color: #111;
 }
 .task.status_ongoing *{
-    background-color: #f5f900;
+    /* background-color: #f5f900; */
 }
 .task.status_done *{
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
     color:#989898;
     font-weight: normal;
     font-size: 9px;
