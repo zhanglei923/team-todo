@@ -105,7 +105,7 @@ class TodoList extends Component {
       )
       :
       ((props.config.hideDoneTasks && task.status==='done')?
-        <RowFinished task={task} handleTaskChange={this.handleTaskChange.bind(this)}/>
+        <RowFinished i={i} task={task} handleTaskChange={this.handleTaskChange.bind(this)}/>
         : 
         <tr key={task.id} 
           className={"task risk_"+task.risk+' status_'+task.status+' '+(task.isSubTaskOf?'subtask':'')}
@@ -118,19 +118,19 @@ class TodoList extends Component {
           <td>
               <span>[{i}]</span>
           </td>
-          <td>
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon size={9} icon={arrowUp} /></a>
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon size={9} icon={arrowDown} /></a>&nbsp;
-              {task.isSubTaskOf ? 
-                  <a href="javascript:void(0)" onClick={(e)=>this.props.handleBeSubTask(task.id, false)} ><Icon size={9} icon={arrowLeft} /></a>
+          <td class="row_toolbar">
+              {/* <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveUp(task.id)} ><Icon style={{color:'#ccc'}} size={9} icon={arrowUp} /></a>
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleMoveDown(task.id)} ><Icon style={{color:'#ccc'}} size={9} icon={arrowDown} /></a>&nbsp; */}
+              {/* {task.isSubTaskOf ? 
+                  <a href="javascript:void(0)" onClick={(e)=>this.props.handleBeSubTask(task.id, false)} ><Icon style={{color:'#ccc'}} size={9} icon={arrowLeft} /></a>
                   : 
-                  <a href="javascript:void(0)" onClick={(e)=>this.props.handleBeSubTask(task.id, true)} ><Icon size={9} icon={arrowRight} /></a>
+                  <a href="javascript:void(0)" onClick={(e)=>this.props.handleBeSubTask(task.id, true)} ><Icon style={{color:'#ccc'}} size={9} icon={arrowRight} /></a>
               }
-              &nbsp;
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddBefore(task.id)} >+Bf</a>,
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleAddAfter(task.id)} >Af</a>,
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleGroupAdd(task.id)} >Gr</a>,
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleMilestoneAdd(task.id)} >Ms</a>
+              &nbsp; */}
+              <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleAddBefore(task.id)} >Bf</a>
+              <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleAddAfter(task.id)} >Af</a>
+              <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleGroupAdd(task.id)} >Gr</a>
+              <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleMilestoneAdd(task.id)} >Ms</a>
           </td>
           <td>
               <TextCatagory task={task} 
@@ -255,9 +255,9 @@ class TodoList extends Component {
         <table id="todo_item_table" className="todo_item_table" border="0">
           <thead>
             <tr className={`thead`}>
-              <th align={`left`}></th>
-              <th align={`left`}></th>
               <th align={`left`}><input type="checkbox" /></th>
+              <th align={`left`}></th>
+              <th align={`left`}></th>
               <th align={`left`}>Tip</th>
               <th align={`left`}>Subject</th>
               <th align={`left`}>Owner</th>

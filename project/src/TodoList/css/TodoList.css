@@ -17,10 +17,13 @@ input{
 .thead{
 }
 .icon_done{
-    color:rgba(202, 202, 202, 1);
+    color:green;
 }
 .icon_inprogress{
     color: #b5711c;
+}
+.icon_open{
+    color:#aaa;
 }
 .react-datepicker__day--today{
     background-color: red !important;
@@ -30,22 +33,26 @@ input{
     background-color: blue !important;
     color:white;
 }
-.invisibleDoneTasks{
+.finished_task .task_title{
+    font-Size:13px;
     /* height:1px; */
     border:0;
     /* border-bottom: 1px solid #eee; */
     /* background-color: greenyellow; */
-    color:blue;
+    color:green;
 }
-.invisibleDoneTasks td{
+.finished_task td{
     margin-left: 7px;
     font-size: 12px;
 }
-.invisibleDoneTasks td a{
+.finished_task td a{
     /* background-color: greenyellow; */
     color: #ddd;
     float: right;
     margin-right: 337px;
+}
+.finished_task.hovering *{
+    background-color: #efabc4 !important;
 }
 .projectlist{
     position: fixed;
@@ -149,7 +156,7 @@ input{
     /* border-bottom: 1px solid blue !important; */
 }
 .todo_item .editing-title{
-    margin-left: 7px;
+    margin-left: 2px;
     width:444px;
     font-size: 13px;
     /* font-weight: bold; */
@@ -200,8 +207,8 @@ input{
 .todo_item .status_backup *{
     color: #c1c1c1;
 }
-.task.status_open *{    
-    color: #111;
+.task.status_open .editing-title {    
+    /* color: #111; */
 }
 .task.status_ongoing *{
     /* background-color: #f5f900; */
@@ -226,6 +233,14 @@ input{
 }
 .riskSel.dark{
     color: #ddd;
+}
+.task .row_toolbar *{
+    color: #999;
+    text-decoration: none;
+}
+.task .row_toolbar *:hover{
+    color: #f00;
+    text-decoration: none;
 }
 .task .mandatory {
     border:1px solid #ff7e7e;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Icon } from 'react-icons-kit'
 import {clock} from 'react-icons-kit/icomoon/clock'
+import {bubble2} from 'react-icons-kit/icomoon/bubble2'
 import taskUtil from '../utils/taskUtil'
 
 class StatusSelector extends Component {
@@ -40,15 +41,18 @@ class StatusSelector extends Component {
     const task = this.props.task;
     return (
       <React.Fragment>
-        {task.isSubTaskOf ? <span className="subtask" >-</span> : false}
+        {task.isSubTaskOf ? <span className="subtask" >
+                              -{task.status==='open'?<Icon size={14} icon={bubble2} className="icon_open" />:false} 
+                            </span> : false}
         {task.status==='ongoing'?<Icon size={14} icon={clock} className="icon_inprogress"/>:false}        
-        <input  id={`title-${task.id}`} className={"editing-title "+(task.title?'':'mandatory')} 
-                placeholder="Title..." 
-                value={task.title} 
-                onChange={(e) => this.props.onChange(e.target.value)}             
-                onKeyDown={this.onKeyDown}   
-                onKeyUp={this.onKeyUp}          
-                onFocus={ this.onFocus } 
+        {task.status==='open'?<Icon size={14} icon={bubble2} className="icon_open" />:false}    
+        <input id={`title-${task.id}`} className={"editing-title "+(task.title?'':'mandatory')} 
+            placeholder="Title..." 
+            value={task.title} 
+            onChange={(e) => this.props.onChange(e.target.value)}             
+            onKeyDown={this.onKeyDown}   
+            onKeyUp={this.onKeyUp}          
+            onFocus={ this.onFocus } 
         />
       </React.Fragment> 
     );

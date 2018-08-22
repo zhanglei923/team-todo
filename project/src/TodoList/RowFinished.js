@@ -15,24 +15,33 @@ class RowFinished extends Component {
   render() {
     const task = this.props.task;
     return (
-        <tr key={task.id}  className={"invisibleDoneTasks"}>
-          <td><input type="checkbox"/></td>
-          <td/> 
-          <td/>
-          <td/>
-          <td>
-            <Icon size={14} icon={checkmark} className="icon_done"/>
-            <span style={{fontSize:13,marginLeft:(task.isSubTaskOf?24:8)}}>{(task.isSubTaskOf?'-':'')+task.title}</span>
-          </td>
-          <td/>
-          <td/>
-          <td/>
-          <td colSpan={100}>
-            {task.planned_end_date?<WeekDisplay date={(task.planned_end_date)} is={'end'}/>:false}
-            {task.planned_end_date?('['+moment(task.planned_end_date).format('MM-DD')+']'):false}
-            <a href="javascript:void(0)" onClick={(e)=>this.props.handleTaskChange(task.id, 'status', 'open')}>RE-OPEN</a>
+        <tr key={task.id}  
+          className={"finished_task"}
+          onMouseOver={(e)=>e.currentTarget.className = e.currentTarget.className+' hovering'}
+          onMouseOut={(e)=>e.currentTarget.className = e.currentTarget.className.replace(/hovering/ig,'')}
+          >
+            <td><input type="checkbox"/></td>
+            <td><span>[{this.props.i}]</span></td>
+            <td/>
+            <td>
+              <span style={{float:'right'}}>{task.textCatagory}</span>
+            </td>
+            <td>
+                <span className={'task_title'} style={{marginLeft:(task.isSubTaskOf ? 29 : 2)}}>
+                  {(task.isSubTaskOf?'-':'')}
+                    <Icon size={14} icon={checkmark} className="icon_done"/>
+                  {task.title}
+                </span>
+            </td>
+            <td/>
+            <td/>
+            <td/>
+            <td colSpan={100}>
+              {task.planned_end_date?<WeekDisplay date={(task.planned_end_date)} is={'end'}/>:false}
+              {task.planned_end_date?('['+moment(task.planned_end_date).format('MM-DD')+']'):false}
+              <a href="javascript:void(0)" onClick={(e)=>this.props.handleTaskChange(task.id, 'status', 'open')}>RE-OPEN</a>
 
-          </td>
+            </td>
         </tr>
     );
   }
