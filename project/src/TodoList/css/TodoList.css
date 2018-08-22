@@ -69,8 +69,14 @@ input{
     float: right;
     margin-right: 337px;
 }
+.finished_task.hovering{
+    border: 0 !important;
+}
 .finished_task.hovering *{
     background-color: #ead7de !important;
+}
+.finished_task.hovering .task_title, .finished_task.hovering .task_title *{
+    background-color: greenyellow !important;
 }
 .projectlist{
     position: fixed;
@@ -166,9 +172,9 @@ input{
     background-color: #d5deff;
 }
 .todo_item .hovering{
-    padding-top:3px;
+    /* padding-top:3px;
     padding-bottom: 3px;
-    border: 2px dotted blue;
+    border: 2px dotted blue; */
 }
 .todo_item .hovering *{
     background-color: #eee;
