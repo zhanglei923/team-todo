@@ -16,10 +16,11 @@ class RowGroup extends Component {
     const task = this.props.task;
     return (
         <tr className={"task_group"}>
-          <td colSpan={3}></td>
+          <td colSpan={3}>
+              <input type="checkbox"  style={{float:'left'}} />*
+          </td>
           <td colSpan={2} className="task_group_title">
             <span>
-              <input type="checkbox"  style={{float:'left'}} />
               <Icon style={{color:'#ddd',float:'left',marginLeft:3}} size={13} icon={folderOpen} />
               <input id={`group-${task.id}`} style={{float:'left',padding:'2px 0 0 2px'}}
                     value={task.groupName}
