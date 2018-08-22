@@ -129,10 +129,10 @@ class TodoList extends Component {
                   <a href="javascript:void(0)" onClick={(e)=>this.props.handleBeSubTask(task.id, true)} ><Icon style={{color:'#ccc'}} size={9} icon={arrowRight} /></a>
               }
               &nbsp; */}
-              <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleAddBefore(task.id)} >Bf</a>
-              <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleAddAfter(task.id)} >Af</a>
-              <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleGroupAdd(task.id)} >Gr</a>
-              <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleMilestoneAdd(task.id)} >Ms</a>
+              <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleAddBefore(task.id)} title="Add a new Task before this one.">Bf</a>
+              <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleAddAfter(task.id)} title="Add a new Task after this one.">Af</a>
+              <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleGroupAdd(task.id)} title="Add a Group-Title above.">Gr</a>
+              <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleMilestoneAdd(task.id)} title="Append a Milestone-Tip below.">Ms</a>
           </td>
           <td>
               <TextCatagory task={task} 
