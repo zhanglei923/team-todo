@@ -52,7 +52,7 @@ class StatusSelector extends Component {
                             </span> : false}
         {task.status==='ongoing'?<Icon size={12} icon={pause} className="icon_inprogress"/>:false}        
         {task.status==='open'?(<span>
-                                <Icon size={12} icon={play} className="icon_open" />
+                                {/* <Icon size={12} icon={play} className="icon_open" /> */}
                                 </span>)
                         :false}    
         <span>
