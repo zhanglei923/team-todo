@@ -46,10 +46,10 @@ table, tr, td, th{
     background-color: #ddd;
 }
 .task_title.ongoing{
-    /* background-color: yellow; */
+    background-color: yellow;
 }
 .task_title.ongoing *{
-    /* background-color: yellow; */
+    background-color: yellow;
 }
 .finished_task  .task_title{
     background-color: greenyellow
@@ -208,7 +208,7 @@ table, tr, td, th{
     width:400px;
 }
 .todo_item .editing-textpeople{
-    width:92px;
+    width:74px;
     font-size: 14px;
     font-weight: bold;
 
@@ -263,12 +263,10 @@ table, tr, td, th{
 
 }
 .task.risk_warn .editing-title{
-    /* color:#b5711c;
-    font-weight: bold; */
+    color:#b5711c;
 }
 .task.risk_danger .editing-title{
-    /* color: red;    
-    font-weight: bold; */
+    color: red;    
 }
 .statusSel.dark{
     color: #ddd;
