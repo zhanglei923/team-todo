@@ -155,7 +155,7 @@ class TodoList extends Component {
                           handleKeyDown={this.handleKeyDown.bind(this)}
               />)}
           </td>
-          <td className={task.isSubTaskOf?"subtasktd":""}>
+          <td className={'owner '+(task.isSubTaskOf?"subtasktd ":" ")+(task.status==='ongoing'?"ongoing ":" ")}>
             <TextOwner task={task}                       
                        idx={i}
                        colleagues={colleagues} 

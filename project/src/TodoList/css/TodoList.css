@@ -45,16 +45,13 @@ table, tr, td, th{
 .react-datepicker__close-icon::after{
     background-color: #ddd;
 }
-.task_title.ongoing{
+.owner.ongoing, .owner.ongoing *{
     background-color: yellow;
 }
-.task_title.ongoing *{
+.task_title.ongoing, .task_title.ongoing *{
     background-color: yellow;
 }
-.finished_task  .task_title{
-    background-color: greenyellow
-}
-.finished_task  .task_title *{
+.finished_task  .task_title, .finished_task  .task_title *{
     background-color: greenyellow
 }
 .finished_task .task_title{
