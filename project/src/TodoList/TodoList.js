@@ -110,7 +110,7 @@ class TodoList extends Component {
         <tr key={task.id} 
           className={"task risk_"+task.risk+' status_'+task.status+' '+(task.isSubTaskOf?'subtask':'')}
           onMouseMove={(e)=>this.onMouseMove.bind(this)(e.currentTarget, task.id)}
-          onMouseEnter={(e)=>document.getElementById('title-'+task.id).select()}
+          // onMouseEnter={(e)=>{document.getElementById('title-'+task.id).select()}}
           onMouseOut={(e)=>this.onMouseOut.bind(this)(e.currentTarget, task.id)}
       >
           <td>
