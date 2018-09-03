@@ -84,7 +84,7 @@ table, tr, td, th{
     border: 0 !important;
 }
 .finished_task.hovering *{
-    background-color: #ead7de !important;
+    background-color: #1b9e1f !important;
 }
 .finished_task.hovering .task_title, .finished_task.hovering .task_title *{
     background-color: greenyellow !important;
@@ -187,7 +187,7 @@ table, tr, td, th{
     border: 2px dotted blue; */
 }
 .todo_item .hovering *{
-    background-color: #ccc;
+    background-color: #ddd;
 }
 .todo_item .hovering input{
     /* border-bottom: 1px solid blue !important; */
@@ -266,10 +266,10 @@ table, tr, td, th{
     color: red;    
 }
 .statusSel.dark{
-    color: #ddd;
+    color: #ccc;
 }
 .riskSel.dark{
-    color: #ddd;
+    color: #ccc;
 }
 .task .row_toolbar *{
     color: #999;
