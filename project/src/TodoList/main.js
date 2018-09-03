@@ -32,7 +32,8 @@ class TeamTodo extends Component {
         this.moveTaskDown = this.moveTaskDown.bind(this);
         this.handleTitleKeyUp = this.handleTitleKeyUp.bind(this);        
 
-        this.state = Object.assign({}, this.props) ;
+        this.state = Object.assign({}, this.props);
+        this.state.finishedCount = 0;
         console.log('init.state', this.state)
       }
       componentDidMount() {
@@ -42,13 +43,18 @@ class TeamTodo extends Component {
             document.getElementById('btn-load').click()
         }, 10)
       }
+      doSetState(state, cb){
+        let tasks = state.tasks;
+        state.finishedCount = taskUtil.getAllFinishedTasks(tasks).length;
+        this.setState(state, cb);
+      }
       handleBeSubTask(id, bool){   
         this.state = taskUtil.beSubTask(this.state, id, bool);
-        this.setState(this.state); 
+        this.doSetState(this.state); 
       }
       moveTaskDown(id){        
         this.state = taskUtil.moveDown(this.state, [id]);
-        this.setState(this.state, ()=>{
+        this.doSetState(this.state, ()=>{
             let ipt = document.getElementById(`title-${id}`);
             if(!ipt) ipt = document.getElementById(`group-${id}`);
             if(!ipt) ipt = document.getElementById(`milestone-${id}`);
@@ -58,7 +64,7 @@ class TeamTodo extends Component {
       moveTaskUp(id){
         //console.log('this.state', this.state)
         this.state = taskUtil.moveUp(this.state, [id]);
-        this.setState(this.state, ()=>{
+        this.doSetState(this.state, ()=>{
             let ipt = document.getElementById(`title-${id}`);
             if(!ipt) ipt = document.getElementById(`group-${id}`);
             if(!ipt) ipt = document.getElementById(`milestone-${id}`);
@@ -79,7 +85,7 @@ class TeamTodo extends Component {
       }
       loadTask(){
           taskUtil.loadTestTasks().then((testdata)=>{
-                this.setState({
+                this.doSetState({
                     tasks: testdata
                 }, ()=>{
                     taskUtil._cache(this.state)
@@ -103,7 +109,7 @@ class TeamTodo extends Component {
                 //     blank.title='asdfasdfasdfasd'
                 //     todos.push(blank)
                 // }
-                me.setState({
+                me.doSetState({
                     tasks: todos
                 }, ()=>{
                     taskUtil._cache(me.state)
@@ -121,7 +127,7 @@ class TeamTodo extends Component {
       }
       showDoneTasks(){
         this.state.config.showDoneTasks = !this.state.config.showDoneTasks;
-        this.setState(this.state);
+        this.doSetState(this.state);
       }
       createProject(){
         let projectName = prompt('New Project Name?');
@@ -143,26 +149,26 @@ class TeamTodo extends Component {
       }
       handleProjectNameChange(value){
         this.state.projectName = value;
-        this.setState(this.state, ()=>{
+        this.doSetState(this.state, ()=>{
             document.getElementById('btn-load').click()
         })
       }
     deleteTask(id, needConfirm){
         this.state = taskUtil.deleteTask(this.state, id, needConfirm);
-        this.setState(this.state)
+        this.doSetState(this.state)
     }
     createTask(){
         this.state = taskUtil.addTask(this.state);
-        this.setState(this.state)
+        this.doSetState(this.state)
     }
     showStatusConfigBar(){
         let state = this.state;
         state.config.showTaskConfig= !state.config.showTaskConfig;
-        this.setState(state)
+        this.doSetState(state)
     }
     handleTaskUpdate(id, newtask){
         this.state = taskUtil.updateTask(this.state, id, newtask)
-        this.setState(this.state)
+        this.doSetState(this.state)
     }
     handleTitleKeyUp(){
         let tasks = taskUtil.getAllTasks();
@@ -171,14 +177,14 @@ class TeamTodo extends Component {
         //console.log('handleTitleKeyUp', lastOne.title)
         if(lastOne.title){
             this.state = taskUtil.addTask(this.state)
-            this.setState(this.state)
+            this.doSetState(this.state)
         }else{
             //-----------
         }
     }
     handleAddBefore(id){
         this.state = taskUtil.addTask(this.state, 'before', id);
-        this.setState(this.state, ()=>{
+        this.doSetState(this.state, ()=>{
             let ipt = document.getElementById(`title-${id}`);
             if(ipt)ipt.focus();
         });
@@ -189,7 +195,7 @@ class TeamTodo extends Component {
             isSubTaskOf: task.isSubTaskOf
         });
         let me = this;
-        this.setState(this.state, ()=>{
+        this.doSetState(this.state, ()=>{
             let state = me.state;
             let nexttask = taskUtil.getNextTask(state, id)
             let ipt = document.getElementById(`title-${nexttask.id}`);
@@ -207,7 +213,7 @@ class TeamTodo extends Component {
             "isGroup": true,
             groupName
         });
-        this.setState(this.state);
+        this.doSetState(this.state);
     }
     handleMilestoneAdd(id){
         let name = window.prompt('Milestone Name Pls?')
@@ -222,7 +228,7 @@ class TeamTodo extends Component {
             "milestoneStatus": '',
             name
         });
-        this.setState(this.state);
+        this.doSetState(this.state);
     }
     handleGroupRemove(id){
         let task = taskUtil.getTask(this.state.tasks, id);
@@ -238,15 +244,15 @@ class TeamTodo extends Component {
             return;
         }
         this.state = taskUtil.updateTask(this.state, id, {groupName: newName})
-        this.setState(this.state);
+        this.doSetState(this.state);
     }
     moveGroupUp(id){
         this.state = taskUtil.moveGroupUp(this.state, id);
-        this.setState(this.state);
+        this.doSetState(this.state);
     }
     moveGroupDown(id){
         this.state = taskUtil.moveGroupDown(this.state, id);
-        this.setState(this.state);
+        this.doSetState(this.state);
     }
     printAllTasks(){
         console.log(this.state)
@@ -290,7 +296,7 @@ class TeamTodo extends Component {
             />}
         </div>
         <div style={{position:'fixed',right:0,bottom:0}}>
-            <button onClick={this.showDoneTasks.bind(this)}>{this.state.config.showDoneTasks?"showDoneTasks": "showDoneTasks"}</button>
+            <button onClick={this.showDoneTasks.bind(this)}>{this.state.config.showDoneTasks?"HideFinished": `ShowFinised(${this.state.finishedCount})`}</button>
             <button onClick={this.createProject.bind(this)}>CreateProject</button>
             <button onClick={this.printAllTasks.bind(this)}>Print: {this.state.tasks.length} items</button>
             &emsp;

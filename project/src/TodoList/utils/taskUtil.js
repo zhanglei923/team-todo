@@ -21,9 +21,10 @@ let taskUtil = {
         });
         return p;
     },
-    getAllFinishedTasks:()=>{
+    getAllFinishedTasks:(tasks)=>{
         let finished = []
-        taskUtil.getAllTasks().forEach((task)=>{
+        if(typeof tasks === 'undefined') tasks = taskUtil.getAllTasks()
+        tasks.forEach((task)=>{
             if(task.status==='done') finished.push(task);
         })
         return finished;
