@@ -119,8 +119,8 @@ class TeamTodo extends Component {
           if(needConfirmSave && !window.confirm('Save?')) return;
           taskUtil.saveToServer(projectName, tasks);
       }
-      hideDoneTasks(){
-        this.state.config.hideDoneTasks = !this.state.config.hideDoneTasks;
+      showDoneTasks(){
+        this.state.config.showDoneTasks = !this.state.config.showDoneTasks;
         this.setState(this.state);
       }
       createProject(){
@@ -290,7 +290,7 @@ class TeamTodo extends Component {
             />}
         </div>
         <div style={{position:'fixed',right:0,bottom:0}}>
-            <button onClick={this.hideDoneTasks.bind(this)}>{this.state.config.hideDoneTasks?"showDoneTasks": "hideDoneTasks"}</button>
+            <button onClick={this.showDoneTasks.bind(this)}>{this.state.config.showDoneTasks?"showDoneTasks": "showDoneTasks"}</button>
             <button onClick={this.createProject.bind(this)}>CreateProject</button>
             <button onClick={this.printAllTasks.bind(this)}>Print: {this.state.tasks.length} items</button>
             &emsp;

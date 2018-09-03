@@ -104,13 +104,16 @@ class TodoList extends Component {
         )
       )
       :
-      ((props.config.hideDoneTasks && task.status==='done')?
-        <RowFinished i={i} task={task} handleTaskChange={this.handleTaskChange.bind(this)}/>
+      ((task.status==='done')?
+        (props.config.showDoneTasks ? <RowFinished i={i} task={task} handleTaskChange={this.handleTaskChange.bind(this)}/>
+          :
+          false
+        )
         : 
         <tr key={task.id} 
           className={"task risk_"+task.risk+' status_'+task.status+' '+(task.isSubTaskOf?'subtask':'')}
           onMouseMove={(e)=>this.onMouseMove.bind(this)(e.currentTarget, task.id)}
-          onClick={(e)=>{document.getElementById('title-'+task.id).focus()}}
+          onClick={(e)=>{if(e.target.tagName!=="SELECT")document.getElementById('title-'+task.id).focus()}}
           onMouseOut={(e)=>this.onMouseOut.bind(this)(e.currentTarget, task.id)}
       >
           <td>

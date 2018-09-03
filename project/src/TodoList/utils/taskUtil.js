@@ -21,6 +21,13 @@ let taskUtil = {
         });
         return p;
     },
+    getAllFinishedTasks:()=>{
+        let finished = []
+        taskUtil.getAllTasks().forEach((task)=>{
+            if(task.status==='done') finished.push(task);
+        })
+        return finished;
+    },
     getAllTasks:()=>{
         return taskUtil.tasks?taskUtil.tasks:[];
     },

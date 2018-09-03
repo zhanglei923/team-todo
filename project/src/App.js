@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <TodoList projects={['default']} projectName={projectName} tasks={tasks} colleagues={colleagues} config={{
         showTaskConfig: true,
-        hideDoneTasks: true
+        showDoneTasks: false
       }}/>
     );
   }
