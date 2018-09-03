@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from "lodash"
 
 import StatusSelector from './items/StatusSelector';
 import TextCatagory from './items/TextCatagory'
@@ -113,7 +114,7 @@ class TodoList extends Component {
         <tr key={task.id} 
           className={"task risk_"+task.risk+' status_'+task.status+' '+(task.isSubTaskOf?'subtask':'')}
           onMouseMove={(e)=>this.onMouseMove.bind(this)(e.currentTarget, task.id)}
-          onClick={(e)=>{if(e.target.tagName!=="SELECT")document.getElementById('title-'+task.id).focus()}}
+          onClick={(e)=>{let tagName = e.target.tagName;if(!_.includes(["SELECT","INPUT","TEXTAREA"], tagName))document.getElementById('title-'+task.id).focus()}}
           onMouseOut={(e)=>this.onMouseOut.bind(this)(e.currentTarget, task.id)}
       >
           <td>
