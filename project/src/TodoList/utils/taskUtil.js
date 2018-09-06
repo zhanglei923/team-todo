@@ -21,6 +21,20 @@ let taskUtil = {
         });
         return p;
     },
+    getGroupTasks: (groupId, filterFn)=>{        
+        if(typeof filterFn === 'undefined') filterFn = (task)=>{return true;}
+        let tasks = taskUtil.getAllTasks();
+        let group = taskUtil.getTask(tasks, groupId);
+        let results = []
+        console.log(groupId, group,tasks)
+        if(!group) return;
+        for(let i=group._index;i<tasks.length;i++){
+            let task = tasks[i];
+            if(task.id !== groupId && task.isGroup) break;
+            if(filterFn(task)) results.push(task);
+        }
+        return results;
+    },
     getAllFinishedTasks:(tasks)=>{
         let finished = []
         if(typeof tasks === 'undefined') tasks = taskUtil.getAllTasks()
@@ -38,8 +52,8 @@ let taskUtil = {
             tasks = taskUtil.getAllTasks();
         }
         for(let i =0,len=tasks.length;i<len;i++){
+            tasks[i]._index = i;
             if(tasks[i].id === id) {
-                tasks[i]._index = i;
                 return tasks[i];
             }
         }
@@ -126,12 +140,52 @@ let taskUtil = {
         }
         return taskUtil._cache(state);
     },
+    moveUp2:(state, idlist)=>{
+        let me = taskUtil;
+        let task = me.getTask(state.tasks, idlist[0])
+        if(task._index > 0){
+            var targeti = 0;
+            for(var i=task._index-1; i>=0; i--){
+                if(i<0){
+                    targeti = 0;
+                    break;
+                }
+                var ta = state.tasks[i];
+                targeti = i;
+                if(ta.status !== 'done')break;
+            }
+            let task0 = state.tasks[targeti];
+            state.tasks[targeti] = task;
+            state.tasks[task._index] = task0;
+        }
+        return taskUtil._cache(state);
+    },
     moveDown:(state, idlist)=>{
         let me = taskUtil;
         let task = me.getTask(state.tasks, idlist[0])
         if(task._index < (state.tasks.length-1)){
             let task0 = state.tasks[task._index + 1];
             state.tasks[task._index + 1] = task;
+            state.tasks[task._index] = task0;
+        }
+        return taskUtil._cache(state);
+    },
+    moveDown2:(state, idlist)=>{
+        let me = taskUtil;
+        let task = me.getTask(state.tasks, idlist[0])
+        if(task._index < (state.tasks.length-1)){
+            var targeti = 0;
+            for(var i=task._index+1; i<state.tasks.length; i++){
+                if(i>=state.tasks.length-1){
+                    targeti = state.tasks.length-1;
+                    break;
+                }
+                var ta = state.tasks[i];
+                targeti = i;
+                if(ta.status !== 'done')break;
+            }
+            let task0 = state.tasks[targeti];
+            state.tasks[targeti] = task;
             state.tasks[task._index] = task0;
         }
         return taskUtil._cache(state);
