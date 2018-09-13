@@ -172,6 +172,9 @@ class TodoList extends Component {
             />
               {/* <OwnerSelector task={task} colleagues={colleagues} onChange={(value)=>this.handleTaskChange(task.id, 'owner', value)}/> */}
           </td>
+          <td className={task.isSubTaskOf?"subtasktd":""} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
+              <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
+          </td>
           <td style={{display:'none'}}>
             <TextAssistent task={task} 
                           idx={i}
@@ -192,7 +195,7 @@ class TodoList extends Component {
                                     colleagues={colleagues}
                             /> */}
           </td>
-          <td>
+          <td style={{display:'none'}}>
               <div className={"cost-cell"}>
                 <NumericInput 
                        idx={i}
@@ -238,9 +241,6 @@ class TodoList extends Component {
               <StartEndRange task={task}/>
           </td>
           <td className={task.isSubTaskOf?"subtasktd":""} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
-              <StatusSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'status', value)}/>
-          </td>
-          <td className={task.isSubTaskOf?"subtasktd":""} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
               <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
           </td>
           <td>
@@ -266,12 +266,12 @@ class TodoList extends Component {
               <th align={`left`}>Tip</th>
               <th align={`left`}>Subject</th>
               <th align={`left`}>Owner</th>
+              <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Status</th>
               <th align={`left`} style={{display:'none'}}>Assistant</th>
-              <th align={`left`}>Cost</th>
+              <th align={`left`} style={{display:'none'}}>Cost</th>
               <th align={`left`}>Start</th>
               <th align={`left`}>End</th>
               <th align={`left`}>Day(s)</th>
-              <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Status</th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Risk</th>
               <th align={`left`}>Desc</th>
               <th align={`left`}></th>
