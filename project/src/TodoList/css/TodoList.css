@@ -89,6 +89,16 @@ table, tr, td, th{
 .finished_task.hovering .task_title, .finished_task.hovering .task_title *{
     background-color: greenyellow !important;
 }
+.finished_task_minimal{
+    border: 0;
+}
+.finished_task_minimal td{
+    border: 0;
+    height: 1px;
+}
+.finished_task_minimal .title{
+    background-color: greenyellow !important;
+}
 .projectlist{
     position: fixed;
     width: 180px;

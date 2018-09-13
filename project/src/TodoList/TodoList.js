@@ -108,7 +108,14 @@ class TodoList extends Component {
       ((task.status==='done')?
         (props.config.showDoneTasks ? <RowFinished i={i} task={task} handleTaskChange={this.handleTaskChange.bind(this)}/>
           :
-          false
+          <tr className={"finished_task_minimal"}>
+            <td/>
+            <td/>
+            <td/>
+            <td/>
+            <td class="title"></td>
+            <td colSpan={100}></td>
+          </tr>
         )
         : 
         <tr key={task.id} 
