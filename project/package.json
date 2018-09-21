@@ -14,7 +14,8 @@
     "react-numeric-input": "^2.2.3",
     "react-scripts": "1.1.4",
     "react-select": "^2.0.0",
-    "reset-css": "^4.0.1"
+    "reset-css": "^4.0.1",
+    "longbow-messenger.js":"^0.8.12"
   },
   "scripts": {
     "start": "react-scripts start",
