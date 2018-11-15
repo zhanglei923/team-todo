@@ -42,7 +42,7 @@ class RowFinished extends Component {
               {task.planned_end_date?(''+moment(task.planned_end_date).format('MM-DD')+''):false}
               {!task.planned_end_date?'-':false}
             </td>
-            <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
+            <td style={{display:'none'}}><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
             <td>
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleTaskChange(task.id, 'status', 'open')}>RE-OPEN</a>
             </td>
