@@ -12,7 +12,7 @@
     "react-icons-kit": "^1.1.5",
     "react-number-input": "^15.5.1",
     "react-numeric-input": "^2.2.3",
-    "react-scripts": "1.1.4",
+    "react-scripts": "^2.1.5",
     "react-select": "^2.0.0",
     "reset-css": "^4.0.1",
     "longbow-messenger.js":"^0.8.12"
