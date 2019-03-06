@@ -121,7 +121,11 @@ class TodoList extends Component {
         <tr key={task.id} 
           className={"task risk_"+task.risk+' status_'+task.status+' '+(task.isSubTaskOf?'subtask':'')}
           onMouseMove={(e)=>this.onMouseMove.bind(this)(e.currentTarget, task.id)}
-          onClick={(e)=>{let tagName = e.target.tagName;if(!_.includes(["SELECT","INPUT","TEXTAREA"], tagName))document.getElementById('title-'+task.id).focus()}}
+          onClick={(e)=>{let tagName = e.target.tagName;if(!_.includes(["SELECT","INPUT","TEXTAREA"], tagName)){
+              let ipt = document.getElementById('title-'+task.id)
+              if(ipt)ipt.focus()
+            }
+          }}
           onMouseOut={(e)=>this.onMouseOut.bind(this)(e.currentTarget, task.id)}
       >
           <td>
@@ -151,7 +155,7 @@ class TodoList extends Component {
                           /> 
           </td>
           <td className={'task_title '+(task.isSubTaskOf?"subtasktd ":" ")+(task.status==='ongoing'?"ongoing ":" ")}>
-              {(task.status === 'xxxxxx'?<span>{task.title}</span>:<TitleInput 
+              {(task.status === 'backup'?<span>{task.title}</span>:<TitleInput 
                           task={task} 
                           idx={i}
                           onChange={(value)=>this.handleTaskChange(task.id, 'title', value)} 
