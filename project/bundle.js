@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0a05b82f4f08aab3102f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b7984bd00599397fa70d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -88635,7 +88635,8 @@ var TodoList = function (_Component) {
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'td',
-              { style: { display: 'none' }, __source: {
+              {
+                __source: {
                   fileName: _jsxFileName,
                   lineNumber: 251
                 },
@@ -88855,7 +88856,7 @@ var TodoList = function (_Component) {
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'th',
-                { align: 'left', style: { display: 'none' }, __source: {
+                { align: 'left', __source: {
                     fileName: _jsxFileName,
                     lineNumber: 285
                   },
