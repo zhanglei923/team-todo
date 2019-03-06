@@ -248,7 +248,7 @@ class TodoList extends Component {
                 />
               </div>
           </td>
-          <td style={{display:'none'}}>
+          <td>
               <StartEndRange task={task}/>
           </td>
           <td className={task.isSubTaskOf?"subtasktd":""} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
@@ -282,7 +282,7 @@ class TodoList extends Component {
               <th align={`left`} style={{display:'none'}}>Cost</th>
               <th align={`left`}>Start</th>
               <th align={`left`}>End</th>
-              <th align={`left`} style={{display:'none'}}>Day(s)</th>
+              <th align={`left`} >Day(s)</th>
               <th align={`left`} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>Risk</th>
               <th align={`left`}>Desc</th>
               <th align={`left`}></th>
