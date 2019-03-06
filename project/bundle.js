@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b7984bd00599397fa70d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ee3d7da9ecfc62a0e630"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -88147,7 +88147,7 @@ var TodoList = function (_Component) {
         if (key === "ArrowLeft") this.props.handleBeSubtask(taskid);
         if (key === "ArrowRight") this.props.handleUnSubtask(taskid);
         if (key === "Delete") this.props.handleDelete(taskid);
-        if (key === "s") {
+        if (key.toLowerCase() === "s") {
           window.saveTasks(false);
           e.preventDefault();
         }
