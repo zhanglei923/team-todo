@@ -59,7 +59,7 @@ class TodoList extends Component {
           if(key === "ArrowLeft") this.props.handleBeSubtask(taskid)
           if(key === "ArrowRight")  this.props.handleUnSubtask(taskid)
           if(key === "Delete")  this.props.handleDelete(taskid)
-          if(key === "s")  {
+          if(key.toLowerCase() === "s")  {
             window.saveTasks(false)
             e.preventDefault()
           }
