@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ee3d7da9ecfc62a0e630"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0820539aa94103cee47d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -88675,11 +88675,22 @@ var TodoList = function (_Component) {
                 },
                 __self: _this2
               },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'description', placeholder: '...', task: task, value: task.description, onChange: function onChange(e) {
+              !task.description ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'span',
+                { style: { color: '#bbb' }, onDoubleClick: function onDoubleClick(e) {
+                    _this2.handleTaskChange(task.id, 'description', 'New Desc');
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 259
+                  },
+                  __self: _this2
+                },
+                '+desc'
+              ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'description', placeholder: '...', task: task, value: task.description, onChange: function onChange(e) {
                   return _this2.handleTaskChange(task.id, 'description', e.target.value);
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 258
+                  lineNumber: 261
                 },
                 __self: _this2
               })
@@ -88689,7 +88700,7 @@ var TodoList = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 260
+                  lineNumber: 263
                 },
                 __self: _this2
               },
@@ -88699,13 +88710,13 @@ var TodoList = function (_Component) {
                     return _this2.props.handleDeleteTask(task.id);
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 261
+                    lineNumber: 264
                   },
                   __self: _this2
                 },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_17_react_icons_kit__["Icon"], { size: 14, icon: __WEBPACK_IMPORTED_MODULE_23_react_icons_kit_fa_close__["close"], style: { color: '#aaa' }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 262
+                    lineNumber: 265
                   },
                   __self: _this2
                 })
@@ -88718,7 +88729,7 @@ var TodoList = function (_Component) {
         'div',
         { className: 'todo_item', __source: {
             fileName: _jsxFileName,
-            lineNumber: 270
+            lineNumber: 273
           },
           __self: this
         },
@@ -88726,7 +88737,7 @@ var TodoList = function (_Component) {
           'table',
           { id: 'todo_item_table', className: 'todo_item_table', border: '0', __source: {
               fileName: _jsxFileName,
-              lineNumber: 271
+              lineNumber: 274
             },
             __self: this
           },
@@ -88735,7 +88746,7 @@ var TodoList = function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 272
+                lineNumber: 275
               },
               __self: this
             },
@@ -88743,7 +88754,7 @@ var TodoList = function (_Component) {
               'tr',
               { className: 'thead', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 273
+                  lineNumber: 276
                 },
                 __self: this
               },
@@ -88751,26 +88762,26 @@ var TodoList = function (_Component) {
                 'th',
                 { align: 'left', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 274
+                    lineNumber: 277
                   },
                   __self: this
                 },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 274
+                    lineNumber: 277
                   },
                   __self: this
                 })
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('th', { align: 'left', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 275
+                  lineNumber: 278
                 },
                 __self: this
               }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('th', { align: 'left', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 276
+                  lineNumber: 279
                 },
                 __self: this
               }),
@@ -88778,7 +88789,7 @@ var TodoList = function (_Component) {
                 'th',
                 { align: 'left', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 277
+                    lineNumber: 280
                   },
                   __self: this
                 },
@@ -88788,7 +88799,7 @@ var TodoList = function (_Component) {
                 'th',
                 { align: 'left', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 278
+                    lineNumber: 281
                   },
                   __self: this
                 },
@@ -88798,7 +88809,7 @@ var TodoList = function (_Component) {
                 'th',
                 { align: 'left', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 279
+                    lineNumber: 282
                   },
                   __self: this
                 },
@@ -88808,7 +88819,7 @@ var TodoList = function (_Component) {
                 'th',
                 { align: 'left', style: { display: this.state.config.showTaskConfig ? '' : 'none' }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 280
+                    lineNumber: 283
                   },
                   __self: this
                 },
@@ -88818,7 +88829,7 @@ var TodoList = function (_Component) {
                 'th',
                 { align: 'left', style: { display: 'none' }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 281
+                    lineNumber: 284
                   },
                   __self: this
                 },
@@ -88828,7 +88839,7 @@ var TodoList = function (_Component) {
                 'th',
                 { align: 'left', style: { display: 'none' }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 282
+                    lineNumber: 285
                   },
                   __self: this
                 },
@@ -88838,7 +88849,7 @@ var TodoList = function (_Component) {
                 'th',
                 { align: 'left', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 283
+                    lineNumber: 286
                   },
                   __self: this
                 },
@@ -88848,7 +88859,7 @@ var TodoList = function (_Component) {
                 'th',
                 { align: 'left', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 284
+                    lineNumber: 287
                   },
                   __self: this
                 },
@@ -88858,7 +88869,7 @@ var TodoList = function (_Component) {
                 'th',
                 { align: 'left', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 285
+                    lineNumber: 288
                   },
                   __self: this
                 },
@@ -88868,7 +88879,7 @@ var TodoList = function (_Component) {
                 'th',
                 { align: 'left', style: { display: this.state.config.showTaskConfig ? '' : 'none' }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 286
+                    lineNumber: 289
                   },
                   __self: this
                 },
@@ -88878,7 +88889,7 @@ var TodoList = function (_Component) {
                 'th',
                 { align: 'left', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 287
+                    lineNumber: 290
                   },
                   __self: this
                 },
@@ -88886,7 +88897,7 @@ var TodoList = function (_Component) {
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('th', { align: 'left', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 288
+                  lineNumber: 291
                 },
                 __self: this
               })
@@ -88897,7 +88908,7 @@ var TodoList = function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 291
+                lineNumber: 294
               },
               __self: this
             },

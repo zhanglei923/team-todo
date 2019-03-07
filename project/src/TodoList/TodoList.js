@@ -254,8 +254,11 @@ class TodoList extends Component {
           <td className={task.isSubTaskOf?"subtasktd":""} style={{display: this.state.config.showTaskConfig ? '' : 'none' }}>
               <RiskSelector task={task} onChange={(value)=>this.handleTaskChange(task.id, 'risk', value)}/>
           </td>
-          <td>
-              <input className={'description'} placeholder="..." task={task} value={task.description} onChange={(e)=>this.handleTaskChange(task.id, 'description', e.target.value)}/>
+          <td>{
+              !task.description?
+              <span style={{color:'#bbb'}} onDoubleClick={(e)=>{this.handleTaskChange(task.id, 'description', 'New Desc')}}>+desc</span>
+              :
+              <input className={'description'} placeholder="..." task={task} value={task.description} onChange={(e)=>this.handleTaskChange(task.id, 'description', e.target.value)}/>}
           </td>
           <td>
               <a href="javascript:void(0)" onClick={(e)=>this.props.handleDeleteTask(task.id)} >
