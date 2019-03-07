@@ -148,11 +148,15 @@ class TodoList extends Component {
               <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleGroupAdd(task.id)} title="Add a Group-Title above.">Gr</a>
               <a style={{marginLeft:1}} href="javascript:void(0)" onClick={(e)=>this.props.handleMilestoneAdd(task.id)} title="Append a Milestone-Tip below.">Ms</a>
           </td>
-          <td>
+          <td>{
+              !task.textCatagory?
+              <span style={{color:'#bbb'}} onDoubleClick={(e)=>{this.handleTaskChange(task.id, 'textCatagory', 'New Tip')}}>+tip</span>
+              :
               <TextCatagory task={task} 
                           onChange={(value)=>this.handleTaskChange(task.id, 'textCatagory', value)}
                           handleKeyDown={this.handleKeyDown.bind(this)}
                           /> 
+          }
           </td>
           <td className={'task_title '+(task.isSubTaskOf?"subtasktd ":" ")+(task.status==='ongoing'?"ongoing ":" ")}>
               {(task.status === 'backup'?<span>{task.title}</span>:<TitleInput 
