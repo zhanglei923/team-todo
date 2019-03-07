@@ -252,7 +252,7 @@ table, tr, td, th{
     width: 100%;
 }
 .todo_item .status_backup *{
-    color: #c1c1c1;
+    color: #adadad;
 }
 .task.status_open .editing-title {    
     /* color: #111; */
