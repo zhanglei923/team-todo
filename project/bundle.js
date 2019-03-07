@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e63fb12dba1be9617664"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f19e78196251e30dfe48"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -87475,11 +87475,17 @@ var RowFinished = function (_Component) {
             },
             __self: this
           },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_icons_kit__["Icon"], { size: 10, icon: __WEBPACK_IMPORTED_MODULE_3_react_icons_kit_icomoon_lock__["lock"], style: { color: '#ddd' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 28
+            },
+            __self: this
+          }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'span',
             { style: { float: 'right' }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 28
+                lineNumber: 29
               },
               __self: this
             },
@@ -87490,7 +87496,7 @@ var RowFinished = function (_Component) {
           'td',
           { className: 'task_title', __source: {
               fileName: _jsxFileName,
-              lineNumber: 30
+              lineNumber: 31
             },
             __self: this
           },
@@ -87498,7 +87504,7 @@ var RowFinished = function (_Component) {
             'span',
             { style: { marginLeft: task.isSubTaskOf ? 29 : 2 }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 31
+                lineNumber: 32
               },
               __self: this
             },
@@ -87511,13 +87517,13 @@ var RowFinished = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 37
+              lineNumber: 38
             },
             __self: this
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_icons_kit__["Icon"], { size: 10, icon: __WEBPACK_IMPORTED_MODULE_3_react_icons_kit_icomoon_lock__["lock"], style: { color: '#ddd' }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 37
+              lineNumber: 38
             },
             __self: this
           }),
@@ -87528,82 +87534,23 @@ var RowFinished = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 38
-            },
-            __self: this
-          },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_icons_kit__["Icon"], { size: 10, icon: __WEBPACK_IMPORTED_MODULE_3_react_icons_kit_icomoon_lock__["lock"], style: { color: '#ddd' }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 38
-            },
-            __self: this
-          })
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'td',
-          {
-            __source: {
-              fileName: _jsxFileName,
               lineNumber: 39
             },
             __self: this
           },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_icons_kit__["Icon"], { size: 10, icon: __WEBPACK_IMPORTED_MODULE_3_react_icons_kit_icomoon_lock__["lock"], style: { color: '#ddd' }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 39
-            },
-            __self: this
-          })
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'td',
-          {
-            __source: {
               fileName: _jsxFileName,
               lineNumber: 40
             },
             __self: this
-          },
-          task.planned_end_date ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__sub_WeekDisplay__["a" /* default */], { date: task.planned_end_date, is: 'end', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 41
-            },
-            __self: this
-          }) : false,
-          task.planned_end_date ? '' + __WEBPACK_IMPORTED_MODULE_1_moment___default()(task.planned_end_date).format('MM-DD') + '' : false,
-          !task.planned_end_date ? '-' : false
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'td',
-          { style: { display: 'none' }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 45
-            },
-            __self: this
-          },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_icons_kit__["Icon"], { size: 10, icon: __WEBPACK_IMPORTED_MODULE_3_react_icons_kit_icomoon_lock__["lock"], style: { color: '#ddd' }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 45
-            },
-            __self: this
-          })
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'td',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 46
-            },
-            __self: this
-          },
+          }),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'a',
             { href: 'javascript:void(0)', onClick: function onClick(e) {
                 return _this2.props.handleTaskChange(task.id, 'status', 'open');
               }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 47
+                lineNumber: 41
               },
               __self: this
             },
@@ -87615,6 +87562,61 @@ var RowFinished = function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
+              lineNumber: 42
+            },
+            __self: this
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_icons_kit__["Icon"], { size: 10, icon: __WEBPACK_IMPORTED_MODULE_3_react_icons_kit_icomoon_lock__["lock"], style: { color: '#ddd' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 42
+            },
+            __self: this
+          })
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'td',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 43
+            },
+            __self: this
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_icons_kit__["Icon"], { size: 10, icon: __WEBPACK_IMPORTED_MODULE_3_react_icons_kit_icomoon_lock__["lock"], style: { color: '#ddd' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 43
+            },
+            __self: this
+          }),
+          task.planned_end_date ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__sub_WeekDisplay__["a" /* default */], { date: task.planned_end_date, is: 'end', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 44
+            },
+            __self: this
+          }) : false,
+          task.planned_end_date ? '' + __WEBPACK_IMPORTED_MODULE_1_moment___default()(task.planned_end_date).format('MM-DD') + '' : false,
+          !task.planned_end_date ? '-' : false
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'td',
+          { style: { display: 'none' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 48
+            },
+            __self: this
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_icons_kit__["Icon"], { size: 10, icon: __WEBPACK_IMPORTED_MODULE_3_react_icons_kit_icomoon_lock__["lock"], style: { color: '#ddd' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 48
+            },
+            __self: this
+          })
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'td',
+          {
+            __source: {
+              fileName: _jsxFileName,
               lineNumber: 49
             },
             __self: this
@@ -87642,9 +87644,25 @@ var RowFinished = function (_Component) {
             __self: this
           })
         ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'td',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 51
+            },
+            __self: this
+          },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_icons_kit__["Icon"], { size: 10, icon: __WEBPACK_IMPORTED_MODULE_3_react_icons_kit_icomoon_lock__["lock"], style: { color: '#ddd' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 51
+            },
+            __self: this
+          })
+        ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('td', { colSpan: 100, __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 52
           },
           __self: this
         })

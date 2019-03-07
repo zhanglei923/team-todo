@@ -25,6 +25,7 @@ class RowFinished extends Component {
             <td><span>[{this.props.i}]</span></td>
             <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
             <td>
+              <Icon size={10} icon={lock} style={{color:'#ddd'}}/>
               <span style={{float:'right'}}>{task.textCatagory}</span>
             </td>
             <td className={'task_title'}>
@@ -35,17 +36,17 @@ class RowFinished extends Component {
                 </span>
             </td>
             <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/>{task.textOwner?task.textOwner:''}</td>
-            <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
-            <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
             <td>
+                <Icon size={10} icon={lock} style={{color:'#ddd'}}/>
+                <a href="javascript:void(0)" onClick={(e)=>this.props.handleTaskChange(task.id, 'status', 'open')}>RE-OPEN</a></td>
+            <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
+            <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/>
               {task.planned_end_date?<WeekDisplay date={(task.planned_end_date)} is={'end'}/>:false}
               {task.planned_end_date?(''+moment(task.planned_end_date).format('MM-DD')+''):false}
               {!task.planned_end_date?'-':false}
             </td>
             <td style={{display:'none'}}><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
-            <td>
-              <a href="javascript:void(0)" onClick={(e)=>this.props.handleTaskChange(task.id, 'status', 'open')}>RE-OPEN</a>
-            </td>
+            <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
             <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
             <td><Icon size={10} icon={lock} style={{color:'#ddd'}}/></td>
             <td colSpan={100}></td>
