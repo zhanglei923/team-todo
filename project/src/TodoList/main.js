@@ -97,6 +97,7 @@ class TeamTodo extends Component {
           let me = this;
         let tasks = taskUtil.getAllTasks()
         axios.get('/action/todos', {params: {
+                reponsitoryName:'team-todo',
                 projectName: this.state.projectName
             }})
             .then(function (response) {
@@ -137,8 +138,9 @@ class TeamTodo extends Component {
         }
         let me = this;
         axios.post('/action/create/project', {
-                                        projectName,
-                                    })
+                            reponsitoryName:'team-todo',
+                            projectName,
+                        })
           .then(function (response) {
             me.handleProjectNameChange(projectName)
             alert(response.data)
