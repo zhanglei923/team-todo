@@ -233,7 +233,7 @@ let taskUtil = {
     saveToServer:(projectName, tasks, succFn, failFn)=>{
         document.getElementById('todo_item_table').setAttribute('class', 'saving_to_server')
         axios.post('/action/save/todos', {
-            reponsitoryName:'team-todo',
+            reponsitoryName:'team-todo-data',
             projectName,
             tasks})
           .then(function (response) {

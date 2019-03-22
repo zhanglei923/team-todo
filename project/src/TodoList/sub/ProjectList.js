@@ -11,7 +11,7 @@ class ProjectList extends Component {
       componentDidMount() {
         let me = this;
         axios.get('/action/projects',{params: {
-            reponsitoryName:'team-todo'}
+            reponsitoryName:'team-todo-data'}
         })
         .then(function (response) {
             let projects = response.data;
