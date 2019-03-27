@@ -42,7 +42,7 @@ class ProjectList extends Component {
     this.state.projects.map((prj, i) => listItems.push(
                                             <li key={i}>
                                                 <input type="checkbox" 
-                                                        checked={prj===this.state.projectName?"true":""}
+                                                        checked={prj===this.state.projectName?true:false}
                                                         onChange={(e) => this.onCheckboxChange.bind(this)(e.target)}
                                                 />
                                                 <a href="javascript:void(0)" 
