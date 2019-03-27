@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f19e78196251e30dfe48"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "968d14d120f88d5b7052"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -89964,9 +89964,12 @@ var TeamTodo = function (_Component) {
             var me = this;
             var tasks = __WEBPACK_IMPORTED_MODULE_4__utils_taskUtil__["a" /* default */].getAllTasks();
             __WEBPACK_IMPORTED_MODULE_2_axios2___default.a.get('/action/todos', { params: {
+                    reponsitoryName: 'team-todo-data',
                     projectName: this.state.projectName
                 } }).then(function (response) {
-                var todos = response.data;
+                //console.log(response)
+                var todos = response.data.items ? response.data.items : response.data;
+                //console.log(todos)
                 if (todos.length === 0) {
                     todos = [__WEBPACK_IMPORTED_MODULE_4__utils_taskUtil__["a" /* default */].createBlank()];
                 }
@@ -90008,6 +90011,7 @@ var TeamTodo = function (_Component) {
             }
             var me = this;
             __WEBPACK_IMPORTED_MODULE_2_axios2___default.a.post('/action/create/project', {
+                reponsitoryName: 'team-todo-data',
                 projectName: projectName
             }).then(function (response) {
                 me.handleProjectNameChange(projectName);
@@ -90167,13 +90171,13 @@ var TeamTodo = function (_Component) {
                 {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 263
+                        lineNumber: 267
                     },
                     __self: this
                 },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__sub_ProjectList__["a" /* default */], { projects: this.state.projects, projectName: this.state.projectName, onChange: this.handleProjectNameChange.bind(this), __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 264
+                        lineNumber: 268
                     },
                     __self: this
                 }),
@@ -90181,7 +90185,7 @@ var TeamTodo = function (_Component) {
                     'div',
                     { className: 'todo_main', __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 265
+                            lineNumber: 269
                         },
                         __self: this
                     },
@@ -90189,7 +90193,7 @@ var TeamTodo = function (_Component) {
                             return _this3.handleProjectNameChange.bind(_this3)(e.target.value);
                         }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 266
+                            lineNumber: 270
                         },
                         __self: this
                     }),
@@ -90197,7 +90201,7 @@ var TeamTodo = function (_Component) {
                         'button',
                         { id: 'btn-load', style: { display: 'none' }, className: 'btn btn-load', onClick: this.loadServerTask.bind(this), __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 267
+                                lineNumber: 271
                             },
                             __self: this
                         },
@@ -90207,7 +90211,7 @@ var TeamTodo = function (_Component) {
                         'button',
                         { id: 'saveBtn', className: 'btn btn-save', style: { display: 'none' }, onClick: this.saveServerTask.bind(this), __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 268
+                                lineNumber: 272
                             },
                             __self: this
                         },
@@ -90218,7 +90222,7 @@ var TeamTodo = function (_Component) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 269
+                                lineNumber: 273
                             },
                             __self: this
                         },
@@ -90248,7 +90252,7 @@ var TeamTodo = function (_Component) {
                             config: this.state.config,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 272
+                                lineNumber: 276
                             },
                             __self: this
                         })
@@ -90257,7 +90261,7 @@ var TeamTodo = function (_Component) {
                         'div',
                         { style: { position: 'fixed', right: 0, bottom: 0 }, __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 298
+                                lineNumber: 302
                             },
                             __self: this
                         },
@@ -90265,7 +90269,7 @@ var TeamTodo = function (_Component) {
                             'button',
                             { onClick: this.showDoneTasks.bind(this), __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 299
+                                    lineNumber: 303
                                 },
                                 __self: this
                             },
@@ -90275,7 +90279,7 @@ var TeamTodo = function (_Component) {
                             'button',
                             { onClick: this.createProject.bind(this), __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 300
+                                    lineNumber: 304
                                 },
                                 __self: this
                             },
@@ -90285,7 +90289,7 @@ var TeamTodo = function (_Component) {
                             'button',
                             { onClick: this.printAllTasks.bind(this), __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 301
+                                    lineNumber: 305
                                 },
                                 __self: this
                             },
@@ -90298,7 +90302,7 @@ var TeamTodo = function (_Component) {
                             'button',
                             { onClick: this.loadTask, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 303
+                                    lineNumber: 307
                                 },
                                 __self: this
                             },
@@ -90308,7 +90312,7 @@ var TeamTodo = function (_Component) {
                             'button',
                             { onClick: this.showStatusConfigBar, __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 304
+                                    lineNumber: 308
                                 },
                                 __self: this
                             },
@@ -90374,7 +90378,9 @@ var ProjectList = function (_Component) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             var me = this;
-            __WEBPACK_IMPORTED_MODULE_1_axios2___default.a.get('/action/projects').then(function (response) {
+            __WEBPACK_IMPORTED_MODULE_1_axios2___default.a.get('/action/projects', { params: {
+                    reponsitoryName: 'team-todo-data' }
+            }).then(function (response) {
                 var projects = response.data;
                 //console.log(projects)
                 me.setState({
@@ -90410,18 +90416,18 @@ var ProjectList = function (_Component) {
                     'li',
                     { key: i, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 41
+                            lineNumber: 43
                         },
                         __self: _this2
                     },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox',
-                        checked: prj === _this2.state.projectName ? "true" : "",
+                        checked: prj === _this2.state.projectName ? true : false,
                         onChange: function onChange(e) {
                             return _this2.onCheckboxChange.bind(_this2)(e.target);
                         },
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 42
+                            lineNumber: 44
                         },
                         __self: _this2
                     }),
@@ -90434,7 +90440,7 @@ var ProjectList = function (_Component) {
                             },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 46
+                                lineNumber: 48
                             },
                             __self: _this2
                         },
@@ -90446,7 +90452,7 @@ var ProjectList = function (_Component) {
                 'div',
                 { className: 'projectlist', __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 52
+                        lineNumber: 54
                     },
                     __self: this
                 },
@@ -90454,7 +90460,7 @@ var ProjectList = function (_Component) {
                     'span',
                     { style: { margin: '2px 10px 10px 0', fontWeight: "bolder" }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 53
+                            lineNumber: 55
                         },
                         __self: this
                     },
@@ -90465,7 +90471,7 @@ var ProjectList = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', {
                     __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 56
+                        lineNumber: 58
                     },
                     __self: this
                 }),
@@ -90473,7 +90479,7 @@ var ProjectList = function (_Component) {
                     'ul',
                     { style: { marginLeft: '10px' }, __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 57
+                            lineNumber: 59
                         },
                         __self: this
                     },
@@ -91013,8 +91019,12 @@ var taskUtil = {
     saveToServer: function saveToServer(projectName, tasks, succFn, failFn) {
         document.getElementById('todo_item_table').setAttribute('class', 'saving_to_server');
         __WEBPACK_IMPORTED_MODULE_1_axios2___default.a.post('/action/save/todos', {
+            reponsitoryName: 'team-todo-data',
             projectName: projectName,
-            tasks: tasks }).then(function (response) {
+            tasks: {
+                items: tasks
+            }
+        }).then(function (response) {
             console.log(response);
             setTimeout(function () {
                 var oldclasses = document.getElementById('todo_item_table').getAttribute('class');
