@@ -101,7 +101,9 @@ class TeamTodo extends Component {
                 projectName: this.state.projectName
             }})
             .then(function (response) {
-                let todos = response.data;
+                //console.log(response)
+                let todos = response.data.items ? response.data.items : response.data;
+                //console.log(todos)
                 if(todos.length === 0){
                     todos = [taskUtil.createBlank()]
                 }

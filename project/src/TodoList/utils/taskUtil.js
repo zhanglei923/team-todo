@@ -235,7 +235,10 @@ let taskUtil = {
         axios.post('/action/save/todos', {
             reponsitoryName:'team-todo-data',
             projectName,
-            tasks})
+            tasks:{
+                items: tasks
+            }
+        })
           .then(function (response) {
             console.log(response);
             setTimeout(()=>{
