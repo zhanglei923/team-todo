@@ -102,6 +102,7 @@ class TeamTodo extends Component {
             }})
             .then(function (response) {
                 //console.log(response)
+                if(!response.data.items && typeof response.data.shift==='undefined')response.data.items=[];//old data, if not an array
                 let todos = response.data.items ? response.data.items : response.data;
                 //console.log(todos)
                 if(todos.length === 0){
