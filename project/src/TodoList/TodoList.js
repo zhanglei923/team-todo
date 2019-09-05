@@ -82,17 +82,17 @@ class TodoList extends Component {
        if(!task.isSubTaskOf) task.isSubTaskOf = '';
     });
     const listItems = tasks.map((task, i) =>
-    <React.Fragment key={i}>
+    <React.Fragment key={task.id}>
       {(task.isGroup || task.isMilestong)?(
         (task.isGroup)?
-          <RowGroup key={"group"+i}
+          <RowGroup key={"group"+task.id}
                       task={task}
                       onNameChange={(value)=>this.handleTaskChange(task.id, 'groupName', value)} 
                       handleGroupRemove={this.props.handleGroupRemove.bind(this)}
                       handleKeyDown={this.handleKeyDown.bind(this)}
         />:(
           task.isMilestong?
-          <RowMilestone key={"group"+i}
+          <RowMilestone key={"group"+task.id}
                       task={task}
                       onMilestongNameChange={(value)=>this.handleTaskChange(task.id, 'milestoneName', value)} 
                       onMilestongStatusChange={(value)=>this.handleTaskChange(task.id, 'milestoneStatus', value)} 
