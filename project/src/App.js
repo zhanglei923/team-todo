@@ -6,7 +6,11 @@ document.title='Todo list';
 const colleagues= colleaguesj;
 const tasks = [];
 let localPrjName = window.localStorage.getItem('team-todo_projectName');
-const projectName = localPrjName ? localPrjName : 'default';
+let projectName = localPrjName ? localPrjName : 'default';
+
+if(window.location.search){
+  projectName = window.location.search.split('=')[1];
+}
 
 let jsonp = require('jsonp');
 
